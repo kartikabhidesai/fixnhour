@@ -17,3 +17,11 @@ Route::get('/signup', 'HomeController@signup');
 Route::get('/findTelent', 'HomeController@findTelent');
 
 Route::get('/howItWorks', 'HomeController@howItWorks');
+
+Route::get('/freelancer', 'FreelancerController@index');
+
+Route::get('/myJobs', 'FreelancerController@myJobs');
+
+Route::get('/payment', 'FreelancerController@payment');
+
+Route::get('/message', 'FreelancerController@message');

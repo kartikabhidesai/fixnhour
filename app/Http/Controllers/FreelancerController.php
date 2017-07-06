@@ -18,7 +18,40 @@ class FreelancerController extends Controller {
         $data['css'] = array(
             
         );
-        return view('front.home',$data);
+        return view('freelancer.findWork',$data);
+    }
+    
+    public function myJobs() {
+        $data['metatitle'] = 'Landing - Fixnhour';
+        $data['js'] = array(
+        
+        );
+        $data['css'] = array(
+            
+        );
+        return view('freelancer.myJobs',$data);
+    }
+    
+    public function payment() {
+        $data['metatitle'] = 'Landing - Fixnhour';
+        $data['js'] = array(
+        
+        );
+        $data['css'] = array(
+            
+        );
+        return view('freelancer.payment',$data);
+    }
+    
+    public function message() {
+        $data['metatitle'] = 'Landing - Fixnhour';
+        $data['js'] = array(
+        
+        );
+        $data['css'] = array(
+            
+        );
+        return view('freelancer.message',$data);
     }
     
 }

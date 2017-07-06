@@ -52,7 +52,7 @@
                                         <a href="{{ url('findTelent') }}"> Find Talent </a>
                                     </li>
                                     <li class="children">
-                                        <a href="home.html"> Find Work </a>
+                                        <a href="{{ url ('freelancer') }}"> Find Work </a>
                                     </li>
                                     <li class="children">
                                         <a href="{{ url ('howItWorks') }}"> How It Works  </a> 
