@@ -10,7 +10,7 @@
     <ul class="menu-2">
       <li><a href="#">Find Job</a></li>
       <li><a href="#">Invitation</a></li>
-      <li><a href="save-job.html">Save Job</a></li>
+      <li><a href="{{ url ('save-job')}}">Save Job</a></li>
       <li><a href="#">Proposal</a></li>
     </ul>
   </div>

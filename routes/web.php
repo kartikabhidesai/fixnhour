@@ -25,3 +25,8 @@ Route::get('/myJobs', 'FreelancerController@myJobs');
 Route::get('/payment', 'FreelancerController@payment');
 
 Route::get('/message', 'FreelancerController@message');
+
+Route::get('/save-job', 'FreelancerController@saveJob');
+
+Route::get('/profile', 'FreelancerController@profile');
+Route::get('/post-your-job', 'FreelancerController@postYourJob');

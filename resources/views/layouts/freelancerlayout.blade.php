@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
     <link href="{{ asset('css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/pe-icon-7-stroke.css') }}" rel="stylesheet">
@@ -207,7 +207,7 @@
 
                                         <ul class="dropdown-menu" role="menu">
 
-                                            <li><a href="profile.html" class="user-drop-btn"><img src="images/user.jpg" >  <h4>Profile </h4> </a></li>
+                                            <li><a href="{{ url ('profile') }}" class="user-drop-btn"><img src="images/user.jpg" >  <h4>Profile </h4> </a></li>
 
                                             <li>
                                                 <a href="#" class="user-drop-link"> 
@@ -420,7 +420,7 @@ $(document).ready(function() {
 </script>
     @if (!empty($js))
         @foreach($js as $value)
-        <link href="{{ asset('js/'.$value) }}" rel="stylesheet">
+        <script href="{{ asset('js/'.$value) }}" type="application/javascript" ></script>
         @endforeach
     @endif
 </body>

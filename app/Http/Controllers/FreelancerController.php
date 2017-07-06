@@ -18,9 +18,25 @@ class FreelancerController extends Controller {
         $data['css'] = array(
             
         );
+        
         return view('freelancer.findWork',$data);
     }
     
+    public function profile(){
+         $data['metatitle'] = 'Landing - Fixnhour';
+        $data['js'] = array(
+//            'holder.min.js',
+//            'easyResponsiveTabs.js',
+//            'rotate-patch.js',
+//            'gridGallery.js',
+        'freelancer/profile.js'
+        );
+        $data['css'] = array(
+           // 'easy-responsive-tabs.css','gridGallery.css'
+        );
+        
+        return view('freelancer.profile',$data);
+    }
     public function myJobs() {
         $data['metatitle'] = 'Landing - Fixnhour';
         $data['js'] = array(
@@ -52,6 +68,28 @@ class FreelancerController extends Controller {
             
         );
         return view('freelancer.message',$data);
+    }
+    
+    public function saveJob(){
+        $data['metatitle'] = 'Landing - Fixnhour';
+        $data['js'] = array(
+        
+        );
+        $data['css'] = array(
+            
+        );
+        return view('freelancer.saveJob',$data);
+    }
+    
+    public function postYourJob(){
+         $data['metatitle'] = 'Landing - Fixnhour';
+        $data['js'] = array(
+        
+        );
+        $data['css'] = array(
+            
+        );
+        return view('freelancer.postYourJob',$data);
     }
     
 }
