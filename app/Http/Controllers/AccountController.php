@@ -12,7 +12,7 @@ class AccountController extends Controller {
 
     function deshboard(){
         $data['title'] = 'Deshbord';
-         $data['metatitle'] = 'Landing - Fixnhour';
+         $data['metatitle'] = 'Landing - Fixnhour1';
         $data['js'] = array(
         
         );
