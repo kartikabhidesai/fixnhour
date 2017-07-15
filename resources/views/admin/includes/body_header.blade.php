@@ -34,7 +34,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:;">
+                            <a href="{{ route('admin_logout') }}">
                                 <i class="icon-key"></i> Log Out 
                             </a>
                         </li>

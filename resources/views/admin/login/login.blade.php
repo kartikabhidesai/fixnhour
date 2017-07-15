@@ -11,7 +11,8 @@
         <!-- BEGIN LOGIN -->
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
-            <form class="login-form" action="index.html" method="post">
+            {{ Form::open(array('route' => 'login','class'=>'login-form')) }}
+            <!--<form class="login-form" action="index.html" method="post">-->
                 <div class="form-title">
                     <span class="form-title">Welcome.</span>
                     <span class="form-subtitle">Please login.</span>
@@ -23,10 +24,10 @@
                 <div class="form-group">
                     <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                     <label class="control-label visible-ie8 visible-ie9">Username</label>
-                    <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" id='user' placeholder="Username" name="username" /> </div>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Password</label>
-                    <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" /> </div>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" id='pass' placeholder="Password" name="password" /> </div>
                 <div class="form-actions">
                     <button type="submit" class="btn red btn-block uppercase">Login</button>
                 </div>
@@ -63,7 +64,8 @@
                         <a href="javascript:;" class="btn-primary btn" id="register-btn">Create an account</a>
                     </p>
                 </div>
-            </form>
+            <!--</form>-->
+            {{ Form::close() }}
             <!-- END LOGIN FORM -->
             <!-- BEGIN FORGOT PASSWORD FORM -->
             <form class="forget-form" action="index.html" method="post">

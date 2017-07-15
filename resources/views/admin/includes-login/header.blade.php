@@ -26,4 +26,7 @@
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> 
+        <script>
+            var baseurl = "{{ asset('/') }}";
+        </script>
 </head>

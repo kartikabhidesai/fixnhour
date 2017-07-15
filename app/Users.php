@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 
 class Users extends Authenticatable{
     
-    protected $table = 'fnh_users';
+    protected $table = 'users';
     
 //    public function roles()
 //    {

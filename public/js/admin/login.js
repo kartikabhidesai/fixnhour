@@ -41,58 +41,39 @@ var Login = function () {
                 error.insertAfter(element.closest('.input-icon'));
             },
             submitHandler: function (form) {
+      $(form).submit();
                 var username = $("#user").val();
                 var password = $("#pass").val();
                 var remember = $('#remember').is(':checked');
-                var data = $(form).serialize();
-                $.ajax({
-                    type: "post",
-                    url: baseurl + "account/login",
-                    data: {username: username, password: password, remember: remember},
-                    success: function (response) {
-                        output = JSON.parse(response);
-                        alert(output.redirect)
+                var postData = $(form).serialize();
+                
+                var dataArr = {'username': username, 'password': password};
+                var url = "admin/ajaxAction";
+                var action = 'loginDetail';
+            
+                ajaxAction(url,action,dataArr,function(response){
+                   var  output = JSON.parse(response);
+                        
                         if (output.status == 'success') {
                             $('.alert-danger', $('.login-form')).hide();
                             $('.alert-success').children('span').html(output.message);
                             $('.alert-success', $('.login-form')).show();
-                            location.href = output.redirect;
+                            alert(baseurl+'admin/dashboard');
+                            location.href = baseurl+'admin/dashboard';
                         }else if(output.status == 'error'){
                             $('.alert-success').children('span').html(output.message);
                             $('.alert-danger', $('.login-form')).show();
                             $('.alert-success', $('.login-form')).hide();
                         }
-//                        if (response == 'success')
-//                        {
-//                            $('.alert-danger', $('.login-form')).hide();
-//                            $('.alert-success').children('span').html('Well done Login Successfully Done..');
-//                            $('.alert-success', $('.login-form')).show();
-//                            location.href = baseurl + 'admin/dashboard';
-//                        }
-//                        else if (response == 'error')
-//                        {
-//                            $('.alert-danger').children('span').html('Email address and password dont match');
-//                            $('.alert-danger', $('.login-form')).show();
-//                            $('.alert-success', $('.login-form')).hide();
-//                        }
-                    }
+                        
                 });
-                 return false;
+
+               //  return false;
             }
-//            submitHandler: function (form) {
-//                form.submit(); // form validation success, call ajax form submit
-//            }
-           
+
         });
 
-        // $('.login-form input').keypress(function (e) {
-//            if (e.which == 13) {
-//                if ($('.login-form').validate().form()) {
-//                    $('.login-form').submit(); //form validation success, call ajax form submit
-//                }
-//                return false;
-//            }
-        // });
+       
     }
 
     var handleForgetPassword = function () {

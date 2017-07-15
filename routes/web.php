@@ -11,7 +11,7 @@
 |
 */
 
-Route::match(['get', 'post'], '/login', ['as' => 'client_login', 'uses' => 'Login\ClientController@login']);
+//Route::match(['get', 'post'], '/login', ['as' => 'client_login', 'uses' => 'Login\ClientController@login']);
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -33,5 +33,18 @@ Route::get('/save-job', 'FreelancerController@saveJob');
 
 Route::get('/profile', 'FreelancerController@profile');
 Route::get('/post-your-job', 'FreelancerController@postYourJob');
-Route::get('/deshboard', 'admin\AccountController@deshboard');
-Route::get('/admin', 'admin\AccountController@login');
+//Route::get('/deshboard', 'admin\AccountController@deshboard');
+//Route::get('/admin', 'admin\AccountController@login');
+Route::match(['get', 'post'], '/admin', ['as' => 'login', 'uses' => 'admin\AccountController@login']);
+Route::match(['get', 'post'], 'admin/ajaxAction', ['as' => 'login1', 'acountAjaxaction' => 'admin\AccountController@ajaxAction']);
+
+Route::match(['get', 'post'], '/login', ['as' => 'admin_login','uses' => 'admin\AccountController@login']);
+Route::match(['get', 'post'], '/logout', ['as' => 'admin_logout','uses' => 'admin\AccountController@logout']);
+
+$userPrefix = "admin";
+Route::group(['prefix' => $userPrefix], function() {
+   
+     Route::match(['get', 'post'], 'dashboard', ['as' => 'dashboard', 'uses' => 'admin\SliderController@dashboard']);
+     Route::match(['get', 'post'], 'dashboard1', ['as' => 'dashboard1', 'uses' => 'admin\SliderController@dd']);
+});
+   
