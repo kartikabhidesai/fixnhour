@@ -8,7 +8,8 @@ class SliderController  extends Controller {
     public function __construct() {
         //echo 'ss';
         // $this->rememberToken
-       //  $this->middleware('admin');
+       
+        $this->middleware('admin');
     }
     
     public function dd(){
