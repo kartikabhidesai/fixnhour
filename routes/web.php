@@ -30,4 +30,5 @@ Route::get('/save-job', 'FreelancerController@saveJob');
 
 Route::get('/profile', 'FreelancerController@profile');
 Route::get('/post-your-job', 'FreelancerController@postYourJob');
-Route::get('/admin', 'AccountController@deshboard');
+Route::get('/deshboard', 'admin\AccountController@deshboard');
+Route::get('/admin', 'admin\AccountController@login');
