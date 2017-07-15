@@ -13,6 +13,10 @@
 
 Route::match(['get', 'post'], '/login', ['as' => 'client_login', 'uses' => 'Login\ClientController@login']);
 
+Route::get('/', function () {
+            return redirect()->route('client_login');
+        });
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/signup', 'HomeController@signup');
@@ -33,5 +37,16 @@ Route::get('/save-job', 'FreelancerController@saveJob');
 
 Route::get('/profile', 'FreelancerController@profile');
 Route::get('/post-your-job', 'FreelancerController@postYourJob');
-Route::get('/deshboard', 'admin\AccountController@deshboard');
-Route::get('/admin', 'admin\AccountController@login');
+Route::get('/admin', 'AccountController@deshboard');
+
+
+$adminPrefix = "admin";
+Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
+
+    Route::get('/dashboard', ['as' => 'adminIndex', 'uses' => 'Login\AdminController@dashboard']);
+    
+});
+
+Route::get($adminPrefix . '/', ['as' => 'admin_login', 'uses' => 'Login\AdminController@login']);
+Route::get($adminPrefix . '/login', ['as' => 'admin_login', 'uses' => 'Login\AdminController@login']);
+Route::get($adminPrefix . '/logout', ['as' => 'admin_logout', 'uses' => 'Login\AdminController@logout']);

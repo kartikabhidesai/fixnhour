@@ -69,6 +69,16 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'freelancer' => [
+            'driver' => 'eloquent',
+            'model' => App\Users::class,
+        ],
+        'admin' => [
+            'driver' => 'eloquent',
+            // 'driver' => 'database',
+            'model' => App\Admin::class,
+            'table' => 'admin',
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
@@ -92,8 +102,15 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'user' => [
+            'provider' => 'user',
+            'email' => 'auth.emails.password',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'admin' => [
+            'provider' => 'admin',
+            'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
