@@ -18,7 +18,7 @@
                 <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 
-                        <img alt="" class="img-circle" style="width: 29px;" src=""/>
+                        <img alt="" class="img-circle" style="width: 29px;" src="{{ asset('assets/layouts/layout/img/avatar3_small.jpg') }}"/>
                         <span class="username username-hide-on-mobile"> </span>
                         <i class="fa fa-angle-down"></i>
                     </a>

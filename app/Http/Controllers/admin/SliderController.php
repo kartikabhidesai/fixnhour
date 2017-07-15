@@ -12,27 +12,43 @@ class SliderController  extends Controller {
         $this->middleware('admin');
     }
     
-    public function dd(){
-        echo 'dd';
-         print_r(Auth::guard('web')->user());
-        print_r($user);
-        echo 'ssss';exit;
+    public function sliderList(){
+        $data['metatitle'] = 'Landing - Fixnhour';
+        $data['title'] = 'Landing - Fixnhour';
+        $data['activateValue'] = 'sliderList';
+        
+        $data['js'] = array(
+        
+        );
+        $data['css'] = array(
+            
+        );
+       
+        return view('admin.account.slider-list',$data);
+    }
+    
+    public function sliderAdd(){
+        $data['metatitle'] = 'Landing - Fixnhour';
+        $data['title'] = 'Landing - Fixnhour';
+        $data['activateValue'] = 'sliderList';
+        
+        $data['js'] = array(
+        
+        );
+        $data['css'] = array(
+            
+        );
+       
+        return view('admin.account.slider-add',$data);
     }
     
     public function dashboard(){
         $data['metatitle'] = 'Landing - Fixnhour';
         $data['title'] = 'Landing - Fixnhour';
-       //  echo '<pre>';
-       // $user = Auth::user();
-        
+        $data['activateValue'] = 'Dashboard';
+      
         //print_r(Auth::guard('admin')->user());
-//        if(Auth::guard('admin')->guest()){
-//            echo 'if';
-//        }else{
-//            echo 'else';
-//        }
-        //print_r($user);
-     //   echo 'ssss';exit;
+
         $data['js'] = array(
         
         );

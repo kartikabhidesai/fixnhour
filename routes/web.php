@@ -49,6 +49,7 @@ $userPrefix = "admin";
 Route::group(['prefix' => $userPrefix], function() {
    
      Route::match(['get', 'post'], 'dashboard', ['as' => 'dashboard', 'uses' => 'admin\SliderController@dashboard']);
-     Route::match(['get', 'post'], 'dashboard1', ['as' => 'dashboard1', 'uses' => 'admin\SliderController@dd']);
+     Route::match(['get', 'post'], 'slider-list', ['as' => 'slider-list', 'uses' => 'admin\SliderController@sliderList']);
+     Route::match(['get', 'post'], 'slider-add', ['as' => 'slider-add', 'uses' => 'admin\SliderController@sliderAdd']);
 });
    

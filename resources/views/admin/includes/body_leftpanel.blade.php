@@ -13,11 +13,19 @@
             </li>
             <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
 
-            <li class="nav-item">
-                <a href="javascript:;" class="nav-link nav-toggle">
+            <li class="nav-item  @if($activateValue == 'Dashboard') {{ 'active' }} @endif ">
+                <a href="{{ route('dashboard') }}" class="nav-link nav-toggle">
                     <i class="fa fa-dashboard"></i>
                     <!--<i class="icon-home"></i>-->
                     <span class="title">Dashboard</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item @if($activateValue == 'sliderList') {{ 'active' }} @endif ">
+                <a href="{{ route('slider-list') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-sliders"></i>
+                    <!--<i class="icon-home"></i>-->
+                    <span class="title">Slider</span>
                     <span class="selected"></span>
                 </a>
             </li>
