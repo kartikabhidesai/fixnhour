@@ -13,6 +13,10 @@
 
 //Route::match(['get', 'post'], '/login', ['as' => 'client_login', 'uses' => 'Login\ClientController@login']);
 
+
+//Route::match(['get', 'post'], '/dashboard', ['as' => 'dashboard', 'uses' => 'Login\ClientController@login']);
+
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/signup', 'HomeController@signup');

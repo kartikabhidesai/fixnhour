@@ -8,6 +8,7 @@ class HomeController extends Controller {
     
     public function __construct() {
      //   $this->middleware('auth');
+        //echo "hi";exit;
     }
 
     public function index() {

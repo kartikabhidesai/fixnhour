@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+<<<<<<< HEAD
     
     public $loginUser;
     public function __construct() {
@@ -32,4 +33,6 @@ class Controller extends BaseController
 //            return $next($request);
 //        });
     }
+=======
+>>>>>>> d154d4ec37c4b2d4369a1f76367106d8900c62ba
 }
