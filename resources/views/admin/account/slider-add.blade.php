@@ -49,7 +49,8 @@
                                 <span class="input-group-addon input-circle-left">
                                     <i class="fa fa-envelope"></i>
                                 </span>
-                                <input class="form-control input-circle-right" placeholder="Email Address" type="text"> </div>
+                                <input class="form-control input-circle-right" placeholder="Email Address" type="text"> 
+                            </div>
                         </div>
 
 

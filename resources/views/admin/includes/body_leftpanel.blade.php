@@ -1,3 +1,6 @@
+@php 
+$currRoute = Route::current()->getName();
+@endphp
 <div class="page-sidebar-wrapper">
     <!-- BEGIN SIDEBAR -->
     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
@@ -24,8 +27,14 @@
             <li class="nav-item @if($activateValue == 'sliderList') {{ 'active' }} @endif ">
                 <a href="{{ route('slider-list') }}" class="nav-link nav-toggle">
                     <i class="fa fa-sliders"></i>
-                    <!--<i class="icon-home"></i>-->
                     <span class="title">Slider</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item {{ ($currRoute == 'user-list' || $currRoute == 'user-add') ? 'active' : '' }}">
+                <a href="{{ route('user-list') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-users"></i>
+                    <span class="title">Users</span>
                     <span class="selected"></span>
                 </a>
             </li>
