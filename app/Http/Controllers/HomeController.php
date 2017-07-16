@@ -41,7 +41,7 @@ class HomeController extends Controller {
         $data['css'] = array(
             
         );
-        return view('front.findTelent',$data);
+        return view('front.find-telent',$data);
     }
     
     public function howItWorks(){
@@ -52,6 +52,6 @@ class HomeController extends Controller {
         $data['css'] = array(
             
         );
-        return view('front.howItworks',$data);
+        return view('front.how-it-works',$data);
     }
 }

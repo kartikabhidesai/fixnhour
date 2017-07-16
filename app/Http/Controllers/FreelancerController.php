@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Cache;
 class FreelancerController extends Controller {
     
     public function __construct() {
@@ -25,16 +25,16 @@ class FreelancerController extends Controller {
     public function profile(){
          $data['metatitle'] = 'Landing - Fixnhour';
         $data['js'] = array(
-//            'holder.min.js',
-//            'easyResponsiveTabs.js',
-//            'rotate-patch.js',
-//            'gridGallery.js',
-        'freelancer/profile.js'
+         //   'easyResponsiveTabs.js',
+            'rotate-patch.js',
+            'gridGallery.js',
+          //  'freelancer/profile.js'
         );
         $data['css'] = array(
-           // 'easy-responsive-tabs.css','gridGallery.css'
+            'easy-responsive-tabs.css',
+            'gridGallery.css'
         );
-        
+       
         return view('freelancer.profile',$data);
     }
     public function myJobs() {
@@ -45,7 +45,7 @@ class FreelancerController extends Controller {
         $data['css'] = array(
             
         );
-        return view('freelancer.myJobs',$data);
+        return view('freelancer.my-jobs',$data);
     }
     
     public function payment() {
@@ -89,7 +89,7 @@ class FreelancerController extends Controller {
         $data['css'] = array(
             
         );
-        return view('freelancer.postYourJob',$data);
+        return view('freelancer.post-your-job',$data);
     }
     
 }
