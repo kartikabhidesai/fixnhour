@@ -49,6 +49,7 @@
                                     <input type="text" name="slider_title" id="slider_title" placeholder="Enter slider Title" class="form-control"> 
                                 </div>
                        </div>
+                        </div>
                         <div class="form-group">
                             <label class="control-label col-md-2">Slider Image :</label>
                             <div class="col-md-10">
