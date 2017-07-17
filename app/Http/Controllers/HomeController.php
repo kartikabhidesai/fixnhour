@@ -12,28 +12,30 @@ class HomeController extends Controller {
     }
 
     public function index() {
-        $data['metatitle'] = 'Landing - Fixnhour';
-        $data['js'] = array(
         
-        );
-        $data['css'] = array(
-            
-        );
+        $data['pagetitle'] = 'Landing - Fixnhour';
+        $data['metatitle'] = 'Landing - Fixnhour';
+        $data['plugincss'] = array();
+        $data['css'] = array();
+        $data['pluginjs'] = array();
+        $data['js'] = array();
+        $data['funinit'] = array();
         return view('front.home',$data);
     }
     
     public function signup(){
+        $data['pagetitle'] = 'Create account freelancce - Fixnhour';
         $data['metatitle'] = 'Create account freelancce - Fixnhour';
-        $data['js'] = array(
-        
-        );
-        $data['css'] = array(
-            
-        );
+        $data['plugincss'] = array();
+        $data['css'] = array();
+        $data['pluginjs'] = array();
+        $data['js'] = array();
+        $data['funinit'] = array();
         return view('front.singup',$data);
     }
     
     public function findTelent(){
+        $data['pagetitle'] = 'Find Talent - Fixnhour';
         $data['metatitle'] = 'Find Talent - Fixnhour';
         $data['js'] = array(
         
@@ -41,10 +43,18 @@ class HomeController extends Controller {
         $data['css'] = array(
             
         );
-        return view('front.findTelent',$data);
+        return view('front.find-telent',$data);
+
+        $data['plugincss'] = array();
+        $data['css'] = array();
+        $data['pluginjs'] = array();
+        $data['js'] = array();
+        $data['funinit'] = array();
+        return view('front.find-telent',$data);
     }
     
     public function howItWorks(){
+        $data['pagetitle'] = 'Landing - Fixnhour';
         $data['metatitle'] = 'Landing - Fixnhour';
         $data['js'] = array(
         
@@ -52,6 +62,7 @@ class HomeController extends Controller {
         $data['css'] = array(
             
         );
-        return view('front.howItworks',$data);
+        return view('front.how-it-works',$data);
+        
     }
 }

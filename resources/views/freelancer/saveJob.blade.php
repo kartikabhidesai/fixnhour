@@ -4,17 +4,8 @@
 
 <div class="clearfix"></div>
 <main class="cd-main-content">
-
-    <div class="header-menus">
-        <div class="container">
-            <ul class="menu-2">
-                <li><a href="#">Fnd Job</a></li>
-                <li><a href="#">Invitation</a></li>
-                <li  class="active"><a href="{{ url ('save-job')}}">Save Job</a></li>
-                <li><a href="#">Proposal</a></li>
-            </ul>
-        </div>
-    </div>
+      @include('freelancer.includes.body-header-sub')
+    
 
     <section class="max-height-footer save-job-page">
         <div class="container">
