@@ -16,7 +16,7 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <span>Slider Add</span>
+            <span>Slider Edit</span>
         </li>
     </ul>
 
@@ -24,7 +24,7 @@
 <!-- END PAGE BAR -->
 <!-- BEGIN PAGE TITLE-->
 <h1 class="page-title"> Slider 
-    <small>Add new Slider</small>
+    <small>Edit Slider</small>
 </h1>
 <!-- END PAGE TITLE-->
 <!-- END PAGE HEADER-->
@@ -35,18 +35,20 @@
             <div class="portlet-title">
                 <div class="caption font-red-sunglo">
                     <i class="icon-settings font-red-sunglo"></i>
-                    <span class="caption-subject bold uppercase"> Slider add Form</span>
+                    <span class="caption-subject bold uppercase"> Slider Edit Form</span>
                 </div>
             </div>
             <div class="portlet-body form">
-                <form role="form" method="post" id="addSlider" enctype="multipart/form-data" action="{{ route('addSlider') }}" class="form-horizontal">
+                <form role="form" method="post" id="editSlider" enctype="multipart/form-data" action="{{ route('editSlider') }}" class="form-horizontal">
                     {{ csrf_field() }}
                     <div class="form-body">
                         <div class="form-group">
                             <label class="col-md-2 control-label">Slider Title :</label>
                             <div class="col-md-10">
                                 <div class="input-icon right">
-                                    <input type="text" name="slider_title" id="slider_title" placeholder="Enter slider Title" class="form-control"> 
+                                    <input type="text" name="slider_title" id="slider_title" placeholder="Enter slider Title" class="form-control" value="{{ $slider[0]->var_name}}"> 
+                                       <input type="hidden" name="slider_id" id="slider_id" class="form-control" value="{{ $slider[0]->id}}"> 
+                                    <input type="hidden" name="old_image" id="old_image" class="form-control" value="{{ $slider[0]->var_image}}"> 
                                 </div>
                             </div>
                         </div>
@@ -55,7 +57,12 @@
                             <div class="col-md-10">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
+                                       @if($slider[0]->var_image !='')
+                                        <img src="{{ asset('uploads/slider/'.$slider[0]->var_image)}}" alt="" /> 
+                                        @else
+                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                                        @endif
+                                    </div>
                                     <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
                                     <div>
                                         <span class="btn default btn-file">

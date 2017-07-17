@@ -51,5 +51,10 @@ Route::group(['prefix' => $userPrefix], function() {
      Route::match(['get', 'post'], 'dashboard', ['as' => 'dashboard', 'uses' => 'admin\SliderController@dashboard']);
      Route::match(['get', 'post'], 'slider-list', ['as' => 'slider-list', 'uses' => 'admin\SliderController@sliderList']);
      Route::match(['get', 'post'], 'slider-add', ['as' => 'slider-add', 'uses' => 'admin\SliderController@sliderAdd']);
+     Route::match(['get', 'post'], 'slider-edit', ['as' => 'slider-edit', 'uses' => 'admin\SliderController@sliderEdit']);
 });
-   
+Route::match(['get', 'post'], '/addSlider', ['as' => 'addSlider','uses' => 'admin\SliderController@addSlider']);
+Route::match(['get', 'post'], '/editSlider', ['as' => 'editSlider','uses' => 'admin\SliderController@editSlider']);
+Route::match(['get', 'post'], 'slider/ajaxAction', ['as' => 'ajaxAction','uses' => 'admin\SliderController@ajaxAction']);
+
+//Route::post('addSlider', 'admin\SliderController@addSlider');
