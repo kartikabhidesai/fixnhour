@@ -33,16 +33,26 @@
                                 <th> # </th>
                                 <th> User Name </th>
                                 <th> Email </th>
-                                <th> Contact </th>
-                                <th> Status </th>
+                                <th> Phone </th>
+                                <th> City </th>
+                                <th> State </th>
+                                <th> Postcode </th>
+                                <th> Role Type </th>
+                                <th> Action </th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php $count = 1; @endphp
+                            @foreach($arrUserList as $row)
                             <tr>
-                                <td> 1 </td>
-                                <td> Mark </td>
-                                <td> Otto </td>
-                                <td> makr124 </td>
+                                <td>{{ $count }}</td>
+                                <td>{{ $row->username }}</td>
+                                <td>{{ $row->email }}</td>
+                                <td>{{ $row->phone }}</td>
+                                <td>{{ $row->city_town  }}</td>
+                                <td>{{ $row->state  }}</td>
+                                <td>{{ $row->postcode  }}</td>
+                                <td>{{ $row->role_type }}</td>
                                 <td>
                                    <div class="actions">
                                         
@@ -55,14 +65,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            @foreach($arrUserList as $row)
-                            <tr>
-                                <td>{{ $row->username }}</td>
-                                <td>{{ $row->email }}</td>
-                                <td>{{ $row->mobile }}</td>
-                                <td>{{ $row->city }}</td>
-                                <td>{{ $row->role_type }}</td>
-                            </tr>
+                            @php $count++; @endphp
                             @endforeach
                         </tbody>
                     </table>

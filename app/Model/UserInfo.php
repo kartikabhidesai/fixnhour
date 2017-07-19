@@ -20,17 +20,13 @@ class UserInfo extends Model {
         $objUser->phone = $request->input('phone');
         $objUser->mobile = $request->input('mobile');
         $objUser->email = $request->input('email');
+        $objUser->username  = $request->input('username');
         $objUser->address = $request->input('address');
         $objUser->city_town = $request->input('city_town');
         $objUser->state = $request->input('state');
         $objUser->postcode = $request->input('postcode');
         $objUser->role_type = $request->input('type');
-        
-        if($objUser->save()){
-            echo "dsffsd";
-        }else{
-            echo "1111";
-        }exit;
+        $objUser->save();
         return TRUE;
     }
 }
