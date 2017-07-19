@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
+use DB;
 class HomeController extends Controller {
     
     public function __construct() {
@@ -36,6 +37,7 @@ class HomeController extends Controller {
         $data['pluginjs'] = array();
         $data['js'] = array();
         $data['funinit'] = array();
+        $data['slider'] = DB::table('slider')->get();
         return view('front.home',$data);
     }
     
