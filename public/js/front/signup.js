@@ -36,7 +36,7 @@ function hideMsgBox() {
             },
             messages: {
                 username: {
-                    required: "Username is required."
+                    required: "Username is required1."
                 },
                 password: {
                     required: "Password is required."
