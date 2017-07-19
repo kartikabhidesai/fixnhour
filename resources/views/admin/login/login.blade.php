@@ -5,7 +5,7 @@
         
         <div class="logo">
             <a href="index.html">
-                <img src="../assets/pages/img/logo-big-white.png" style="height: 17px;" alt="" /> </a>
+                <img src="{{ asset('assets/images/logo-1.png') }}" alt="Logo" style="width:165px;padding-top: 12px"> </a>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->

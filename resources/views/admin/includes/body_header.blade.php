@@ -4,7 +4,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <h4  style="display: inline-block;color: #fff;"><a href="javascript:;">
-                Fixnhour
+              <img src="{{ asset('assets/images/logo-1.png') }}" alt="Logo" style="width:165px;">
             </a></h4>
             <div class="menu-toggler sidebar-toggler"> </div>
         </div>
