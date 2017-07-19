@@ -17,22 +17,22 @@ function hideMsgBox() {
             errorClass: 'help-block', // default input error message class
             focusInvalid: false, // do not focus the last invalid input
             rules: {
-//                username: {
-//                    required: true
-//                },
-//                email: {
-//                    email: true,
-//                    required: true
-//                },
-//                password: {
-//                    required: true
-//                },
-//                termandc: {
-//                    required: false
-//                },
-//                 password_confirm : {
-//                    equalTo : "#password"
-//                }
+                username: {
+                    required: true
+                },
+                email: {
+                    email: true,
+                    required: true
+                },
+                password: {
+                    required: true
+                },
+                termandc: {
+                    required: false
+                },
+                 password_confirm : {
+                    equalTo : "#password"
+                }
             },
             messages: {
                 username: {
