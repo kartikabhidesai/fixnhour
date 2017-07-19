@@ -62,22 +62,28 @@
                                     {{ Form::text('last_name' ,null, array('class' => 'form-control', 'id' => 'last_name', 'placeholder' => 'Enter Last Name')) }}
                                 </div>
                                 <div class="col-sm-4 form-group">
-                                    <label for="State" class="control-label">Phone:
+                                    <label for="State" class="control-label">User Name:
                                         <span class="required">*</span>
                                     </label>
-                                    {{ Form::text('phone', null, array('class' => 'form-control', 'id' => 'phone', 'placeholder' => 'Enter Phone')) }}
-                                </div>
-                                <div class="col-sm-4 form-group">
-                                    <label for="State" class="control-label">Mobile:
-                                        <span class="required">*</span>
-                                    </label>
-                                    {{ Form::text('mobile', null, array('class' => 'form-control', 'id' => 'mobile', 'placeholder' => 'Enter Mobile')) }}
+                                    {{ Form::text('username', null, array('class' => 'form-control', 'id' => 'username', 'placeholder' => 'Enter User Name')) }}
                                 </div>
                                 <div class="col-sm-4 form-group">
                                     <label for="State" class="control-label">Email:
                                         <span class="required">*</span>
                                     </label>
                                     {{ Form::text('email', null, array('class' => 'form-control', 'id' => 'email', 'placeholder' => 'Enter Email')) }}
+                                </div>
+                                <div class="col-sm-4 form-group">
+                                    <label for="State" class="control-label">User Type:
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="radio-list">
+                                        <span>
+                                            {{ Form::radio('type', 'Client', true, array('class' => 'type')) }} Client
+                                            &nbsp;&nbsp;&nbsp;
+                                            {{ Form::radio('type', 'Freelancer', true, array('class' => 'type')) }} Freelancer
+                                        </span>
+                                    </div>
                                 </div>
                                 <div class="col-sm-8 form-group">
                                     <label for="Adress" class="control-label">Adress:
@@ -104,20 +110,19 @@
                                     {{ Form::text('postcode', null, array('class' => 'form-control', 'id' => 'postcode', 'placeholder' => 'Enter Postcode')) }}
                                 </div>
                                 <div class="col-sm-4 form-group">
-                                    <label for="State" class="control-label">User Type:
+                                    <label for="State" class="control-label">Phone:
                                         <span class="required">*</span>
                                     </label>
-                                    <div class="radio-list">
-                                        <span>
-                                            {{ Form::radio('type', 'Client', true, array('class' => 'type')) }} Client
-                                            &nbsp;&nbsp;&nbsp;
-                                            {{ Form::radio('type', 'Freelancer', true, array('class' => 'type')) }} Freelancer
-                                        </span>
-                                    </div>
+                                    {{ Form::text('phone', null, array('class' => 'form-control', 'id' => 'phone', 'placeholder' => 'Enter Phone No.')) }}
+                                </div>
+                                <div class="col-sm-4 form-group">
+                                    <label for="State" class="control-label">Mobile:
+                                        <span class="required">*</span>
+                                    </label>
+                                    {{ Form::text('mobile', null, array('class' => 'form-control', 'id' => 'mobile', 'placeholder' => 'Enter Mobile No.')) }}
                                 </div>
                             </div>
-                        </div>
-                        
+                        </div>   
                         <div class="form-actions text-center">
                             <button type="submit" class="btn blue">Submit</button>
                             <button type="button" class="btn default">Cancel</button>
