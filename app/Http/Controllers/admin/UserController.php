@@ -27,6 +27,7 @@ class UserController  extends Controller {
         $data['js'] = array();
         $data['funinit'] = array();
         $data['activateValue'] = 'userList';
+        $data['arrUserList'] = UserInfo::where('role_type', '!=', 'admin')->get();
        
         return view('admin.user.user-list',$data);
     }

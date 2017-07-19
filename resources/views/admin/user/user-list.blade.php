@@ -55,57 +55,15 @@
                                     </div>
                                 </td>
                             </tr>
+                            @foreach($arrUserList as $row)
                             <tr>
-                                <td> 2 </td>
-                                <td> Jacob </td>
-                                <td> Nilson </td>
-                                <td> jac123 </td>
-                                <td>
-                                    <div class="actions">
-                                       
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                            <i class="icon-wrench"></i>
-                                        </a>
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                            <i class="icon-trash"></i>
-                                        </a>
-                                    </div>
-                                </td>
+                                <td>{{ $row->username }}</td>
+                                <td>{{ $row->email }}</td>
+                                <td>{{ $row->mobile }}</td>
+                                <td>{{ $row->city }}</td>
+                                <td>{{ $row->role_type }}</td>
                             </tr>
-                            <tr>
-                                <td> 3 </td>
-                                <td> Larry </td>
-                                <td> Cooper </td>
-                                <td> lar </td>
-                                <td>
-                                    <div class="actions">
-                                        
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                            <i class="icon-wrench"></i>
-                                        </a>
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                            <i class="icon-trash"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> 4 </td>
-                                <td> Sandy </td>
-                                <td> Lim </td>
-                                <td> sanlim </td>
-                                <td>
-                                    <div class="actions">
-                                        
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                            <i class="icon-wrench"></i>
-                                        </a>
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                            <i class="icon-trash"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
