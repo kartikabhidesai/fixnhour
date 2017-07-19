@@ -22,6 +22,7 @@ class HomeController extends Controller {
         $data['js'] = array();
         $data['funinit'] = array();
         $data['slider'] = DB::table('slider')->get();
+       
         return view('front.home',$data);
     }
     
