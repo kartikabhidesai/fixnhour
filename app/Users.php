@@ -49,14 +49,22 @@ class Users extends Authenticatable{
         return $returnUserRecord = array_merge($userRecord,$arrUsers);
     }
     
+    public function checkUsername($request){
+        $checkUsername = Users::where('username', $request['username'])->orWhere('email', $request['email'])->get()->toArray();
+        
+        if(empty($checkUsername)){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
+    }
     public function saveFrontendUsers($request){
         
             $users = new Users();
             $users->username = $request['username'];
             $users->email = $request['email'];
-            $users->name = $request['name'];
-            $users->phone = $request['phone'];
-            $users->mobile = $request['mobile'];
+            $users->role_type = $request['usertype'];
+            
             $users->password = Hash::make($request['password']);
             
             if ($users->save()) {

@@ -17,13 +17,13 @@
 //Route::match(['get', 'post'], '/dashboard', ['as' => 'dashboard', 'uses' => 'Login\ClientController@login']);
 
 
-Route::get('/', 'HomeController@index')->name('home');
+//Route::get('/', 'front\HomeController@index')->name('home');
+Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'front\HomeController@index']);
+//Route::get('/signup', 'HomeController@signup');
+Route::match(['get', 'post'], 'signup', ['as' => 'signup', 'uses' => 'front\HomeController@signup']);
+Route::get('/find-telent', 'front\HomeController@findTelent');
 
-Route::get('/signup', 'HomeController@signup');
-
-Route::get('/find-telent', 'HomeController@findTelent');
-
-Route::get('/how-it-works', 'HomeController@howItWorks');
+Route::get('/how-it-works', 'front\HomeController@howItWorks');
 
 Route::get('/freelancer', 'FreelancerController@index');
 
@@ -40,7 +40,7 @@ Route::get('/post-your-job', 'client\PostYourJobController@postYourJob');
 //Route::get('/deshboard', 'admin\AccountController@deshboard');
 //Route::get('/admin', 'admin\AccountController@login');
 Route::match(['get', 'post'], '/admin', ['as' => 'login', 'uses' => 'admin\AccountController@login']);
-Route::match(['get', 'post'], 'admin/ajaxAction', ['as' => 'login1', 'acountAjaxaction' => 'admin\AccountController@ajaxAction']);
+Route::match(['get', 'post'], 'admin/ajaxAction', ['as' => 'login1', 'uses' => 'admin\AccountController@ajaxAction']);
 
 Route::match(['get', 'post'], '/login', ['as' => 'admin_login','uses' => 'admin\AccountController@login']);
 Route::match(['get', 'post'], '/logout', ['as' => 'admin_logout','uses' => 'admin\AccountController@logout']);

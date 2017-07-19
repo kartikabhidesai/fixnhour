@@ -49,6 +49,14 @@ return [
             'driver' => 'session',
             'provider' => 'admin',
         ],
+        'freelancer' => [
+            'driver' => 'session',
+            'provider' => 'freelancer',
+        ],
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'client',
+        ],
     ],
 
     /*
@@ -75,6 +83,10 @@ return [
         ],
 
         'freelancer' => [
+            'driver' => 'eloquent',
+            'model' => App\Users::class,
+        ],
+        'client' => [
             'driver' => 'eloquent',
             'model' => App\Users::class,
         ],

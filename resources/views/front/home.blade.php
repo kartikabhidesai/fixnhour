@@ -296,28 +296,32 @@
                 <div class="main-message">
                     <h5>Login to Fixnhour</h5>
                 </div>
-                <form>
+                {{ Form::open(array('route' => 'home','id'=>'signupform','class'=>'signup-form')) }}
                     <div class="form-group">
                         <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        <input type="email" class="form-control" name='username' id="exampleInputEmail1" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" name='password' class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
                     <div class="form-group">
-                        <label class="keep-login"><span class="cutome-check cutome-3">
+                        <label class="keep-login">
+                            <span class="cutome-check cutome-3">
                                 <input type="checkbox">
-                                <span></span></span>Keep me signed in for 2 week<a class="login-que">[?]</a></label>
+                                <span></span>
+                                
+                            </span>Keep me signed in for 2 week<a class="login-que">[?]</a></label>
                         <a class="forgot-pass" href="#">Forgot Password?</a>
                     </div>
-                    <div class="clear-full text-center btn-bottom"> <a href="#" class="btn-green login-popup-btn">Continue</a> </div>
+                    <div class="clear-full text-center btn-bottom"> <button type='submit' class="btn-green login-popup-btn">Continue</button> </div>
                     <div class="or-divi"><span>OR</span></div>
                 </form>
                 <div class="social-login-buttons">
                     <li> <a href="#" class="facebook-login"> <i class="fa fa-facebook" aria-hidden="true"></i> <span> Continue with Facebook </span></a> </li>
                     <li> <a href="#" class="google-login"> <img src="images/google-icon.png">  <span> Continue with google </span></a> </li>
                 </div>
+                {{ Form::close() }}
             </div>
         </div>
     </div>
