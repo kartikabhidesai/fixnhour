@@ -31,7 +31,7 @@ $currRoute = Route::current()->getName();
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item {{ ($currRoute == 'user-list' || $currRoute == 'user-add') ? 'active' : '' }}">
+            <li class="nav-item {{ ($currRoute == 'user-list' || $currRoute == 'user-add' || $currRoute == 'user-edit') ? 'active' : '' }}">
                 <a href="{{ route('user-list') }}" class="nav-link nav-toggle">
                     <i class="fa fa-users"></i>
                     <span class="title">Users</span>
