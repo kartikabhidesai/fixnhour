@@ -6,11 +6,17 @@
     <div class="max-height-footer landing-page">
         <div class="relative">
             <div id="hero-slider" class="owl-carousel owl-theme hero-slider">
-                <div class="item"><img src="images/banner-bg.jpg" alt="first slide"></div>
+                @if(count($slider)!=0)
+                  @foreach($slider as $sliders)
+                <div class="item">
+                    <img src="{{ asset('uploads/slider/'.$sliders->var_image)}}" alt="{{ $sliders->var_name }}">
+                </div>
                <!-- <div class="item"><img src="images/slider-2.jpg" alt="second slide"></div>  -->
-                <div class="item"><img src="images/slider-3.jpg" alt="third slide"></div>
+                <!--<div class="item"><img src="images/slider-3.jpg" alt="third slide"></div>-->
                 <!-- <div class="item"><img src="images/slider-4.jpg" alt="Fouth slide"></div> -->
-                <div class="item"><img src="images/slider-5.jpg" alt="Five slide"></div>
+                <!--<div class="item"><img src="images/slider-5.jpg" alt="Five slide"></div>-->
+                 @endforeach
+                 @endif
             </div>
             <div class="banner-main fixe">
                 <div class="container">

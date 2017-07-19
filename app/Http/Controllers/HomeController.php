@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller {
     
@@ -20,6 +21,7 @@ class HomeController extends Controller {
         $data['pluginjs'] = array();
         $data['js'] = array();
         $data['funinit'] = array();
+        $data['slider'] = DB::table('slider')->get();
         return view('front.home',$data);
     }
     
