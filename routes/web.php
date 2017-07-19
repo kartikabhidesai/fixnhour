@@ -21,6 +21,7 @@
 Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'front\HomeController@index']);
 //Route::get('/signup', 'HomeController@signup');
 Route::match(['get', 'post'], 'signup', ['as' => 'signup', 'uses' => 'front\HomeController@signup']);
+Route::match(['get', 'post'], '/signin', ['as' => 'signin', 'uses' => 'front\HomeController@signin']);
 Route::get('/find-telent', 'front\HomeController@findTelent');
 
 Route::get('/how-it-works', 'front\HomeController@howItWorks');

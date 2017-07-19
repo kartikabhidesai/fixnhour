@@ -41,11 +41,18 @@ class HomeController extends Controller {
         return view('front.home',$data);
     }
     
-    public function signin(){
+    public function signin(Request $request){
+        
             $username = $request->input('username');
             $password = $request->input('password');
-             if (Auth::guard('admin')->attempt(['email' => $username, 'password' => $password])) {
+             if (Auth::guard('admin')->attempt(['email' => $username, 'password' => $password,'role_type' =>'admin'])) {
                  return redirect()->intended('admin/dashboard');
+             }
+             if (Auth::guard('freelancer')->attempt(['email' => $username, 'password' => $password,'role_type' =>'freelancer'])) {
+                 return redirect()->intended('freelancer');
+             }
+             if (Auth::guard('client')->attempt(['email' => $username, 'password' => $password,'role_type' =>'client'])) {
+                 return redirect()->intended('post-your-job');
              }
     }
     public function signup(Request $request){
