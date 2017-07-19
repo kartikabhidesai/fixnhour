@@ -43,27 +43,24 @@
     <link href="{{asset ('assets/global/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css">
 
     <!-- END THEME LAYOUT STYLES -->
-
-    <?php
-    if (!empty($css)) {
-        foreach ($css as $value) {
-            ?>
-            <link rel="stylesheet" href="{{asset ('assets/layouts/layout/css/')}}<?php echo $value; ?>" />
-            <?php
-        }
-    }
-    ?>
-    <?php
-    if (!empty($css_plugin)) {
-        foreach ($css_plugin as $value_plugin) {
-            ?>
-            <link rel="stylesheet" href="{{assets ('asset/global/plugins/'.$value_plugin)}}" />
-            <?php
-        }
-    }
-    ?>  
+    @if(!empty($css)) 
+    @foreach ($css as $value)
+        <link rel="stylesheet" href="{{asset ('assets/layouts/layout/css/'.$value)}}" />
+        @endforeach
+@endif
+    
+            @if(!empty($css_plugin)) 
+    @foreach ($css_plugin as $value_plugin)
+        <link rel="stylesheet" href="{{asset ('assets/global/plugins/'.$value_plugin)}}" />
+        @endforeach
+@endif
+   
 
     <link rel="shortcut icon" href="favicon.ico" />
     
     <script src="{{asset ('assets/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
+     <script>
+            var baseurl = "{{ asset('/') }}";
+        </script>
 </head>
+
