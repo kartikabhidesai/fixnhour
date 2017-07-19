@@ -1,7 +1,7 @@
 <div class="site-new-header site-new-header-tow  site-header">
             <div class="container">
                 <header class="cd-main-header">
-                    <a class="cd-logo" href="#0"><img src="images/site-new-logo.png" alt="Logo"></a>
+                    <a class="cd-logo" href="#0"><img src="{{ asset('assets/images/logo-1.png') }}" alt="Logo" style="width:165px;padding-top: 12px"></a>
                     <ul class="cd-header-buttons">
                         <li><a class="cd-search-trigger" href="#cd-search"><span></span></a></li>
                         <li><a class="cd-nav-trigger" href="#cd-primary-nav"><span></span></a></li>

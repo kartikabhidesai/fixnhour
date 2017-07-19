@@ -33,7 +33,7 @@
                     <div class="header-right">
                         <p>Already have an Fixnhour Account?</p>
                         <a href="javascript:void(0)" class="btn-green">LOGIN</a> </div>
-                    <div class="navbar-header"> <a class="site-logo" href="{{ url('/')}}"><img src="images/site-logo.png" alt="#"></a> </div>
+                    <div class="navbar-header"> <a class="site-logo" href="{{ url('/')}}"><img src="{{ asset('assets/images/logo-1.png') }}" alt="Logo" style="width:165px;padding-top: 12px"></a> </div>
                 </nav>
             </div>
         </header>

@@ -2,7 +2,7 @@
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3 col-sm-4 col-xs-6 footer-row">
+                        <div class="col-md-4 col-sm-4 col-xs-6 footer-row">
                             <ul class="footer-menu">
                                 <li><a href="javascript:void(0)">Startups</a></li>
                                 <li><a href="javascript:void(0)">Growth Partners</a></li>
@@ -11,7 +11,7 @@
                                 <li><a href="javascript:void(0)">Affiliate</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-3 col-sm-2 col-xs-6 footer-row">
+                        <div class="col-md-4 col-sm-2 col-xs-6 footer-row">
                             <h2 class="footer-heading">Company</h2>
                             <ul class="footer-menu">
                                 <li><a href="javascript:void(0)">Contact Us</a></li>
@@ -20,7 +20,7 @@
                                 <li><a href="javascript:void(0)">Blog</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6 footer-row">
+                        <div class="col-md-4 col-sm-3 col-xs-6 footer-row">
                             <h2 class="footer-heading">Information</h2>
                             <ul class="footer-menu">
                                 <li><a href="javascript:void(0)">Fee and Charges</a></li>
@@ -29,7 +29,7 @@
                                 <li><a href="javascript:void(0)">Privacy Policy</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6 footer-row">
+<!--                        <div class="col-md-3 col-sm-3 col-xs-6 footer-row">
                             <div class="footer-right">
                                 <h2 class="footer-heading">Freelancers</h2>
                                 <ul class="footer-menu">
@@ -41,7 +41,7 @@
                                     <li><a href="javascript:void(0)">Freelencers in Bangladesh</a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
