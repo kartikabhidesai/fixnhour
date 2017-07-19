@@ -12,6 +12,23 @@
 </div>
 <h1 class="page-title"> User <small>Add</small></h1>
 
+@if ( $errors->count() > 0 )
+    <section class="content server-side-validation">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="alert-danger">The following errors have occurred:</p>
+                <ul class="error-list">
+                    @foreach( $errors->all() as $message )
+                    <li class="alert-danger">
+                        {{ $message }}
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    </section>
+    @endif
+
 <div class="main-content">
     <section class="content">
         <div class="row">
@@ -30,7 +47,7 @@
                                 <div class="col-sm-4 form-group">
                                     <label for="Title" class="control-label">Title: 
                                     </label>
-                                    {{ Form::select('title', array('1'=>'Mr.', '2'=>'Mrs.', '3'=>'Miss.'), null, array('class' => 'form-control', 'id' => 'title')) }}
+                                    {{ Form::select('title', array('Mr.'=>'Mr.', 'Mrs.'=>'Mrs.', 'Miss.'=>'Miss.'), null, array('class' => 'form-control', 'id' => 'title')) }}
                                 </div>
                                 <div class="col-sm-4 form-group">
                                     <label for="First Name" class="control-label">First Name:
@@ -66,7 +83,7 @@
                                     <label for="Adress" class="control-label">Adress:
                                         <span class="required">*</span>
                                     </label>
-                                    {{ Form::textarea('Address', null, array('class' => 'form-control', 'id' => 'Address', 'placeholder' => 'Enter Address','rows'=>"3")) }}
+                                    {{ Form::textarea('address', null, array('class' => 'form-control', 'id' => 'Address', 'placeholder' => 'Enter Address','rows'=>"3")) }}
                                 </div>
                                 <div class="col-sm-4 form-group">
                                     <label for="City Town" class="control-label">City/Town:
@@ -92,9 +109,9 @@
                                     </label>
                                     <div class="radio-list">
                                         <span>
-                                            {{ Form::radio('type', 1, true, array('class' => 'type')) }} Client
+                                            {{ Form::radio('type', 'Client', true, array('class' => 'type')) }} Client
                                             &nbsp;&nbsp;&nbsp;
-                                            {{ Form::radio('type', 1, true, array('class' => 'type')) }} Freelancer
+                                            {{ Form::radio('type', 'Freelancer', true, array('class' => 'type')) }} Freelancer
                                         </span>
                                     </div>
                                 </div>
