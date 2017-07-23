@@ -35,7 +35,7 @@
 
                         </div>
                         <!--Body-->
-                         {{ Form::open(array('route' => 'signup','id'=>'signupform','class'=>'signup-form')) }}
+                         {{ Form::open(array('route' => 'signup','id'=>'signupform','class'=>'signup-form','files' => true)) }}
                         <div class="md-form form-group">
                             <input type="text" id="form2" name="username" class="form-control">
                             <label for="form2 form-group">Username</label>
@@ -55,6 +55,23 @@
 
                             <input type="password" name="cpassword" id="password_confirm" class="form-control">
                             <label for="form4">Re-type password</label>
+                        </div>
+                         <div class="form-group">
+                            <!--<label class="control-label col-md-2"></label>-->
+                            <div class="col-md-10">
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                                    <div>
+                                        <span class="btn default btn-file">
+                                            <span class="fileinput-new"> Select image </span>
+                                            <span class="fileinput-exists"> Change </span>
+                                            <input type="file" name="profile_image"> </span>
+                                        <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="md-form form-group">
 

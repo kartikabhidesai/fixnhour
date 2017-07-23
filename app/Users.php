@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Mail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
 
@@ -58,14 +58,53 @@ class Users extends Authenticatable{
             return FALSE;
         }
     }
-    public function saveFrontendUsers($request){
-        
+    public function saveFrontendUsers($request,$fileData){
+//            $emailEncode = base64_encode($request['email']);
+//            $url = url('front/HomeController/activeAccount/'.$emailEncode);
+//            $mailbody = 'Please click on below link to active your account<br/>'.$url;
+//                
+//            Mail::send(array(), $request ,function($message) use($request,$mailbody) {
+//                $message->to($request1['email'], $request1['username'])
+//                        ->from('kartikdesai123@gmail.com')
+//                        ->subject('Welcome to Softral')
+//                        ->setBody($mailbody, 'text/html');
+//            });
+//        exit();
+            $file = $fileData['profile_image']; 
+            $profileImage = NULL;
+            if($request['usertype'] == 'freelancer'){
+                 if(!empty($fileData)){
+                       $destinationPath = public_path() . '/uploads/freelancer';
+                       $time = time();
+                       $profileImage = $time . $file->getClientOriginalName();
+                       $upload_success = $file->move($destinationPath, $profileImage);
+                 }
+            }else{
+                 if(!empty($fileData)){
+                       $destinationPath = public_path() . '/uploads/client';
+                       $time = time();
+                       $profileImage = $time . $file->getClientOriginalName();
+                       $upload_success = $file->move($destinationPath, $profileImage);
+                 }
+            }
             $users = new Users();
             $users->username = $request['username'];
             $users->email = $request['email'];
             $users->role_type = $request['usertype'];
-            
             $users->password = Hash::make($request['password']);
+            $users->var_image = $profileImage;
+            $users->last_ip = \Request::ip();
+            
+//            $emailEncode = base64_encode($request['email']);
+//            $url = url('front/HomeController/activeAccount/'.$emailEncode);
+//            $mailbody = 'Please click on below link to active your account<br/>'.$url;
+//
+//            Mail::send('emails.email', $data, function($message) use ($data) {
+//                $message->to( $request['email'], $request['username'])
+//                        ->from('kartikdesai123@gmail.com')
+//                        ->subject('Welcome to Softral')
+//                        ->setBody($mailbody, 'text/html');
+//            });
             
             if ($users->save()) {
                 return $users->id;
