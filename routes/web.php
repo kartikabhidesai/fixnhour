@@ -58,6 +58,7 @@ Route::group(['prefix' => $userPrefix], function() {
      Route::match(['get', 'post'], 'user-list', ['as' => 'user-list', 'uses' => 'admin\UserController@userList']);
      Route::match(['get', 'post'], 'user-add', ['as' => 'user-add', 'uses' => 'admin\UserController@userAdd']);
      Route::match(['get', 'post'], 'user-edit/{id}', ['as' => 'user-edit', 'uses' => 'admin\UserController@userEdit']);
+     Route::match(['get', 'post'], 'user-delete/{id}', ['as' => 'user-delete', 'uses' => 'admin\UserController@userDelete']);
 });
 Route::match(['get', 'post'], '/addSlider', ['as' => 'addSlider','uses' => 'admin\SliderController@addSlider']);
 Route::match(['get', 'post'], '/editSlider', ['as' => 'editSlider','uses' => 'admin\SliderController@editSlider']);

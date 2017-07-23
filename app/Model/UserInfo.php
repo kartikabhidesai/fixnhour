@@ -50,4 +50,7 @@ class UserInfo extends Model {
         return TRUE;
     }
     
+    public function deleteUserInfo($userId) {
+        return UserInfo::where('id', $userId)->delete();
+    }
 }

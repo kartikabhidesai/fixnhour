@@ -25,7 +25,7 @@ class UserController  extends Controller {
         $data['plugincss'] = array();
         $data['css'] = array();
         $data['pluginjs'] = array();
-        $data['js'] = array();
+        $data['js'] = array('admin/user.js');
         $data['funinit'] = array();
         $data['activateValue'] = 'userList';
         $data['arrUserList'] = UserInfo::where('role_type', '!=', 'admin')->get();
@@ -141,6 +141,18 @@ class UserController  extends Controller {
         return view('admin.user.user-detail',$data);
     }
     
+    public function userDelete($userId, Request $request){
+        
+        $objUserInfo = new UserInfo();
+        $result = $objUserInfo->deleteUserInfo($userId);
+        
+        if($result){
+            $request->session()->flash('session_success', 'This Record Delete Sucessfully.');
+        }else{
+            $request->session()->flash('session_error', 'Something will be Wrong. Please Try again.');
+        }
+         return redirect(route('user-list'));
+    }
 }
 
 ?>

@@ -460,3 +460,21 @@ if (getQueryString('redirect') != null) {
         window.location.href = getQueryString('redirect');
     }, 500);
 }
+
+
+/* Delete Single Record & Redirect */
+function deleteSingleData(URL, parentID) {
+    $('body').on('click', '.delete', function() {
+        var dataid = $(this).attr('data-id');
+        $('.yes-sure').attr('data-id', dataid);
+    });
+
+    $('.yes-sure').click(function() {
+        var dataid = $(this).attr('data-id'); 
+        if (parentID) {
+            window.location = (URL + parentID + '/' + dataid);
+        } else {
+            window.location = (URL + dataid);
+        }
+    });
+}

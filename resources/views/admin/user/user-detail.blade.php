@@ -111,7 +111,6 @@
                             <button type="submit" class="btn blue">{{ Route::current()->getName() == 'user-edit' ? 'Update' : 'Save' }}</button>
                             <a href="{{ route('user-list') }}" class="btn default">Cancel</a>
                         </div>
-                        
                         {{ Form::close() }}
                     </div>
                 </div>

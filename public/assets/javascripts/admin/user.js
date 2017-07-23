@@ -1,5 +1,7 @@
 var user = function () {
 
+    deleteSingleData(baseurl + 'admin/user-delete/');
+    
     var userInfo = function() {
         
         var form = $('#userInfoForm');

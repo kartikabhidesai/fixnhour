@@ -54,12 +54,14 @@
                                 <td>{{ $row->postcode  }}</td>
                                 <td>{{ $row->role_type }}</td>
                                 <td>
-                                   <div class="actions">
-                                        
-                                       <a href="{{ route('user-edit', array('id'=> $row->id)) }}" class="btn btn-circle btn-icon-only btn-default"><i class="icon-wrench"></i></a>
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                            <i class="icon-trash"></i>
-                                        </a>
+                                    <div class="actions">
+                                        <a href="{{ route('user-edit', array('id'=> $row->id)) }}" class="btn btn-circle btn-icon-only btn-default"><i class="icon-wrench"></i></a>
+                                        <span data-toggle="modal" class="delete" data-id="{{ $row->id }}" data-target="#deleteModal"> 
+                                            <a class="btn btn-circle btn-icon-only btn-default delete" data-toggle="tooltip" data-original-title="Delete" style="font-size: 13px;" href="javascript:;"><i class="icon-trash"></i></a> 
+                                        </span>
+                                        <span data-toggle="modal" class="resetPassword" data-id="{{ $row->id }}" data-target="#resetPasswordModal"> 
+                                            <a class="btn btn-circle btn-icon-only btn-default resetPassword" data-toggle="tooltip" data-original-title="Reset Password" style="font-size: 13px;" href="javascript:;"><i class="fa fa-arrows-alt"></i></a> 
+                                        </span>
                                     </div>
                                 </td>
                             </tr>
@@ -68,6 +70,57 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="deleteModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" data-dismiss="modal" class="close" type="button">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">Delete Record</h4>
+                </div>
+                <div class="modal-body">
+                    <p> You want to delete record. Are you sure?</p>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-danger" type="button">No</button>
+                    <button class="btn btn-success yes-sure" type="button">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="resetPasswordModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" data-dismiss="modal" class="close" type="button">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">Reset Password </h4>
+                </div>
+                {{ Form::open( array('method' => 'post','id' => 'resetPasswordForm')) }}
+                <div class="modal-body">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="FirstName" class="control-label col-sm-4">New Password : <span class="required">*</span></label>
+                            <div class="col-sm-4 form-group">
+                                {{ Form::text('new_pwd', null, array('class' => 'form-control', 'id' => 'new_pwd', 'placeholder' => 'Enter New Password')) }}
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="form-actions text-center">
+                        <button></button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-danger" type="button">No</button>
+                    <button class="btn btn-success yes-sure" type="button">Yes</button>
+                </div>
+                {{ Form::close() }}
             </div>
         </div>
     </div>
