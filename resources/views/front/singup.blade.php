@@ -19,13 +19,13 @@
                             <p> <a href="create-accont-freelance.html" class="coutom-link">Sign up as a Freelancer</a></p>
                         </div>
                         <div id='errorSection'>
-                          @if (session('session_success'))
+                            @if (session('session_success'))
                             <div class="alert alert-success">
                                 {{ session('session_success') }}
                                 <div class="pull-right closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
                             </div>
                             @endif
-                            
+
                             @if (session('session_error'))
                             <div class="alert alert-danger">
                                 {{ session('session_error') }}

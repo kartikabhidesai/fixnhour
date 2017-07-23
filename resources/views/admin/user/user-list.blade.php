@@ -56,7 +56,7 @@
                                 <td>
                                    <div class="actions">
                                         
-                                        <a href="{{ route('user-edit', array('id', $row->id)) }}" class="btn btn-circle btn-icon-only btn-default"><i class="icon-wrench"></i></a>
+                                       <a href="{{ route('user-edit', array('id'=> $row->id)) }}" class="btn btn-circle btn-icon-only btn-default"><i class="icon-wrench"></i></a>
                                         <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                                             <i class="icon-trash"></i>
                                         </a>
