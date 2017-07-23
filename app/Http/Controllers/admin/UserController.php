@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Model\UserInfo;
+use App\Model\Users;
 use DB;
 use Config;
 
@@ -44,7 +45,6 @@ class UserController  extends Controller {
                         'first_name' => 'required',
                         'last_name' => 'required',
                         'phone' => 'required',
-                        'mobile' => 'required',
                         'username' => 'required',
                         'email' => 'required',
                         'address' => 'required',
@@ -55,16 +55,22 @@ class UserController  extends Controller {
             if ($validator->fails()) {
                 return redirect(route('user-add'))->withErrors($validator)->withInput();
             }
-
-            $objUserInfo = new UserInfo();
-            $result = $objUserInfo->saveUserInfo($request);
             
-            if($result){
-                $request->session()->flash('session_success', 'User Add Sucessfully.');
-                return redirect(route('user-list'));
+            $user = new Users;
+            $firstTime = $user->checkUsername($request->input());
+            if($firstTime){
+                $objUserInfo = new UserInfo();
+                $result = $objUserInfo->saveUserInfo($request);
+                if ($result) {
+                    $request->session()->flash('session_success', 'User Add Sucessfully.');
+                    return redirect(route('user-list'));
+                } else {
+                    $request->session()->flash('session_success', 'Something will be wrong. Please try again.');
+                    return redirect(route('user-add'))->withInput();
+                }
             }else{
-                $request->session()->flash('session_success', 'Something will be wrong. Please try again.');
-                return redirect(route('user-list'))->withInput();
+                $request->session()->flash('session_error', 'UserName OR Email address is already Register.');
+                return redirect(route('user-add'))->withInput();
             }
         }
         
@@ -96,7 +102,6 @@ class UserController  extends Controller {
                         'first_name' => 'required',
                         'last_name' => 'required',
                         'phone' => 'required',
-                        'mobile' => 'required',
                         'username' => 'required',
                         'email' => 'required',
                         'address' => 'required',
@@ -107,7 +112,7 @@ class UserController  extends Controller {
             if ($validator->fails()) {
                 return redirect(route('user-edit', array('id', $userId)))->withErrors($validator)->withInput();
             }
-
+            
             $objUserInfo = new UserInfo();
             $result = $objUserInfo->updateUserInfo($userId, $request);
             
