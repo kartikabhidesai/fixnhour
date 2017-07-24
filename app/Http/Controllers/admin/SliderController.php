@@ -32,8 +32,8 @@ class SliderController  extends Controller {
             
         );
         $data['init'] = array(
-             'Slider.init();'
-         );
+            'Slider.init();'
+        );
         $data['slider'] = DB::table('slider')->get();
         
         return view('admin.account.slider-list',$data);
@@ -110,6 +110,7 @@ class SliderController  extends Controller {
         }
        echo json_encode($response); exit;
     }
+    
     function editSlider(Request $request){
         $insertSlider = new Slider();
         $result = $insertSlider->editSlider($request);

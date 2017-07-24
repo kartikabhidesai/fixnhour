@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="portlet-body">
-                        {{ Form::open( array('method' => 'post','id' => 'userInfoForm')) }}
+                        {{ Form::open( array('method' => 'post', 'id' => 'userInfoForm',  'class' => '' )) }}
                         <div class="col-md-12">
                             <div class="form-group">
                                 <div class="col-sm-2 form-group">
@@ -67,19 +67,20 @@
                                     <label for="LastName" class="control-label">Last Name : <span class="required">*</span></label>
                                     {{ Form::text('last_name' ,(empty($arrUserInfo->last_name) ? null : $arrUserInfo->last_name), array('class' => 'form-control', 'id' => 'last_name', 'placeholder' => 'Enter Last Name')) }}
                                 </div>
+                                @if(Route::current()->getName() == 'user-add')
                                 <div class="col-sm-4 form-group">
                                     <label for="UserName" class="control-label">User Name : <span class="required">*</span></label>
                                     {{ Form::text('username', (empty($arrUserInfo->username) ? null : $arrUserInfo->username), array('class' => 'form-control', 'id' => 'username', 'placeholder' => 'Enter User Name')) }}
                                 </div>
                                 <div class="col-sm-4 form-group">
                                     <label for="Password" class="control-label">Password : <span class="required">*</span></label>
-                                    {{ Form::password('password',  array('class' => 'form-control', 'placeholder' => 'Enter Password')) }}
+                                    {{ Form::password('password',  array('class' => 'form-control', 'id' => 'password', 'placeholder' => 'Enter Password')) }}
                                 </div>
                                 <div class="col-sm-4 form-group">
                                     <label class="control-label">Confirm Password <span id="" class="required">*<div></div></span></label>
                                     {{ Form::password('confirm_password', array('class' => 'form-control', 'placeholder' => 'Re-enter Password')) }}
                                 </div>
-                                
+                                @endif
                                 <div class="col-sm-8 form-group">
                                     <label for="Adress" class="control-label">Adress : <span class="required">*</span></label>
                                     {{ Form::textarea('address', (empty($arrUserInfo->address) ? null : $arrUserInfo->address), array('class' => 'form-control', 'id' => 'Address', 'placeholder' => 'Enter Address','rows'=>"3.5")) }}
