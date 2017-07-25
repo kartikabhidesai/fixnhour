@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\freelancer;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 class FreelancerController extends Controller {
     
     public function __construct() {
      //   $this->middleware('auth');
+         $this->middleware('freelancer');
     }
 
     public function index() {
@@ -21,6 +24,12 @@ class FreelancerController extends Controller {
         return view('freelancer.findWork',$data);
     }
     
+    public function logout(Request $request)
+    {
+        Auth::guard('freelancer')->logout();
+        $request->session()->flash('session_success', 'You are successfully logout.');
+         return redirect()->intended('/');
+    }
     public function profile(){
          $data['pagetitle'] = 'Landing - Fixnhour';
         $data['metatitle'] = 'Landing - Fixnhour';

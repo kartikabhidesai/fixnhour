@@ -26,17 +26,18 @@ Route::get('/find-telent', 'front\HomeController@findTelent');
 
 Route::get('/how-it-works', 'front\HomeController@howItWorks');
 
-Route::get('/freelancer', 'FreelancerController@index');
+Route::get('/freelancer', 'freelancer\FreelancerController@index');
+Route::get('/freelancer-logout', 'freelancer\FreelancerController@logout');
 
-Route::get('/my-jobs', 'FreelancerController@myJobs');
+Route::get('/my-jobs', 'freelancer\FreelancerController@myJobs');
 
-Route::get('/payment', 'FreelancerController@payment');
+Route::get('/payment', 'freelancer\FreelancerController@payment');
 
-Route::get('/message', 'FreelancerController@message');
+Route::get('/message', 'freelancer\FreelancerController@message');
 
-Route::get('/save-job', 'FreelancerController@saveJob');
+Route::get('/save-job', 'freelancer\FreelancerController@saveJob');
 
-Route::get('/profile', 'FreelancerController@profile');
+Route::get('/profile', 'freelancer\FreelancerController@profile');
 Route::get('/post-your-job', 'client\PostYourJobController@postYourJob');
 //Route::get('/deshboard', 'admin\AccountController@deshboard');
 //Route::get('/admin', 'admin\AccountController@login');

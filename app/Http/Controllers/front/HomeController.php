@@ -25,12 +25,30 @@ class HomeController extends Controller {
              if (Auth::guard('admin')->attempt(['email' => $username, 'password' => $password,'role_type' =>'admin','enum_status'=>'ACTIVE'])) {
                  return redirect()->intended('admin/dashboard');
              }
-             if (Auth::guard('freelancer')->attempt(['email' => $username, 'password' => $password,'role_type' =>'freelancer','enum_status'=>'ACTIVE'])) {
-                 return redirect()->intended('freelancer');
+             if (Auth::guard('freelancer')->attempt(['email' => $username, 'password' => $password,'role_type' =>'freelancer'])) {
+                 if(Auth::guard('freelancer')->user()->enum_status == 'PENDING')
+                 {
+                      Auth::guard('freelancer')->logout();
+                      $request->session()->flash('session_success', 'You have not activate your profile. Please activate it.');
+                      return redirect()->intended('/');
+                 }else{
+                     $request->session()->flash('session_success', 'User Was Successfully Added.');
+                     return redirect()->intended('freelancer');
+                 }
              }
-             if (Auth::guard('client')->attempt(['email' => $username, 'password' => $password,'role_type' =>'client','enum_status'=>'ACTIVE'])) {
+             if (Auth::guard('client')->attempt(['email' => $username, 'password' => $password,'role_type' =>'client'])) {
+                  if(Auth::guard('client')->user()->enum_status == 'PENDING')
+                 {
+                      Auth::guard('client')->logout();
+                      $request->session()->flash('session_success', 'You have not activate your profile. Please activate it.');
+                      return redirect()->intended('/');
+                 }else{
+                     $request->session()->flash('session_success', 'User Was Successfully Added.');
+                     return redirect()->intended('freelancer');
+                 }
                  return redirect()->intended('post-your-job');
              }
+             
         }
         $data['plugincss'] = array();
         $data['css'] = array();
