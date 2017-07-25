@@ -25,8 +25,12 @@ class UserController  extends Controller {
         $data['plugincss'] = array();
         $data['css'] = array();
         $data['pluginjs'] = array();
-        $data['js'] = array('admin/user.js');
-        $data['funinit'] = array();
+        $data['js'] = array(
+            'admin/user.js',
+            'jquery.form.min.js',
+            'bootstrap-fileinput/bootstrap-fileinput.js',
+            );
+        $data['init'] = array('user.listInit()');
         $data['activateValue'] = 'userList';
         $data['arrUserList'] = UserInfo::where('role_type', '!=', 'admin')->get();
        
@@ -56,10 +60,9 @@ class UserController  extends Controller {
                 return redirect(route('user-add'))->withErrors($validator)->withInput();
             }
             
-            $user = new Users;
-            $firstTime = $user->checkUsername($request->input());
+            $objUserInfo = new UserInfo();
+            $firstTime = $objUserInfo->checkUsername($request->input());
             if($firstTime){
-                $objUserInfo = new UserInfo();
                 $result = $objUserInfo->saveUserInfo($request);
                 if ($result) {
                     $request->session()->flash('session_success', 'User Add Sucessfully.');
@@ -80,7 +83,7 @@ class UserController  extends Controller {
         $data['css'] = array();
         $data['pluginjs'] = array('jQuery/jquery.validate.min.js');
         $data['js'] = array('admin/user.js');
-        $data['funinit'] = array('user.init()');
+        $data['init'] = array('user.init()');
         $data['activateValue'] = 'userAdd';
         $data['arrNameTitle'] = $arrNameTitle;
         $data['arrUserType'] = $arrUserType;
@@ -102,7 +105,6 @@ class UserController  extends Controller {
                         'first_name' => 'required',
                         'last_name' => 'required',
                         'phone' => 'required',
-                        'username' => 'required',
                         'email' => 'required',
                         'address' => 'required',
                         'city_town' => 'required',
@@ -131,7 +133,7 @@ class UserController  extends Controller {
         $data['css'] = array();
         $data['pluginjs'] = array('jQuery/jquery.validate.min.js');
         $data['js'] = array('admin/user.js');
-        $data['funinit'] = array('user.init()');
+        $data['init'] = array('user.init()');
         $data['activateValue'] = 'userEdit';
         
         $data['arrNameTitle'] = $arrNameTitle;
@@ -148,6 +150,19 @@ class UserController  extends Controller {
         
         if($result){
             $request->session()->flash('session_success', 'This Record Delete Sucessfully.');
+        }else{
+            $request->session()->flash('session_error', 'Something will be Wrong. Please Try again.');
+        }
+         return redirect(route('user-list'));
+    }
+    
+    public function resetPassword($userId, Request $request){
+        
+        $objUserInfo = new UserInfo();
+        $result = $objUserInfo->updateUserPassword($userId, $request);
+        
+        if($result){
+            $request->session()->flash('session_success', 'This Password Update Sucessfully.');
         }else{
             $request->session()->flash('session_error', 'Something will be Wrong. Please Try again.');
         }

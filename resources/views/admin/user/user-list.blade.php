@@ -73,7 +73,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="modal fade" id="deleteModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -93,6 +93,7 @@
             </div>
         </div>
     </div>
+    
     <div class="modal fade" id="resetPasswordModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -102,23 +103,30 @@
                     </button>
                     <h4 class="modal-title">Reset Password </h4>
                 </div>
-                {{ Form::open( array('method' => 'post','id' => 'resetPasswordForm')) }}
+                {{ Form::open( array('method' => 'post', 'id' => 'resetPasswordForm' )) }}
                 <div class="modal-body">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="FirstName" class="control-label col-sm-4">New Password : <span class="required">*</span></label>
-                            <div class="col-sm-4 form-group">
-                                {{ Form::text('new_pwd', null, array('class' => 'form-control', 'id' => 'new_pwd', 'placeholder' => 'Enter New Password')) }}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">New Password : <span class="required">*</span></label>
+                                <div class="col-sm-6 form-group">
+                                    {{ Form::password('new_pwd', array('class' => 'form-control', 'id' => 'new_pwd', 'placeholder' => 'Enter New Password')) }}
+                                </div>
                             </div>
                         </div>
-                    </div>   
-                    <div class="form-actions text-center">
-                        <button></button>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Re-enter Password : <span class="required">*</span></label>
+                                <div class="col-sm-6 form-group">
+                                    {{ Form::password('confirm_pwd', array('class' => 'form-control', 'placeholder' => 'Re-enter New Password')) }}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button data-dismiss="modal" class="btn btn-danger" type="button">No</button>
-                    <button class="btn btn-success yes-sure" type="button">Yes</button>
+                    <button class="btn btn-success resetPwd" type="button">Yes</button>
                 </div>
                 {{ Form::close() }}
             </div>

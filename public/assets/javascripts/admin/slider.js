@@ -9,7 +9,7 @@ var Slider = function () {
         handleFormValidate(form, rules, function() {
             handleAjaxFormSubmit(form, true);
         });
-    }
+    };
 
     var edit = function() {
         var form = $('#editSlider');
