@@ -58,74 +58,55 @@ class Users extends Authenticatable{
             return FALSE;
         }
     }
+     public function basic_email(){
+      $data = array('name'=>"Virat Gandhi");
+
+      Mail::send(['text'=>'email.email'], $data, function($message) {
+         $message->to('kartikdesai123@gmail.com', 'Tutorials Point')->subject
+            ('Laravel Basic Testing Mail');
+         
+         $message->from('abhishekdesai39@gmail.com','Virat Gandhi');
+      });
+      echo "Basic Email Sent. Check your inbox.";
+   }
+   
     public function saveFrontendUsers($request,$fileData){
             $emailEncode = base64_encode($request['email']);
             $url = url('activeAccount/'.$emailEncode);
-            $mailbody = 'Please click on below link to active your account<br/>'.$url;
-//                
-//            Mail::send(array(), $request ,function($message) use($request,$mailbody) {
-//                $message->to($request['email'], $request['username'])
-//                        ->from('abhishekdesai39@gmail.com')
-//                        ->subject('Welcome to Softral')
-//                        ->setBody($mailbody, 'text/html');
-//            });
-                $arrMail = array(
-                    'mailTo' => $request['email'],
-                    'from' => 'abhishekdesai39@gmail.com',
-                    'fromName' => 'Softral',
-                    'cc' => 'abhishekdesai39@gmail.com',
-                    'replyTo' => $request['email'],
-                    'bcc' => 'abhishekdesai39@gmail.com',
-                    'subject' => 'Welcome to Softral',
-                    'message' => 'Active Account',
-                    'fileName' => '',
-                    'filePath' => '',
-                );
+            $mailbody = 'Hello '.$request['email'].'<br/><br/>Please click on below link to active your account.<br/><br/>'.$url.'<br/><br/>Thanks';
+
+            $arrMail = array(
+                'mailTo' => $request['email'],
+                'from' => 'abhishekdesai39@gmail.com',
+                'fromName' => 'Softral',
+                'cc' => 'abhishekdesai39@gmail.com',
+                'replyTo' => $request['email'],
+                'bcc' => 'abhishekdesai39@gmail.com',
+                'subject' => 'Welcome to Softral',
+                'message' => 'Active Account',
+                'fileName' => '',
+                'filePath' => '',
+            );
                 
-                $path = $arrMail['filePath'];
-                $filename = $arrMail['fileName'];
-                $file = $path . $filename;
-                if (is_dir($path . $filename) && !empty($path) && !empty($filename)) {
-                    $filename = $arrMail['fileName'];
-                    $content = file_get_contents($file);
-                    $content = chunk_split(base64_encode($content));
-                } else {
-                    $filename = '';
-                    $content = '';
-                }
-
-                $uid = md5(uniqid(time()));
-                $name = basename($file);
-                $from_name = $arrMail['from'];
-                $from_mail = $arrMail['from'];
-                $replyto = $arrMail['mailTo'];
-                $message = $arrMail['message'];
-                $subject = $arrMail['subject'];
-                $mailto = $arrMail['mailTo'];
                 
-                // header
-                $header  = "From: " . $from_name . " <" . $from_mail . ">\r\n";
-                $header .= "Reply-To: " . $replyto . "\r\n";
-                $header .= "MIME-Version: 1.0\r\n";
+            $from_name = $arrMail['from'];
+            $from_mail = $arrMail['from'];
+            $replyto = $arrMail['mailTo'];
+            $message = $arrMail['message'];
+            $subject = $arrMail['subject'];
+            $mailto = $arrMail['mailTo'];
+                
+            // message & attachment
+            $nmessage = '';
 
-                // message & attachment
-                $nmessage = "--" . $uid . "\r\n";
-                $nmessage .= "Content-type:text/html;charset=UTF-8\r\n";
-                $nmessage .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-                $nmessage .= $mailbody . "\r\n\r\n";
-                $nmessage .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"\r\n";
-                $nmessage .= "Content-Transfer-Encoding: base64\r\n";
-                $nmessage .= "Content-Disposition: attachment; filename=\"" . $filename . "\"\r\n\r\n";
-                $nmessage .= $content . "\r\n\r\n";
+            $nmessage .= $mailbody . "\r\n\r\n";
+            // Always set content-type when sending HTML email
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-                if (mail($mailto, $subject, $nmessage, $header)) {
-                    echo "mail send ... OK"; // or use booleans here
-                } else {
-                    echo "mail send ... ERROR!";
-                }
-    
-        
-        exit();
+            // More headers
+            $headers .= 'From: Softral <Mednoor1@gmail.com>' . "\r\n";
+       
             $file = $fileData['profile_image']; 
             $profileImage = NULL;
             if($request['usertype'] == 'freelancer'){
@@ -151,18 +132,9 @@ class Users extends Authenticatable{
             $users->var_image = $profileImage;
             $users->last_ip = \Request::ip();
             
-//            $emailEncode = base64_encode($request['email']);
-//            $url = url('front/HomeController/activeAccount/'.$emailEncode);
-//            $mailbody = 'Please click on below link to active your account<br/>'.$url;
-//
-//            Mail::send('emails.email', $data, function($message) use ($data) {
-//                $message->to( $request['email'], $request['username'])
-//                        ->from('kartikdesai123@gmail.com')
-//                        ->subject('Welcome to Softral')
-//                        ->setBody($mailbody, 'text/html');
-//            });
             
             if ($users->save()) {
+              //  mail($mailto, $subject, $nmessage, $headers);
                 return $users->id;
             }
             //$request->session()->flash('session_success', 'User Was Successfully Added.');

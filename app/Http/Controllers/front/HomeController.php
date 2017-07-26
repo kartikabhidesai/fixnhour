@@ -26,6 +26,7 @@ class HomeController extends Controller {
                  return redirect()->intended('admin/dashboard');
              }
              if (Auth::guard('freelancer')->attempt(['email' => $username, 'password' => $password,'role_type' =>'freelancer'])) {
+                 
                  if(Auth::guard('freelancer')->user()->enum_status == 'PENDING')
                  {
                       Auth::guard('freelancer')->logout();
@@ -37,6 +38,7 @@ class HomeController extends Controller {
                  }
              }
              if (Auth::guard('client')->attempt(['email' => $username, 'password' => $password,'role_type' =>'client'])) {
+                 
                   if(Auth::guard('client')->user()->enum_status == 'PENDING')
                  {
                       Auth::guard('client')->logout();
@@ -44,9 +46,9 @@ class HomeController extends Controller {
                       return redirect()->intended('/');
                  }else{
                      $request->session()->flash('session_success', 'User Was Successfully Added.');
-                     return redirect()->intended('freelancer');
+                     return redirect()->intended('post-your-job');
                  }
-                 return redirect()->intended('post-your-job');
+                 
              }
              
         }
@@ -169,5 +171,10 @@ class HomeController extends Controller {
             $data['message'] = 'Error';
         }
         return view('front.account-active',$data);
+    }
+    
+    public function basic_email(){
+        $user = new Users;
+        $firstTime = $user->basic_email();
     }
 }
