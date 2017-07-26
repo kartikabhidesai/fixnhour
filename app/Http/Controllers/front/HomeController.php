@@ -17,8 +17,8 @@ class HomeController extends Controller {
 
     public function index(Request $request) {
         
-        $data['pagetitle'] = 'Home - Fixnhour';
-        $data['metatitle'] = 'Home - Fixnhour';
+        $data['pagetitle'] = 'Home - Softral';
+        $data['metatitle'] = 'Home - Softral';
         if ($request->isMethod('post')) {
              $username = $request->input('username');
             $password = $request->input('password');
@@ -77,8 +77,8 @@ class HomeController extends Controller {
     }
     public function signup(Request $request){
         
-        $data['pagetitle'] = 'Create account freelancce - Fixnhour';
-        $data['metatitle'] = 'Create account freelancce - Fixnhour';
+        $data['pagetitle'] = 'Create account freelancce - Softral';
+        $data['metatitle'] = 'Create account freelancce - Softral';
         
         if ($request->isMethod('post')) {
             $postData = $request->input();
@@ -117,8 +117,8 @@ class HomeController extends Controller {
     }
     
     public function findTelent(){
-        $data['pagetitle'] = 'Find Talent - Fixnhour';
-        $data['metatitle'] = 'Find Talent - Fixnhour';
+        $data['pagetitle'] = 'Find Talent - Softral';
+        $data['metatitle'] = 'Find Talent - Softral';
         $data['js'] = array(
         
         );
@@ -136,8 +136,8 @@ class HomeController extends Controller {
     }
     
     public function howItWorks(){
-        $data['pagetitle'] = 'Landing - Fixnhour';
-        $data['metatitle'] = 'Landing - Fixnhour';
+        $data['pagetitle'] = 'Landing - Softral';
+        $data['metatitle'] = 'Landing - Softral';
         $data['js'] = array(
         
         );
@@ -155,8 +155,8 @@ class HomeController extends Controller {
         $checkUsername = Users::where('email', $email)->get()->toArray();
        
         $result = Users::where('id', '=', $checkUsername[0]['id'])->update(['enum_status' => 'ACTIVE']);
-        $data['pagetitle'] = 'Landing - Fixnhour';
-        $data['metatitle'] = 'Landing - Fixnhour';
+        $data['pagetitle'] = 'Landing - Softral';
+        $data['metatitle'] = 'Landing - Softral';
         $data['js'] = array(
         
         );
