@@ -21,6 +21,6 @@ $(window).load(function()
 </script>
     @if (!empty($js))
         @foreach($js as $value)
-        <link href="{{ asset('js/'.$value) }}" rel="stylesheet">
+        <script src="{{ asset('js/'.$value) }}" rel="stylesheet"></script>
         @endforeach
     @endif
