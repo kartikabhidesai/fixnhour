@@ -1,20 +1,14 @@
 <div class="site-new-header site-new-header-tow site-header">
-
     <div class="container">
-
         <header class="cd-main-header">
             <a class="cd-logo" href="{{'/'}}"><img src="{{ asset('assets/images/logo-1.png') }}" alt="Logo" style="width:165px;padding-top: 12px"></a>
-
             <ul class="cd-header-buttons">
                 <li><a class="cd-search-trigger" href="#cd-search"><span></span></a></li>
                 <li><a class="cd-nav-trigger" href="#cd-primary-nav"><span></span></a></li>
             </ul> <!-- cd-header-buttons -->
         </header>
-
         <nav class="cd-nav">
-
             <ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
-
                 <li>
                     <div class="nav-menu">
                         <ul>
@@ -160,16 +154,33 @@
                             <div class="btn-group show-on-hover custom-dropdown">
 
                                 <button type="button" class="btn btn-default dropdown-toggle user-drop-btn" data-toggle="dropdown"> 
-                                    <img src="images/user.jpg" alt="#"> <div class="pull-left">
-                                        <p>Hello.</p>
-                                        <h4> {{ Auth::guard('freelancer')->user()->username }} <span> <i class="fa fa-angle-down" aria-hidden="true"></i></span> </h4></div>
+                                        @if(Auth::guard('freelancer')->user()->var_image != "")
+                                        <img src="{{ url ('uploads/freelancer/'.Auth::guard('freelancer')->user()->var_image) }}" >  
+                                        @else
+                                        <img src="{{ url ('uploads/freelancer/no-profile-photo.jpg') }}" >  
+                                        @endif
+                                        <div class="pull-left">
+                                            <p>Hello.</p>
+                                            <h4> 
+                                                {{ Auth::guard('freelancer')->user()->username }} 
+                                                <span> <i class="fa fa-angle-down" aria-hidden="true"></i></span> 
+                                            </h4>
+                                        </div>
                                 </button>
 
                                 <ul class="dropdown-menu" role="menu">
 
-                                    <li><a href="{{ url ('profile') }}" class="user-drop-btn">
-                                            <img src="images/user.jpg" >  <h4>Profile </h4> </a></li>
-
+                                    <li>
+                                        <a href="{{ url ('profile') }}" class="user-drop-btn">
+                                            @if(Auth::guard('freelancer')->user()->var_image != "")
+                                            <img src="{{ url ('uploads/freelancer/'.Auth::guard('freelancer')->user()->var_image) }}" >  
+                                            @else
+                                            <img src="{{ url ('uploads/freelancer/no-profile-photo.jpg') }}" >  
+                                            @endif
+                                            <h4>Profile </h4> 
+                                            
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="#" class="user-drop-link"> 
                                             <i class="pe-7s-note2"></i>  Report 

@@ -95,7 +95,7 @@ class HomeController extends Controller {
         }
         
         $data['plugincss'] = array(
-            'bootstrap/css/bootstrap.min.css',
+          //  'bootstrap/css/bootstrap.min.css',
             'bootstrap-fileinput/bootstrap-fileinput.css',
         );
         $data['css'] = array(
