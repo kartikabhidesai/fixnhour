@@ -21,16 +21,18 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap-dropdownhover.css') }}">
     <link href="{{ asset('css/stylesheet.css') }}" rel="stylesheet">
     
-    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/owl.theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/owl.transitions.css') }}">  
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-    <link href="{{ asset('css/menu-style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/fontface-style.css') }}">
+    
     
      @if (!empty($css))
         @foreach($css as $value)
         <link href="{{ asset('css/'.$value) }}" rel="stylesheet">
         @endforeach
     @endif
+    
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.transitions.css') }}">  
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link href="{{ asset('css/menu-style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/fontface-style.css') }}">
 </head>

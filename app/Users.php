@@ -59,17 +59,73 @@ class Users extends Authenticatable{
         }
     }
     public function saveFrontendUsers($request,$fileData){
-//            $emailEncode = base64_encode($request['email']);
-//            $url = url('front/HomeController/activeAccount/'.$emailEncode);
-//            $mailbody = 'Please click on below link to active your account<br/>'.$url;
+            $emailEncode = base64_encode($request['email']);
+            $url = url('activeAccount/'.$emailEncode);
+            $mailbody = 'Please click on below link to active your account<br/>'.$url;
 //                
 //            Mail::send(array(), $request ,function($message) use($request,$mailbody) {
-//                $message->to($request1['email'], $request1['username'])
-//                        ->from('kartikdesai123@gmail.com')
+//                $message->to($request['email'], $request['username'])
+//                        ->from('abhishekdesai39@gmail.com')
 //                        ->subject('Welcome to Softral')
 //                        ->setBody($mailbody, 'text/html');
 //            });
-//        exit();
+                $arrMail = array(
+                    'mailTo' => $request['email'],
+                    'from' => 'abhishekdesai39@gmail.com',
+                    'fromName' => 'Softral',
+                    'cc' => 'abhishekdesai39@gmail.com',
+                    'replyTo' => $request['email'],
+                    'bcc' => 'abhishekdesai39@gmail.com',
+                    'subject' => 'Welcome to Softral',
+                    'message' => 'Active Account',
+                    'fileName' => '',
+                    'filePath' => '',
+                );
+                
+                $path = $arrMail['filePath'];
+                $filename = $arrMail['fileName'];
+                $file = $path . $filename;
+                if (is_dir($path . $filename) && !empty($path) && !empty($filename)) {
+                    $filename = $arrMail['fileName'];
+                    $content = file_get_contents($file);
+                    $content = chunk_split(base64_encode($content));
+                } else {
+                    $filename = '';
+                    $content = '';
+                }
+
+                $uid = md5(uniqid(time()));
+                $name = basename($file);
+                $from_name = $arrMail['from'];
+                $from_mail = $arrMail['from'];
+                $replyto = $arrMail['mailTo'];
+                $message = $arrMail['message'];
+                $subject = $arrMail['subject'];
+                $mailto = $arrMail['mailTo'];
+                
+                // header
+                $header  = "From: " . $from_name . " <" . $from_mail . ">\r\n";
+                $header .= "Reply-To: " . $replyto . "\r\n";
+                $header .= "MIME-Version: 1.0\r\n";
+
+                // message & attachment
+                $nmessage = "--" . $uid . "\r\n";
+                $nmessage .= "Content-type:text/html;charset=UTF-8\r\n";
+                $nmessage .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+                $nmessage .= $mailbody . "\r\n\r\n";
+                $nmessage .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"\r\n";
+                $nmessage .= "Content-Transfer-Encoding: base64\r\n";
+                $nmessage .= "Content-Disposition: attachment; filename=\"" . $filename . "\"\r\n\r\n";
+                $nmessage .= $content . "\r\n\r\n";
+
+                if (mail($mailto, $subject, $nmessage, $header)) {
+                    echo "mail send ... OK"; // or use booleans here
+                } else {
+                    echo "mail send ... ERROR!";
+                }
+    
+        
+        exit();
             $file = $fileData['profile_image']; 
             $profileImage = NULL;
             if($request['usertype'] == 'freelancer'){

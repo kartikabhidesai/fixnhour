@@ -22,6 +22,7 @@ Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'front\HomeControl
 //Route::get('/signup', 'HomeController@signup');
 Route::match(['get', 'post'], 'signup', ['as' => 'signup', 'uses' => 'front\HomeController@signup']);
 Route::match(['get', 'post'], '/signin', ['as' => 'signin', 'uses' => 'front\HomeController@signin']);
+Route::match(['get', 'post'], '/activeAccount/{code}', ['as' => 'activeAccount', 'uses' => 'front\HomeController@activeAccount']);
 Route::get('/find-telent', 'front\HomeController@findTelent');
 
 Route::get('/how-it-works', 'front\HomeController@howItWorks');

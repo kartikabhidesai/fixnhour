@@ -146,7 +146,28 @@ class HomeController extends Controller {
         
     }
     
-    public function activeAccount(request $request){
+    public function activeAccount($code){
+        $email = base64_decode($code);
         
+        $user = new Users;
+        $checkUsername = Users::where('email', $email)->get()->toArray();
+       
+        $result = Users::where('id', '=', $checkUsername[0]['id'])->update(['enum_status' => 'ACTIVE']);
+        $data['pagetitle'] = 'Landing - Fixnhour';
+        $data['metatitle'] = 'Landing - Fixnhour';
+        $data['js'] = array(
+        
+        );
+        $data['css'] = array(
+            
+        );
+        
+       
+        if($result){
+            $data['message'] = 'Success';
+        }else{
+            $data['message'] = 'Error';
+        }
+        return view('front.account-active',$data);
     }
 }

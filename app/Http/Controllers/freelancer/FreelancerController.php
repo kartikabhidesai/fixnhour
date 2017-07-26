@@ -40,10 +40,10 @@ class FreelancerController extends Controller {
         );
         $data['pluginjs'] = array();
         $data['js'] = array(
-         //   'easyResponsiveTabs.js',
+            'easyResponsiveTabs.js',
             'rotate-patch.js',
             'gridGallery.js',
-          //  'freelancer/profile.js'
+            'freelancer/profile.js'
         );
         $data['css'] = array(
             'easy-responsive-tabs.css',
