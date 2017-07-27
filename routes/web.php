@@ -30,6 +30,8 @@ Route::get('/payment', 'freelancer\FreelancerController@payment');
 Route::get('/message', 'freelancer\FreelancerController@message');
 Route::get('/save-job', 'freelancer\FreelancerController@saveJob');
 Route::get('/profile', 'freelancer\FreelancerController@profile');
+Route::match(['get', 'post'], '/setting', ['as' => 'setting', 'uses' => 'freelancer\SettingController@profileImage']);
+Route::match(['get', 'post'], '/update-profile', ['as' => 'update-profile', 'uses' => 'freelancer\SettingController@updateProfile']);
 
 // Freelancer Rought end
 
