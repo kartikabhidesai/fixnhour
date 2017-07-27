@@ -193,4 +193,19 @@ class Users extends Authenticatable{
         $objUser->save();
         return TRUE;
     }
+    
+    public function changePassword($request,$userId){
+        $objUser = Users::find($userId);
+        
+        //if($objUser->password == Hash::make($request['old_password']))
+        if(Hash::check($request['old_password'] , $objUser->password))
+        {
+            $objUser->password = Hash::make($request['new_password']);
+            $objUser->save();
+             return TRUE;
+        }else{
+            return FALSE;
+        }
+        
+    }
 }

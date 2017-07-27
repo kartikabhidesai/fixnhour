@@ -1,6 +1,7 @@
 <ul>
     <li class="@if(isset($cpp)){{  $cpp  }} @endif"><a href="{{ url ('setting') }}">Change profile picture</a></li>
     <li class="@if(isset($up)) {{  $up  }} @endif"><a href="{{ url ('update-profile') }}">Update profile</a></li>
+    <li class="@if(isset($cp)) {{  $cp  }} @endif"><a href="{{ url ('change-password') }}">Change Password</a></li>
 </ul>
 <style>
     div.job-left {
