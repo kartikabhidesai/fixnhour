@@ -36,7 +36,7 @@ Route::match(['get', 'post'], '/update-profile', ['as' => 'update-profile', 'use
 // Freelancer Rought end
 
 // Client Rought start
-Route::get('/post-your-job', 'client\PostYourJobController@postYourJob');
+Route::match(['get', 'post'], 'post-your-job', ['as' => 'post-your-job', 'uses' => 'client\PostYourJobController@postYourJob']);
 
 // Client Rought end
 
