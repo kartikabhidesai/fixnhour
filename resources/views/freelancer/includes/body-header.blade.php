@@ -24,11 +24,11 @@
                             </li>
 
                             <li class="children ">
-                                <a href="{{ url ('freelancer')}}"> Work </a>				
+                                <a href="{{ url ('freelancer') }}"> Work </a>				
                             </li>
 
                             <li class="children">
-                                <a href="{{ url ('my-jobs')}}"> Jobs </a>
+                                <a href="{{ url ('my-jobs') }}"> Jobs </a>
                             </li>
 
                             <li class="children">
@@ -188,7 +188,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="#" class="user-drop-link"> 
+                                        <a href="{{ url ('setting') }}" class="user-drop-link"> 
                                             <i class="pe-7s-settings"></i>Setting 
                                         </a>
                                     </li>

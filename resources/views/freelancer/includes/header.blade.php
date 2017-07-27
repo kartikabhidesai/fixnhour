@@ -15,12 +15,15 @@
     <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/pe-icon-7-stroke.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
-    
     <link href="{{ asset('css/bootstrap.custome.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-dropdownhover.css') }}">
     <link href="{{ asset('css/stylesheet.css') }}" rel="stylesheet">
-    
+     @if (!empty($plugincss))
+        @foreach($plugincss as $value)
+        <link rel="stylesheet" href="{{asset ('assets/global/plugins/'.$value)}}" />
+        @endforeach
+    @endif
     
     
      @if (!empty($css))

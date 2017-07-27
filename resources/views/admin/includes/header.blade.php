@@ -36,31 +36,28 @@
     <link href="{{asset ('assets/layouts/layout/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset ('assets/layouts/layout/css/themes/darkblue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
     <link href="{{asset ('assets/layouts/layout/css/custom.css')}}" rel="stylesheet" type="text/css" />
-    
-        <link href="{{asset ('assets/pages/css/profile.min.css')}}" rel="stylesheet" type="text/css" />
-    
-    <link href="{{asset ('assets/global/plugins/select2/css/select2.min.css"')}} rel="stylesheet" type="text/css">
+    <link href="{{asset ('assets/pages/css/profile.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset ('assets/global/plugins/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset ('assets/global/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css">
 
     <!-- END THEME LAYOUT STYLES -->
     @if(!empty($css)) 
-    @foreach ($css as $value)
-        <link rel="stylesheet" href="{{asset ('assets/layouts/layout/css/'.$value)}}" />
+        @foreach ($css as $value)
+            <link rel="stylesheet" href="{{asset ('assets/layouts/layout/css/'.$value)}}" />
         @endforeach
-@endif
+    @endif
     
-            @if(!empty($css_plugin)) 
-    @foreach ($css_plugin as $value_plugin)
-        <link rel="stylesheet" href="{{asset ('assets/global/plugins/'.$value_plugin)}}" />
+    @if(!empty($css_plugin)) 
+        @foreach ($css_plugin as $value_plugin)
+            <link rel="stylesheet" href="{{asset ('assets/global/plugins/'.$value_plugin)}}" />
         @endforeach
-@endif
+    @endif
    
-
     <link rel="shortcut icon" href="favicon.ico" />
     
     <script src="{{asset ('assets/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
-     <script>
-            var baseurl = "{{ asset('/') }}";
-        </script>
+    <script>
+        var baseurl = "{{ asset('/') }}";
+    </script>
 </head>
 

@@ -25,7 +25,7 @@
 @if(!empty($js_plugin)) 
     @foreach ($js_plugin as $value)
         <script src="{{ asset('assets/global/plugins/'.$value) }}" type="text/javascript"></script>
-        @endforeach
+    @endforeach
 @endif
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 
@@ -42,7 +42,7 @@
 @if (!empty($js)) 
     @foreach ($js as $value) 
        <script src="{{ asset('assets/javascripts/'.$value) }}" type="text/javascript"></script>
-       @endforeach
+    @endforeach
  @endif
 
 <script src="{{ asset('assets/pages/scripts/components-date-time-pickers.js') }}" type="text/javascript"></script>
