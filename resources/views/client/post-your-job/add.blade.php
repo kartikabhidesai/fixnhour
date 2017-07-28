@@ -18,6 +18,23 @@
 </section>
 @endif
 
+<div id='errorSection'>
+    @if (session('session_success'))
+    <div class="alert alert-success">
+        {{ session('session_success') }}
+        <div class="pull-right closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+    </div>
+    @endif
+
+    @if (session('session_error'))
+    <div class="alert alert-danger">
+        {{ session('session_error') }}
+        <div class="pull-right closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+    </div>
+    @endif
+
+</div>
+
 <main class="cd-main-content">
     <div class="inner-page">	
         <div class="max-height-footer post-preview post-your-job gray-bg">

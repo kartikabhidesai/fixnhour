@@ -3,8 +3,8 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use DB;
 use Illuminate\Support\Facades\Hash;
+use DB;
 use Auth;
 
 class PostJob extends Model {
@@ -14,6 +14,21 @@ class PostJob extends Model {
     public function savePostJobInfo($request) {
         
         //echo "<pre>";print_r($request->input());exit;
+        $destinationPath = public_path() . '/uploads/client';
+       
+        $file1 = $request->file('attach1');
+        $file2 = $request->file('attach2');
+        
+        if(!empty($file1)){
+            $time = time();
+            $file_name1 = $time . $file1->getClientOriginalName();
+            $file1->move($destinationPath, $file_name1);
+        }
+        if(!empty($file2)){
+            $time = time();
+            $file_name2 = $time . $file2->getClientOriginalName();
+            $file2->move($destinationPath, $file_name2);
+        }
         
         $objPostJob = new PostJob();
         
@@ -25,6 +40,8 @@ class PostJob extends Model {
         $objPostJob->job_type = $request->input('job_type');
         $objPostJob->approximate_budget = $request->input('approximate_budget');
         $objPostJob->approximate_time = $request->input('approximate_time');
+        $objPostJob->attach1 = $file_name1;
+        $objPostJob->attach2 = $file_name2;
         $objPostJob->level = $request->input('level');
         $objPostJob->location_type = ($request->input('location_type')) ? '1' : '0';
         $objPostJob->region = $request->input('region');

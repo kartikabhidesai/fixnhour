@@ -41,7 +41,7 @@ class PostYourJobController  extends Controller {
             $objPostJob = new PostJob();
             $result = $objPostJob->savePostJobInfo($request);
             if ($result) {
-                $request->session()->flash('session_success', 'User Add Sucessfully.');
+                $request->session()->flash('session_success', 'Your Job Post Sucessfully.');
                 return redirect(route('post-your-job'));
             } else {
                 $request->session()->flash('session_success', 'Something will be wrong. Please try again.');
@@ -49,12 +49,20 @@ class PostYourJobController  extends Controller {
             }
         }
         
-        $data['metatitle'] = 'Landing - Fixnhour';
-        $data['title'] = 'Landing - Fixnhour';
-        $data['activateValue'] = 'sliderList';
+        $data['metatitle'] = 'Job Post - Fixnhour';
+        $data['title'] = 'Job Post - Fixnhour';
         
-        $data['js'] = array();
+        $data['plugincss'] = array('bootstrap-fileinput/bootstrap-fileinput.css');
         $data['css'] = array();
+        $data['pluginjs'] = array(
+            'jquery-validation/js/jquery.validate.min.js',
+            'jquery-validation/js/additional-methods.min.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'bootstrap-fileinput/bootstrap-fileinput.js',
+        );
+        $data['js'] = array('client/postjob.js');
+        $data['funinit'] = array('Postjob.init()');
         
         $data['arrCategory'] = $arrCategory;
         $data['arrSubCategory'] = $arrSubCategory;
