@@ -63,7 +63,8 @@
                                     <label class="custom-lable "> Attached Files </label>	
                                     <ul>
                                         <li>
-                                            {{ Form::file('images[]',['multiple' => 'multiple'], NULL, array('class' => 'form-control', 'id' => 'images')) }}
+                                            {{ Form::file('attach1', NULL, array('class' => 'form-control', 'id' => 'attach1')) }}
+                                            {{ Form::file('attach2', NULL, array('class' => 'form-control', 'id' => 'attach2')) }}
                                         </li>
                                         <li><a href="#"><img src="images/round-pluse-icon-.png"><span>browse</span></a></li>
                                         <li><a href="#"><img src="images/round-pluse-icon-.png"><span>browse</span></a></li>
@@ -203,8 +204,8 @@
                                 <label class="custom-lable"> Proposed Start Date </label>
                                 <div class="col-md-12">
                                     <ul class="hire-ul" >
-                                        <li><label><span class="radio-custome"> {{ Form::radio('proposed_date', '1', true,  array('class' => 'proposed_date')) }} <span></span></span> Start Innediately after proposal is  selected </label></li>
-                                        <li><label><span class="radio-custome"> {{ Form::radio('proposed_date', '0', false, array('class' => 'proposed_date')) }} <span></span></span> Job will start on </label></li>
+                                        <li><label><span class="radio-custome"> {{ Form::radio('proposed_option', '1', true,  array('class' => 'proposed_option')) }} <span></span></span> Start Innediately after proposal is  selected </label></li>
+                                        <li><label><span class="radio-custome"> {{ Form::radio('proposed_option', '2', false, array('class' => 'proposed_option')) }} <span></span></span> Job will start on </label></li>
                                     </ul>
                                 </div>
                             </div>

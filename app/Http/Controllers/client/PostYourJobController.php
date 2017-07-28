@@ -4,12 +4,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Model\PostJob;
 use Config;
 
 class PostYourJobController  extends Controller {
     
     public function __construct() {
-        
         
     }
     
@@ -37,20 +37,14 @@ class PostYourJobController  extends Controller {
             if ($validator->fails()) {
                 return redirect(route('post-your-job'))->withErrors($validator)->withInput();
             }
-            echo "<pre>";print_r($request->input());exit;
-            $objUserInfo = new UserInfo();
-            $firstTime = $objUserInfo->checkUsername($request->input());
-            if($firstTime){
-                $result = $objUserInfo->saveUserInfo($request);
-                if ($result) {
-                    $request->session()->flash('session_success', 'User Add Sucessfully.');
-                    return redirect(route('post-your-job'));
-                } else {
-                    $request->session()->flash('session_success', 'Something will be wrong. Please try again.');
-                    return redirect(route('post-your-job'))->withInput();
-                }
-            }else{
-                $request->session()->flash('session_error', 'UserName OR Email address is already Register.');
+            
+            $objPostJob = new PostJob();
+            $result = $objPostJob->savePostJobInfo($request);
+            if ($result) {
+                $request->session()->flash('session_success', 'User Add Sucessfully.');
+                return redirect(route('post-your-job'));
+            } else {
+                $request->session()->flash('session_success', 'Something will be wrong. Please try again.');
                 return redirect(route('post-your-job'))->withInput();
             }
         }
@@ -59,12 +53,8 @@ class PostYourJobController  extends Controller {
         $data['title'] = 'Landing - Fixnhour';
         $data['activateValue'] = 'sliderList';
         
-        $data['js'] = array(
-        
-        );
-        $data['css'] = array(
-            
-        );
+        $data['js'] = array();
+        $data['css'] = array();
         
         $data['arrCategory'] = $arrCategory;
         $data['arrSubCategory'] = $arrSubCategory;
