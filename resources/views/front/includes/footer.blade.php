@@ -5,7 +5,7 @@
                 <div class="main-message">
                     <h5>Login to Softral</h5>
                 </div>
-                {{ Form::open(array('route' => 'home','id'=>'signupform','class'=>'signup-form')) }}
+                {{ Form::open(array('route' => 'signin','id'=>'signupform1','class'=>'signup-form')) }}
                     <div class="form-group">
                         <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
                         <input type="email" class="form-control" name='username' id="exampleInputEmail1" placeholder="Email">
@@ -45,6 +45,12 @@
     <script src="{{ asset('js/jquery.mobile.custom.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/front/frontcommon.js') }}"></script>
+    @if(!empty($pluginjs)) 
+        @foreach ($pluginjs as $value)
+            <script src="{{ asset('assets/global/plugins/'.$value) }}" type="text/javascript"></script>
+        @endforeach
+    @endif
+    
     <script type="text/javascript">
 $(window).load(function()
 {
@@ -59,6 +65,16 @@ $(window).load(function()
 </script>
     @if (!empty($js))
         @foreach($js as $value)
-        <link href="{{ asset('js/'.$value) }}" rel="stylesheet">
+        <script src="{{ asset('js/'.$value) }}" type="text/javascript"></script>
         @endforeach
     @endif
+    <script>
+        jQuery(document).ready(function () {
+          
+     @if (!empty($funinit)) 
+        @foreach ($funinit as $value) 
+            {{ $value }}
+        @endforeach
+    @endif
+        });
+    </script>

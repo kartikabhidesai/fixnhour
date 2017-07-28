@@ -56,7 +56,7 @@
                         <div class="main-message">
                             <h5>Login to Fixnhour</h5>
                         </div>
-                        {{ Form::open(array('route' => 'home','id'=>'signupform','class'=>'signup-form')) }}
+                        {{ Form::open(array('route' => 'signin','id'=>'signupform1','class'=>'signup-form')) }}
                             <div class="form-group">
                                 <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
                                 <input type="email" class="form-control" name='username' id="exampleInputEmail1" placeholder="Email">

@@ -35,7 +35,7 @@
 
                         </div>
                         <!--Body-->
-                         {{ Form::open(array('route' => 'signup','id'=>'signupform','class'=>'signup-form','files' => true)) }}
+                         {{ Form::open(array('route' => 'signup','id'=>'signupform1','class'=>'signup-form','files' => true)) }}
                         <div class="md-form form-group">
                             <input type="text" id="form2" name="username" class="form-control">
                             <label for="form2 form-group">Username</label>

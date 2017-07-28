@@ -19,21 +19,39 @@ class HomeController extends Controller {
         
         $data['pagetitle'] = 'Home - Softral';
         $data['metatitle'] = 'Home - Softral';
-        if ($request->isMethod('post')) {
-             $username = $request->input('username');
-            $password = $request->input('password');
-             if (Auth::guard('admin')->attempt(['email' => $username, 'password' => $password,'role_type' =>'admin','enum_status'=>'ACTIVE'])) {
+        
+        $data['plugincss'] = array();
+        $data['css'] = array();
+        $data['pluginjs'] = array(
+            'jquery-validation/js/jquery.validate.min.js',
+            
+        );
+        $data['js'] = array(
+            'front/signup.js',
+        );
+        $data['funinit'] = array(
+            'Singup.init()',
+        );
+        $data['slider'] = DB::table('slider')->get();
+        return view('front.home',$data);
+    }
+    
+    public function signin(Request $request){
+        $username = $request->input('username');
+        $password = $request->input('password');
+        if (Auth::guard('admin')->attempt(['email' => $username, 'password' => $password,'role_type' =>'admin','enum_status'=>'ACTIVE'])) {
                  return redirect()->intended('admin/dashboard');
              }
              if (Auth::guard('freelancer')->attempt(['email' => $username, 'password' => $password,'role_type' =>'freelancer'])) {
                  
                  if(Auth::guard('freelancer')->user()->enum_status == 'PENDING')
                  {
+                     
                       Auth::guard('freelancer')->logout();
                       $request->session()->flash('session_success', 'You have not activate your profile. Please activate it.');
                       return redirect()->intended('/');
                  }else{
-                     $request->session()->flash('session_success', 'User Was Successfully Added.');
+                    // $request->session()->flash('session_success', 'User are successfully signup.Please check your mail.');
                      return redirect()->intended('freelancer');
                  }
              }
@@ -45,35 +63,14 @@ class HomeController extends Controller {
                       $request->session()->flash('session_success', 'You have not activate your profile. Please activate it.');
                       return redirect()->intended('/');
                  }else{
-                     $request->session()->flash('session_success', 'User Was Successfully Added.');
+                   //  $request->session()->flash('session_success', 'User Was Successfully Added.');
                      return redirect()->intended('post-your-job');
                  }
                  
              }
              
-        }
-        $data['plugincss'] = array();
-        $data['css'] = array();
-        $data['pluginjs'] = array();
-        $data['js'] = array();
-        $data['funinit'] = array();
-        $data['slider'] = DB::table('slider')->get();
-        return view('front.home',$data);
-    }
-    
-    public function signin(Request $request){
-        
-            $username = $request->input('username');
-            $password = $request->input('password');
-             if (Auth::guard('admin')->attempt(['email' => $username, 'password' => $password,'role_type' =>'admin','enum_status'=>'ACTIVE'])) {
-                 return redirect()->intended('admin/dashboard');
-             }
-             if (Auth::guard('freelancer')->attempt(['email' => $username, 'password' => $password,'role_type' =>'freelancer','enum_status'=>'ACTIVE'])) {
-                 return redirect()->intended('freelancer');
-             }
-             if (Auth::guard('client')->attempt(['email' => $username, 'password' => $password,'role_type' =>'client','enum_status'=>'ACTIVE'])) {
-                 return redirect()->intended('post-your-job');
-             }
+            $request->session()->flash('session_success', 'Your username and password is wrong. Please check it.');
+            return redirect()->intended('/');;
     }
     public function signup(Request $request){
         
@@ -87,7 +84,7 @@ class HomeController extends Controller {
             $firstTime = $user->checkUsername($postData);
             if($firstTime){
                 $user->saveFrontendUsers($postData,$fileData);
-                $request->session()->flash('session_success', 'User Was Successfully Added.');
+                $request->session()->flash('session_success', 'User are successfully signup.Please check your mail.');
             }else{
                 $request->session()->flash('session_error', 'You are Already Register.');
             }
