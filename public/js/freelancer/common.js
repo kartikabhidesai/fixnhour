@@ -51,6 +51,15 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 $(document).ready(function() {
+    
+hideMsgBox();
+
+function hideMsgBox() {
+    setTimeout(function() {
+        $("#errorSection").slideUp(3000);
+    }, 5000);
+}
+
    $( '.user-noti' ).hover(
 	 function(){
        $('.notifiaction-drop').slideDown(50);

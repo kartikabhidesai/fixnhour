@@ -153,4 +153,59 @@ class Users extends Authenticatable{
             //$request->session()->flash('session_success', 'User Was Successfully Updated.');
     }
     
+    public function chnageProfilePic($fileData,$id){
+        
+            $file = $fileData['profile_image']; 
+            $users = Users::find($id);
+            $profileImage = $users->var_image;
+            
+            if(!empty($fileData)){
+                  $destinationPath = public_path() . '/uploads/freelancer';
+                  $time = time();
+                  $profileImage = $time . $file->getClientOriginalName();
+                  $upload_success = $file->move($destinationPath, $profileImage);
+            }
+            
+            
+            $users->var_image = $profileImage;
+            $users->last_ip = \Request::ip();
+            if ($users->save()) {
+                return $users->id;
+            }
+            
+    }
+    
+    public function updateUserInfo($request,$userId) {
+        
+        $objUser = Users::find($userId);
+        
+        $objUser->title = $request->input('title');
+        $objUser->first_name = $request->input('first_name');
+        $objUser->last_name = $request->input('last_name');
+        $objUser->phone = $request->input('phone');
+        $objUser->mobile = $request->input('mobile');
+        
+        $objUser->address = $request->input('address');
+        $objUser->city_town = $request->input('city_town');
+        $objUser->state = $request->input('state');
+        $objUser->postcode = $request->input('postcode');
+        
+        $objUser->save();
+        return TRUE;
+    }
+    
+    public function changePassword($request,$userId){
+        $objUser = Users::find($userId);
+        
+        //if($objUser->password == Hash::make($request['old_password']))
+        if(Hash::check($request['old_password'] , $objUser->password))
+        {
+            $objUser->password = Hash::make($request['new_password']);
+            $objUser->save();
+             return TRUE;
+        }else{
+            return FALSE;
+        }
+        
+    }
 }
