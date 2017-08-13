@@ -19,6 +19,8 @@ class PostJob extends Model {
         $file1 = $request->file('attach1');
         $file2 = $request->file('attach2');
         
+        $file_name1 = '';
+        $file_name2 = '';
         if(!empty($file1)){
             $time = time();
             $file_name1 = $time . $file1->getClientOriginalName();

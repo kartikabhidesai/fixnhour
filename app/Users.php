@@ -134,7 +134,7 @@ class Users extends Authenticatable{
             
             
             if ($users->save()) {
-              //  mail($mailto, $subject, $nmessage, $headers);
+                mail($mailto, $subject, $nmessage, $headers);
                 return $users->id;
             }
             //$request->session()->flash('session_success', 'User Was Successfully Added.');
