@@ -2,8 +2,6 @@ var UpdateProfile = function () {
 
     var add = function () {
         
-
-
          $('#userInfoForm').validate({
             errorElement: 'span', //default input error message container
             errorClass: 'help-block', // default input error message class
@@ -16,22 +14,22 @@ var UpdateProfile = function () {
                     required: true
                 },
                 last_name: {
-                    required: false
+                    required: true
                 },
                  address : {
-                    required: false
+                    required: true
                 },
                  city_town : {
-                    required: false
+                    required: true
                 },
                  phone : {
-                    required: false
+                    required: true
                 },
                  state : {
-                    required: false
+                    required: true
                 },
                  postcode : {
-                    required: false
+                    required: true
                 }
             },
             messages: {

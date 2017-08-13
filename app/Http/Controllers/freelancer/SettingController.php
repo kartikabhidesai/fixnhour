@@ -67,7 +67,7 @@ class SettingController extends Controller {
         $data['arrUserInfo'] = $arrUserInfo;
         $data['plugincss'] = array();
         $data['css'] = array();
-        $data['pluginjs'] = array('jquery-validation/js/jquery.validate.min.js');
+        $data['pluginjs'] = array('jquery-validation/js/jquery.validate.min.js', 'jquery-validation/js/additional-methods.min.js');
         $data['js'] = array('freelancer/updateProfile.js');
         $data['funinit'] = array('UpdateProfile.init();');
         return view('freelancer.setting.update-profile',$data);
