@@ -9,6 +9,7 @@ Route::match(['get', 'post'], 'client-logout', ['as' => 'client-logout', 'uses' 
 Route::match(['get', 'post'], 'client-setting', ['as' => 'client-setting', 'uses' => 'client\SettingController@profileImage']);
 Route::match(['get', 'post'], 'client-update-profile', ['as' => 'client-update-profile', 'uses' => 'client\SettingController@updateProfile']);
 Route::match(['get', 'post'], 'client-change-password', ['as' => 'client-change-password', 'uses' => 'client\SettingController@changePassword']);
+Route::match(['get', 'post'], 'client-notification', ['as' => 'client-notification', 'uses' => 'client\SettingController@notification']);
 
 // Client Rought end
 });

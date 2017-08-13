@@ -72,12 +72,5 @@
         </div>
     </section>
 </main>
-<style>
-    .setting-title{
-        background: #4CC3C8;
-        color: white;
-        border-radius: 5px;
-        margin-bottom: 15px;
-    }
-</style>
+
 @endsection

@@ -22,7 +22,7 @@
                     <div class="row ">
                         <div class="search-left col-sm-6 col-md-10 col-xs-12">
                         <div class="col-md-12 setting-title">
-                            <h3>Change Password</h3>
+                            <h3>Notification</h3>
                         </div>
                         <div class="clearfix"></div>
                         <div id='errorSection'>
@@ -40,28 +40,38 @@
                             </div>
                             @endif
                         </div>
-                        {{ Form::open( array('method' => 'post', 'id' => 'passwordchange',  'class' => '' )) }}
+                        {{ Form::open( array('method' => 'post', 'id' => 'notification',  'class' => '' )) }}
                         <div class="col-md-12">
                             <div class="form-group">
 
                                 <div class="col-sm-2 col-md-12 ">
-                                    <label for="Old Password" class="control-label">Old Password : </label>
-                                    {{ Form::password('old_password', array('class' => 'form-control','type'=>'password', 'id' => 'old_password', 'placeholder' => 'Enter Old Password')) }}
+                                    <label for="Send Mail Notification" class="control-label">Send Mail Notification : </label>
+                                    <label class="switch">
+                                        {{ Form::checkbox('sendmail', 1, true, ['class' => 'field']) }}
+                                        <span class="slider round"></span>
+                                    </label>
+                                    
                                 </div>
                                 <div class="col-sm-4 col-md-12 ">
-                                    <label for="New Password" class="control-label">New Password : <span class="required">*</span></label>
-                                    {{ Form::password('new_password', array('class' => 'form-control', 'type'=>'password','id' => 'new_password', 'placeholder' => 'Enter New Password')) }}
+                                    <label for="Header Notification" class="control-label">Header Notification : <span class="required">*</span></label>
+                                    <label class="switch">
+                                        {{ Form::checkbox('header', 1, true, ['class' => 'field']) }}
+                                        <span class="slider round"></span>
+                                    </label>
                                 </div>
                                 <div class="col-sm-4 col-md-12">
-                                    <label for="Confirm Password" class="control-label">Confirm Password : <span class="required">*</span></label>
-                                    {{ Form::password('confirm_password' , array('class' => 'form-control', 'type'=>'password','id' => 'confirm_password', 'placeholder' => 'Enter Confirm Password')) }}
+                                    <label for="Confirm Password" class="control-label">Job Post Notification : <span class="required">*</span></label>
+                                    <label class="switch">
+                                        {{ Form::checkbox('jobpost', 1, true, ['class' => 'field']) }}
+                                        <span class="slider round"></span>
+                                    </label>
                                 </div>
                                 
                             </div>
                         </div>   
                         <div class="form-actions text-center">
                             <button type="submit" class="btn blue btn-green">Update</button>
-                            <a href="{{ route('user-list') }}" class="btn default btn-green">Cancel</a>
+                            <a href="{{ route('home') }}" class="btn default btn-green">Cancel</a>
                         </div>
                         {{ Form::close() }}
                         </div>
@@ -72,6 +82,9 @@
             </div>
         </div>
     </section>
+    <style>
+
+</style>
 </main>
 
 @endsection

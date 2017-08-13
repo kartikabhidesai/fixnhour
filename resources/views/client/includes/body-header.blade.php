@@ -132,7 +132,7 @@
                                             <ul class="dropdown-menu" role="menu">
 
                                                 <li>
-                                                    <a href="{{ route ('profile') }}" class="user-drop-btn">
+                                                    <a href="{{ route ('client-update-profile') }}" class="user-drop-btn">
                                                         @if(Auth::guard('client')->user()->var_image != "")
                                                         <img src="{{ url ('uploads/freelancer/'.Auth::guard('client')->user()->var_image) }}" >  
                                                         @else
@@ -160,7 +160,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="{{ route('client-logout') }}" class="user-drop-link"> 
-                                                        <i class="log-out-icon"></i>  Log out 
+                                                        <i class="pe-7s-switch"></i>  Log out 
                                                     </a>
                                                 </li>
 

@@ -2,6 +2,7 @@
     <li class="@if(isset($cpp)){{  $cpp  }} @endif"><a href="{{ route ('client-setting') }}">Change profile picture</a></li>
     <li class="@if(isset($up)) {{  $up  }} @endif"><a href="{{ route ('client-update-profile') }}">Update profile</a></li>
     <li class="@if(isset($cp)) {{  $cp  }} @endif"><a href="{{ route ('client-change-password') }}">Change Password</a></li>
+    <li class="@if(isset($notification)) {{  $notification  }} @endif"><a href="{{ route ('client-notification') }}">Notification</a></li>
 </ul>
 <style>
     div.job-left {
