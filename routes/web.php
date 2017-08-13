@@ -16,9 +16,10 @@ Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'front\HomeControl
 Route::match(['get', 'post'], '/signup', ['as' => 'signup', 'uses' => 'front\HomeController@signup']);
 Route::match(['get', 'post'], '/signin', ['as' => 'signin', 'uses' => 'front\HomeController@signin']);
 Route::match(['get', 'post'], '/activeAccount/{code}', ['as' => 'activeAccount', 'uses' => 'front\HomeController@activeAccount']);
-Route::get('/find-telent', 'front\HomeController@findTelent');
-Route::get('/sendbasicemail','front\HomeController@basic_email');
-Route::get('/how-it-works', 'front\HomeController@howItWorks');
+Route::match(['get', 'post'], '/find-telent', ['as' => 'find-telent', 'uses' => 'front\HomeController@findTelent']);
+Route::match(['get', 'post'], '/sendbasicemail', ['as' => 'sendbasicemail', 'uses' => 'front\HomeController@basic_email']);
+Route::match(['get', 'post'], '/how-it-works', ['as' => 'how-it-works', 'uses' => 'front\HomeController@howItWorks']);
+
 
 // Front Rought End
 //Route::match(['get', 'post'], 'post-your-job', ['as' => 'post-your-job', 'uses' => 'client\PostYourJobController@postYourJob']);

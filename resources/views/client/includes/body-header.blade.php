@@ -14,13 +14,13 @@
                     <div class="nav-menu">
                         <ul>
                             <li class="children">
-                                <a href="{{ url('find-telent') }}"> Find Talent </a>
+                                <a href="{{ route('find-telent') }}"> Find Talent </a>
                             </li>
                             <li class="children">
-                                <a href="{{ url ('freelancer') }}"> My Job </a>
+                                <a href="{{ route ('freelancer') }}"> My Job </a>
                             </li>
                             <li class="children">
-                                <a href="{{ url ('how-it-works') }}"> Payment  </a> 
+                                <a href="{{ route ('how-it-works') }}"> Payment  </a> 
                             </li>
                             <li class="header-search-bar mobile-hide">
                                 <div class="input-group top-select-searh">
@@ -61,7 +61,7 @@
                                     <li class="user-message children">           
                                         <div class="btn-group custom-dropdown message-link">
 
-                                            <a href="{{ url ('message')}}" class="btn btn-default dropdown-toggle"> 
+                                            <a href="{{ route ('message')}}" class="btn btn-default dropdown-toggle"> 
                                                 <img src="{{ asset('images/message-icon.png') }}"><span>5</span>
                                             </a>
 
@@ -132,7 +132,7 @@
                                             <ul class="dropdown-menu" role="menu">
 
                                                 <li>
-                                                    <a href="{{ url ('profile') }}" class="user-drop-btn">
+                                                    <a href="{{ route ('profile') }}" class="user-drop-btn">
                                                         @if(Auth::guard('client')->user()->var_image != "")
                                                         <img src="{{ url ('uploads/freelancer/'.Auth::guard('client')->user()->var_image) }}" >  
                                                         @else
@@ -149,7 +149,7 @@
                                                 </li>
 
                                                 <li>
-                                                    <a href="{{ url ('setting') }}" class="user-drop-link"> 
+                                                    <a href="{{ route ('client-setting') }}" class="user-drop-link"> 
                                                         <i class="pe-7s-settings"></i>Setting 
                                                     </a>
                                                 </li>

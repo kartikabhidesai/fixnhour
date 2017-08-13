@@ -58,7 +58,8 @@
                 <li class="header-search-bar mobile-hide">
                     <div class="input-group top-select-searh">
 
-                        <span class="input-group-btn btn-search"> <button class="btn btn-default " type="button"><i class="pe-7s-search"></i></button>
+                        <span class="input-group-btn btn-search"> 
+                            <button class="btn btn-default " type="button"><i class="pe-7s-search"></i></button>
                         </span>
 
                         <input class="custom-text-box form-co form-control" name="" placeholder="" type="text">
