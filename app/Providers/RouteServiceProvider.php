@@ -38,8 +38,10 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
+        
+        $this->mapFreelancerRoutes();
 
-        //
+        $this->mapClientRoutes();
     }
 
     /**
@@ -67,4 +69,32 @@ class RouteServiceProvider extends ServiceProvider
                             ->namespace($this->namespace)
                             ->group(base_path('routes/api.php'));
     }
+    
+    protected function mapFreelancerRoutes()
+    {
+//        Route::prefix('freelancer')->middleware('freelancer')
+//                            ->namespace($this->namespace)
+//                            ->group(base_path('routes/freelancer.php'));
+        Route::group([
+            'middleware' => 'web',
+            'namespace' => $this->namespace,
+                ], function ($router) {
+                    require base_path('routes/freelancer.php');
+                });
+    }
+    
+    protected function mapClientRoutes()
+    {
+//        Route::prefix('client')->middleware('client')
+//                            ->namespace($this->namespace)
+//                            ->group(base_path('routes/client.php'));
+        Route::group([
+            'middleware' => 'web',
+            'namespace' => $this->namespace,
+                ], function ($router) {
+                    require base_path('routes/client.php');
+                });
+    }
+    
+    
 }

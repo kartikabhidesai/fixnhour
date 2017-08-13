@@ -21,25 +21,7 @@ Route::get('/sendbasicemail','front\HomeController@basic_email');
 Route::get('/how-it-works', 'front\HomeController@howItWorks');
 
 // Front Rought End
-
-// Freelancer Rought start
-Route::get('/freelancer', 'freelancer\FreelancerController@index');
-Route::get('/freelancer-logout', 'freelancer\FreelancerController@logout');
-Route::get('/my-jobs', 'freelancer\FreelancerController@myJobs');
-Route::get('/payment', 'freelancer\FreelancerController@payment');
-Route::get('/message', 'freelancer\FreelancerController@message');
-Route::get('/save-job', 'freelancer\FreelancerController@saveJob');
-Route::get('/profile', 'freelancer\FreelancerController@profile');
-Route::match(['get', 'post'], '/setting', ['as' => 'setting', 'uses' => 'freelancer\SettingController@profileImage']);
-Route::match(['get', 'post'], '/update-profile', ['as' => 'update-profile', 'uses' => 'freelancer\SettingController@updateProfile']);
-Route::match(['get', 'post'], '/change-password', ['as' => 'change-password', 'uses' => 'freelancer\SettingController@changePassword']);
-
-// Freelancer Rought end
-
-// Client Rought start
-Route::match(['get', 'post'], 'post-your-job', ['as' => 'post-your-job', 'uses' => 'client\PostYourJobController@postYourJob']);
-
-// Client Rought end
+//Route::match(['get', 'post'], 'post-your-job', ['as' => 'post-your-job', 'uses' => 'client\PostYourJobController@postYourJob']);
 
 // Admin Rought start
 Route::match(['get', 'post'], '/admin', ['as' => 'login', 'uses' => 'admin\AccountController@login']);

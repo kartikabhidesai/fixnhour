@@ -15,7 +15,7 @@
 
                             <li class="children desktop-hide mobile-show user-profile-mobile">
                                 <a href="#" class="dropdown-toggle user-drop-btn">
-                                    <img src="images/user.jpg" alt="#">
+                                    <img src="{{ asset('assets/images/user.jpg') }}" alt="#">
 
                                     <h4> {{ Auth::guard('freelancer')->user()->username }}  </h4>
 
@@ -24,15 +24,15 @@
                             </li>
 
                             <li class="children ">
-                                <a href="{{ url ('freelancer') }}"> Work </a>				
+                                <a href="{{ route ('freelancer') }}"> Work </a>				
                             </li>
 
                             <li class="children">
-                                <a href="{{ url ('my-jobs') }}"> Jobs </a>
+                                <a href="{{ route ('my-jobs') }}"> Jobs </a>
                             </li>
 
                             <li class="children">
-                                <a href="{{ url ('payment') }}"> Payment   </a>
+                                <a href="{{ route ('payment') }}"> Payment   </a>
                             </li>
 
                             <li class="children desktop-hide mobile-show">
@@ -74,7 +74,8 @@
 
                             <div class="btn-group show-on-hover custom-dropdown">
 
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><img src="images/help-icon.png">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <img src="{{ asset('images/help-icon.png') }}">
                                 </button>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -101,7 +102,8 @@
                         <li class="user-message children">           
                             <div class="btn-group custom-dropdown message-link">
 
-                                <a href="{{ url ('message')}}" class="btn btn-default dropdown-toggle"> <img src="images/message-icon.png"><span>5</span>
+                                <a href="{{ route ('message')}}" class="btn btn-default dropdown-toggle"> 
+                                    <img src="{{ asset('images/message-icon.png') }}"><span>5</span>
                                 </a>
 
 
@@ -113,7 +115,8 @@
 
                             <div class="btn-group show-on-hover custom-dropdown">
 
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">  <img src="images/notification-icon-header.png"> <span>5</span>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">  
+                                    <img src="{{ asset('images/notification-icon-header.png') }}"> <span>5</span>
                                 </button>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -122,22 +125,22 @@
 
                                     <li>
                                         <a href="#" class="user-drop-btn"> 
-                                            <img src="images/user.jpg" > <p>Lorem Ipsum is simply dummy text of the...</p>  
+                                            <img src="{{ asset('images/user.jpg') }}" > <p>Lorem Ipsum is simply dummy text of the...</p>  
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" class="user-drop-btn"> 
-                                            <img src="images/user.jpg" > <p>Lorem Ipsum is simply dummy text of the...</p>  
+                                            <img src="{{ asset('images/user.jpg') }}" > <p>Lorem Ipsum is simply dummy text of the...</p>  
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" class="user-drop-btn"> 
-                                            <img src="images/user.jpg" > <p>Lorem Ipsum is simply dummy text of the...</p>  
+                                            <img src="{{ asset('images/user.jpg') }}" > <p>Lorem Ipsum is simply dummy text of the...</p>  
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" class="user-drop-btn"> 
-                                            <img src="images/user.jpg" > <p>Lorem Ipsum is simply dummy text of the...</p>  
+                                            <img src="{{ asset('images/user.jpg') }}" > <p>Lorem Ipsum is simply dummy text of the...</p>  
                                         </a>
                                     </li>
 
@@ -170,7 +173,7 @@
                                 <ul class="dropdown-menu" role="menu">
 
                                     <li>
-                                        <a href="{{ url ('profile') }}" class="user-drop-btn">
+                                        <a href="{{ route ('profile') }}" class="user-drop-btn">
                                             @if(Auth::guard('freelancer')->user()->var_image != "")
                                             <img src="{{ url ('uploads/freelancer/'.Auth::guard('freelancer')->user()->var_image) }}" >  
                                             @else
@@ -187,7 +190,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{ url ('setting') }}" class="user-drop-link"> 
+                                        <a href="{{ route ('setting') }}" class="user-drop-link"> 
                                             <i class="pe-7s-settings"></i>Setting 
                                         </a>
                                     </li>
@@ -197,7 +200,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ url ('freelancer-logout') }}" class="user-drop-link"> 
+                                        <a href="{{ route ('freelancer-logout') }}" class="user-drop-link"> 
                                             <i class="log-out-icon"></i>  Log out 
                                         </a>
                                     </li>

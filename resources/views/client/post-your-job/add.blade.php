@@ -83,8 +83,8 @@
                                             {{ Form::file('attach1', NULL, array('class' => 'form-control', 'id' => 'attach1')) }}
                                             {{ Form::file('attach2', NULL, array('class' => 'form-control', 'id' => 'attach2')) }}
                                         </li>
-                                        <li><a href="#"><img src="images/round-pluse-icon-.png"><span>browse</span></a></li>
-                                        <li><a href="#"><img src="images/round-pluse-icon-.png"><span>browse</span></a></li>
+                                        <li><a href="#"><img src="{{ asset('images/round-pluse-icon-.png') }}"><span>browse</span></a></li>
+                                        <li><a href="#"><img src="{{ asset('images/round-pluse-icon-.png') }}"><span>browse</span></a></li>
                                     </ul>
                                     <p class="notic"> The file can up to 25 MB in size </p>	
                                 </div>
@@ -93,17 +93,6 @@
                                 <div class="form-group padding-top-20">
                                     <label class="custom-lable "> Enter skills needed </label>	
                                     {{ Form::select('skill', $arrPostJobSkill, null, array('class' => 'form-control', 'id' => 'skill')) }}
-<!--                                    <select data-placeholder="type Here..."  multiple class="form-control chosen-select" tabindex="8">
-                                        <option value=""></option>
-                                        <option>American Black Bear</option>
-                                        <option>Asiatic Black Bear</option>
-                                        <option>Brown Bear</option>
-                                        <option>Giant Panda</option>
-                                        <option selected>Sloth Bear</option>
-                                        <option disabled>Sun Bear</option>
-                                        <option selected>Polar Bear</option>
-                                        <option disabled>Spectacled Bear</option>
-                                    </select>-->
                                 </div>
                             </div>
                             <div class="col-md-12">

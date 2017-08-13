@@ -105,6 +105,13 @@ class PostYourJobController  extends Controller {
     //   exit;
         return view('admin.account.dashboard',$data);
     }
+    
+     public function logout(Request $request)
+    {
+        Auth::guard('client')->logout();
+        $request->session()->flash('session_success', 'You are successfully logout.');
+         return redirect()->intended('/');
+    }
 }
 /*
  * To change this template, choose Tools | Templates

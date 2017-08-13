@@ -52,7 +52,8 @@ class HomeController extends Controller {
                       return redirect()->intended('/');
                  }else{
                     // $request->session()->flash('session_success', 'User are successfully signup.Please check your mail.');
-                     return redirect()->intended('freelancer');
+                     //return redirect()->intended('freelancer');
+                     return redirect(route('freelancer'));
                  }
              }
              if (Auth::guard('client')->attempt(['email' => $username, 'password' => $password,'role_type' =>'client'])) {
@@ -64,7 +65,8 @@ class HomeController extends Controller {
                       return redirect()->intended('/');
                  }else{
                    //  $request->session()->flash('session_success', 'User Was Successfully Added.');
-                     return redirect()->intended('post-your-job');
+                     return redirect(route('post-your-job'));
+                     
                  }
                  
              }
