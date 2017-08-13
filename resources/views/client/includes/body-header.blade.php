@@ -17,10 +17,10 @@
                                         <a href="{{ url('find-telent') }}"> Find Talent </a>
                                     </li>
                                     <li class="children">
-                                        <a href="{{ url ('freelancer') }}"> Find Work </a>
+                                        <a href="{{ url ('freelancer') }}"> My Job </a>
                                     </li>
                                     <li class="children">
-                                        <a href="{{ url ('how-it-works') }}"> How It Works  </a> 
+                                        <a href="{{ url ('how-it-works') }}"> Payment  </a> 
                                     </li>
                                     <li class="header-search-bar mobile-hide">
                                         <div class="input-group top-select-searh">
@@ -29,15 +29,152 @@
                                             <input class="custom-text-box form-co form-control" name="" placeholder="" type="text">
                                         </div>
                                     </li>
-                                    <li class="children">
-                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#login-modal"> Sign In</a> 
-                                    </li>
-                                    <li class="children">
-                                        <a href="{{ url('signup') }}"> Sign Up </a> 
-                                    </li>
-                                    <li class="children">
-                                        <a class="post-new-btn" href="post-your-job.html"> POST A JOB </a> 
-                                    </li>
+                                    <li class="user-staff" style="float: right;">
+
+                                                <ul>
+
+                                                    <li class="user-help children">     
+
+                                                        <div class="btn-group show-on-hover custom-dropdown">
+
+                                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><img src="images/help-icon.png">
+                                                            </button>
+
+                                                            <ul class="dropdown-menu" role="menu">
+
+                                                                <li class="text-center"><a href="#"> <h4>help </h4> </a></li>
+
+                                                                <li>
+                                                                    <a href="#" class="user-drop-link"> Report </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" class="user-drop-link"> Report </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" class="user-drop-link"> Report </a>
+                                                                </li>
+
+                                                            </ul>
+
+                                                        </div>
+
+
+                                                    </li>
+
+                                                    <li class="user-message children">           
+                                                        <div class="btn-group custom-dropdown message-link">
+
+                                                            <a href="{{ url ('message')}}" class="btn btn-default dropdown-toggle"> <img src="images/message-icon.png"><span>5</span>
+                                                            </a>
+
+
+                                                        </div>
+
+                                                    </li>
+
+                                                    <li class="user-noti children">     
+
+                                                        <div class="btn-group show-on-hover custom-dropdown">
+
+                                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">  <img src="images/notification-icon-header.png"> <span>5</span>
+                                                            </button>
+
+                                                            <ul class="dropdown-menu" role="menu">
+
+                                                                <li class="text-center"><a href="#"> <h4>Notification </h4> </a></li>
+
+                                                                <li>
+                                                                    <a href="#" class="user-drop-btn"> 
+                                                                        <img src="images/user.jpg" > <p>Lorem Ipsum is simply dummy text of the...</p>  
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" class="user-drop-btn"> 
+                                                                        <img src="images/user.jpg" > <p>Lorem Ipsum is simply dummy text of the...</p>  
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" class="user-drop-btn"> 
+                                                                        <img src="images/user.jpg" > <p>Lorem Ipsum is simply dummy text of the...</p>  
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" class="user-drop-btn"> 
+                                                                        <img src="images/user.jpg" > <p>Lorem Ipsum is simply dummy text of the...</p>  
+                                                                    </a>
+                                                                </li>
+
+                                                            </ul>
+
+                                                        </div>
+
+
+                                                    </li>
+
+                                                    <li class="user-drop children">          
+
+                                                        <div class="btn-group show-on-hover custom-dropdown">
+
+                                                            <button type="button" class="btn btn-default dropdown-toggle user-drop-btn" data-toggle="dropdown"> 
+                                                                    @if(Auth::guard('client')->user()->var_image != "")
+                                                                    <img src="{{ url ('uploads/freelancer/'.Auth::guard('client')->user()->var_image) }}" >  
+                                                                    @else
+                                                                    <img src="{{ url ('uploads/freelancer/no-profile-photo.jpg') }}" >  
+                                                                    @endif
+                                                                    <div class="pull-left">
+                                                                        <p>Hello.</p>
+                                                                        <h4> 
+                                                                            {{ Auth::guard('client')->user()->username }} 
+                                                                            <span> <i class="fa fa-angle-down" aria-hidden="true"></i></span> 
+                                                                        </h4>
+                                                                    </div>
+                                                            </button>
+
+                                                            <ul class="dropdown-menu" role="menu">
+
+                                                                <li>
+                                                                    <a href="{{ url ('profile') }}" class="user-drop-btn">
+                                                                        @if(Auth::guard('client')->user()->var_image != "")
+                                                                        <img src="{{ url ('uploads/freelancer/'.Auth::guard('client')->user()->var_image) }}" >  
+                                                                        @else
+                                                                        <img src="{{ url ('uploads/freelancer/no-profile-photo.jpg') }}" >  
+                                                                        @endif
+                                                                        <h4>Profile </h4> 
+
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" class="user-drop-link"> 
+                                                                        <i class="pe-7s-note2"></i>  Report 
+                                                                    </a>
+                                                                </li>
+
+                                                                <li>
+                                                                    <a href="{{ url ('setting') }}" class="user-drop-link"> 
+                                                                        <i class="pe-7s-settings"></i>Setting 
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" class="user-drop-link"> 
+                                                                        <i class="pe-7s-help1"></i>Help 
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ url ('freelancer-logout') }}" class="user-drop-link"> 
+                                                                        <i class="log-out-icon"></i>  Log out 
+                                                                    </a>
+                                                                </li>
+
+
+                                                            </ul>
+
+                                                        </div>
+
+                                                    </li>
+
+                                                </ul>
+
+                                            </li>
                                 </ul>
                             </div>
                         </li>

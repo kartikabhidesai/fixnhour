@@ -33,7 +33,6 @@
 
                             <li class="children">
                                 <a href="{{ url ('payment') }}"> Payment   </a>
-
                             </li>
 
                             <li class="children desktop-hide mobile-show">
