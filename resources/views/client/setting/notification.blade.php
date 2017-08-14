@@ -20,7 +20,7 @@
             <div class="home-right">   
                 <div class="search-right">
                     <div class="row ">
-                        <div class="search-left col-sm-6 col-md-10 col-xs-12">
+                        <div class="search-left col-sm-6 col-md-12 col-xs-12">
                         <div class="col-md-12 setting-title">
                             <h3>Notification</h3>
                         </div>

@@ -142,4 +142,109 @@ class SettingController extends Controller {
         return view('client.setting.notification',$data);
     }
     
+    public function dashboard(Request $request){
+        $userId = Auth::guard('client')->user()->id;
+        
+        $data['pagetitle'] = 'Landing - Softral';
+        $data['metatitle'] = 'Landing - Softral';
+        $data['dashboard'] = 'active';
+        
+        if ($request->isMethod('post')) {
+            $fileData  = $request->input();
+            
+            $user = new Users;
+            if(!empty($fileData)){
+                $userId = Auth::guard('client')->user()->id;
+                $changePasssword = $user->notification($request,$userId);
+                if($changePasssword)
+                {
+                    $request->session()->flash('session_success', 'Your password update successfully.');
+                }else{
+                    $request->session()->flash('session_error', 'Your old password is wronge.');
+                }
+                
+            }else{
+                $request->session()->flash('session_error', 'Please enter all field.');
+            }
+            return redirect(route('client-dashboard'));
+        }
+        
+        $data['plugincss'] = array();
+        $data['css'] = array();
+        $data['pluginjs'] = array('jquery-validation/js/jquery.validate.min.js', 'jquery-validation/js/additional-methods.min.js');
+        $data['js'] = array('freelancer/updateProfile.js');
+        $data['funinit'] = array('UpdateProfile.changePassword();');
+        return view('client.setting.dashboard',$data);
+    }
+    
+    public function aboutme(Request $request){
+        $userId = Auth::guard('client')->user()->id;
+        
+        $data['pagetitle'] = 'Landing - Softral';
+        $data['metatitle'] = 'Landing - Softral';
+        $data['aboutme'] = 'active';
+        
+        if ($request->isMethod('post')) {
+            $fileData  = $request->input();
+            
+            $user = new Users;
+            if(!empty($fileData)){
+                $userId = Auth::guard('client')->user()->id;
+                $changePasssword = $user->notification($request,$userId);
+                if($changePasssword)
+                {
+                    $request->session()->flash('session_success', 'Your password update successfully.');
+                }else{
+                    $request->session()->flash('session_error', 'Your old password is wronge.');
+                }
+                
+            }else{
+                $request->session()->flash('session_error', 'Please enter all field.');
+            }
+            return redirect(route('client-dashboard'));
+        }
+        
+        $data['plugincss'] = array();
+        $data['css'] = array();
+        $data['pluginjs'] = array('jquery-validation/js/jquery.validate.min.js', 'jquery-validation/js/additional-methods.min.js');
+        $data['js'] = array('freelancer/updateProfile.js');
+        $data['funinit'] = array('UpdateProfile.changePassword();');
+        return view('client.setting.aboutme',$data);
+    }
+    
+    public function employmentHistory(Request $request){
+        $userId = Auth::guard('client')->user()->id;
+        
+        $data['pagetitle'] = 'Landing - Softral';
+        $data['metatitle'] = 'Landing - Softral';
+        $data['employmenthistory'] = 'active';
+        
+        if ($request->isMethod('post')) {
+            $fileData  = $request->input();
+            
+            $user = new Users;
+            if(!empty($fileData)){
+                $userId = Auth::guard('client')->user()->id;
+                $changePasssword = $user->notification($request,$userId);
+                if($changePasssword)
+                {
+                    $request->session()->flash('session_success', 'Your password update successfully.');
+                }else{
+                    $request->session()->flash('session_error', 'Your old password is wronge.');
+                }
+                
+            }else{
+                $request->session()->flash('session_error', 'Please enter all field.');
+            }
+            return redirect(route('client-dashboard'));
+        }
+        
+        $data['plugincss'] = array();
+        $data['css'] = array();
+        $data['pluginjs'] = array('jquery-validation/js/jquery.validate.min.js', 'jquery-validation/js/additional-methods.min.js');
+        $data['js'] = array('client/employmentHistory.js');
+        $data['funinit'] = array('EmploymentHistory.init();');
+        return view('client.setting.employment-history',$data);
+    }
+    
 }

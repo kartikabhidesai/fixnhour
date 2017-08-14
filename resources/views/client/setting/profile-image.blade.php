@@ -2,11 +2,9 @@
 
 @section('content')
 <main class="cd-main-content">
-    
     <div class="clearfix"></div>
-
-    <section class="max-height-footer home-page gray-bg">
-        <div class="container">
+        <section class="max-height-footer home-page gray-bg">
+           <div class="container">
             <div class="home-left">
                 <!--  <div class="search-top">
                      <div class="heading text-center">Job Search</div>
@@ -20,7 +18,7 @@
             <div class="home-right">   
                 <div class="search-right">
                     <div class="row ">
-                        <div class="search-left col-sm-6 col-md-10 col-xs-12">
+                        <div class="search-left col-sm-6 col-md-12 col-xs-12">
                         <div class="col-md-12 setting-title">
                             <h3>Change Profile Pictures</h3>
                         </div>

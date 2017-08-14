@@ -22,7 +22,7 @@
                     <div class="row ">
                         <div class="search-left col-sm-6 col-md-12 col-xs-12">
                         <div class="col-md-12 setting-title">
-                            <h3>Change Password</h3>
+                            <h3>About Me</h3>
                         </div>
                         <div class="clearfix"></div>
                         <div id='errorSection'>
@@ -40,27 +40,25 @@
                             </div>
                             @endif
                         </div>
-                        {{ Form::open( array('method' => 'post', 'id' => 'passwordchange',  'class' => '' )) }}
+                        {{ Form::open( array('method' => 'post', 'id' => 'userInfoForm',  'class' => '' )) }}
                         <div class="col-md-12">
                             <div class="form-group">
 
-                                <div class="col-sm-2 col-md-12 ">
-                                    <label for="Old Password" class="control-label">Old Password : </label>
-                                    {{ Form::password('old_password', array('class' => 'form-control','type'=>'password', 'id' => 'old_password', 'placeholder' => 'Enter Old Password')) }}
-                                </div>
                                 <div class="col-sm-4 col-md-12 ">
-                                    <label for="New Password" class="control-label">New Password : <span class="required">*</span></label>
-                                    {{ Form::password('new_password', array('class' => 'form-control', 'type'=>'password','id' => 'new_password', 'placeholder' => 'Enter New Password')) }}
+                                    <label for="FirstName" class="control-label">Title: <span class="required">*</span></label>
+                                    {{ Form::text('first_name', (empty($arrUserInfo->first_name) ? null : $arrUserInfo->first_name), array('class' => 'form-control', 'id' => 'first_name', 'placeholder' => 'Enter First Name')) }}
                                 </div>
-                                <div class="col-sm-4 col-md-12">
-                                    <label for="Confirm Password" class="control-label">Confirm Password : <span class="required">*</span></label>
-                                    {{ Form::password('confirm_password' , array('class' => 'form-control', 'type'=>'password','id' => 'confirm_password', 'placeholder' => 'Enter Confirm Password')) }}
+                                
+                                <div class="col-sm-8 col-md-12">
+                                    <label for="Adress" class="control-label">Overview : <span class="required">*</span></label>
+                                    {{ Form::textarea('address', (empty($arrUserInfo->address) ? null : $arrUserInfo->address), array('class' => 'form-control', 'id' => 'Address', 'placeholder' => 'Enter Address','rows'=>"3.5")) }}
                                 </div>
+                                
                                 
                             </div>
                         </div>   
                         <div class="form-actions text-center">
-                            <button type="submit" class="btn blue btn-green">Update</button>
+                            <button type="submit" class="btn blue btn-green">{{ Route::current()->getName() == 'user-edit' ? 'Update' : 'Save' }}</button>
                             <a href="{{ route('user-list') }}" class="btn default btn-green">Cancel</a>
                         </div>
                         {{ Form::close() }}

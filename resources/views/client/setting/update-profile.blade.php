@@ -20,7 +20,7 @@
             <div class="home-right">   
                 <div class="search-right">
                     <div class="row ">
-                        <div class="search-left col-sm-6 col-md-10 col-xs-12">
+                        <div class="search-left col-sm-6 col-md-12 col-xs-12">
                         <div class="col-md-12 setting-title">
                             <h3>Update Profile</h3>
                         </div>
@@ -43,16 +43,7 @@
                         {{ Form::open( array('method' => 'post', 'id' => 'userInfoForm',  'class' => '' )) }}
                         <div class="col-md-12">
                             <div class="form-group">
-<!--                                <div class="col-sm-2 form-group">
-                                    <label for="UserType" class="control-label">User Type : <span class="required">*</span></label>
-                                    <div class="radio-list">
-                                        <span>
-                                            {{ Form::radio('type', 'Client', (isset($arrUserInfo->role_type) && ($arrUserInfo->role_type == 'Client') ? TRUE : FALSE), array('class' => 'form-control type')) }} Client
-                                            &nbsp;&nbsp;&nbsp;
-                                            {{ Form::radio('type', 'Freelancer', (isset($arrUserInfo->role_type) && ($arrUserInfo->role_type == 'Freelancer') ? TRUE : FALSE), array('class' => 'form-control type')) }} Freelancer
-                                        </span>
-                                    </div>
-                                </div>-->
+
                                 <div class="col-sm-2 col-md-6 ">
                                     <label for="Title" class="control-label">Title : </label>
                                     {{ Form::select('title', $arrNameTitle, (empty($arrUserInfo->title) ? null : $arrUserInfo->title), array('class' => 'form-control', 'id' => 'title')) }}
