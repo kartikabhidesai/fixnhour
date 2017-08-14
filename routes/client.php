@@ -13,6 +13,7 @@ Route::match(['get', 'post'], 'client-notification', ['as' => 'client-notificati
 Route::match(['get', 'post'], 'client-dashboard', ['as' => 'client-dashboard', 'uses' => 'client\SettingController@dashboard']);
 Route::match(['get', 'post'], 'client-aboutme', ['as' => 'client-aboutme', 'uses' => 'client\SettingController@aboutme']);
 Route::match(['get', 'post'], 'client-employment-history', ['as' => 'client-employment-history', 'uses' => 'client\SettingController@employmentHistory']);
+Route::match(['get', 'post'], 'client-education', ['as' => 'client-education', 'uses' => 'client\SettingController@clientEducation']);
 
 // Client Rought end
 });

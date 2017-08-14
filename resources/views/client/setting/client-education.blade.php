@@ -23,7 +23,7 @@
                         <div class="search-left col-sm-6 col-md-12 col-xs-12">
                             <div class="col-md-12 setting-title" style="padding-left: 0px;">
                                 <div class="col-md-10">
-                                    <h3>Employment Detail</h3>
+                                    <h3>Education Detail</h3>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="freelancer-right" style="padding-top: 6px; ">
@@ -43,9 +43,9 @@
                                                     <div class="profile-top full freelancer-bx">
                                                         <div class="profile-right">
                                                             <div class="block relative">
-                                                                <h2 class="profile-name">Riyo Carter <img src="{{ asset('images/right-icon.png') }}" alt="#"></h2>
-                                                                <p class="padding-top-ten"><strong>Graphic &amp; Web Designer</strong></p>
-                                                                <p class="location"><img src="{{ asset('images/map-pin.png') }}" alt="#"> Los Angeles, United State</p>
+                                                                <h2 class="profile-name"> Bachelor of Engineering (B.Eng.), Computer engineering  <img src="{{ asset('images/right-icon.png') }}" alt="#"></h2>
+                                                                <p class="padding-top-ten"><strong> A.I.T.S </strong></p>
+                                                                <p class="location"> 2007 - 2011</p>
                                                                 <div class="clearfix"></div>
                                                             </div>
                                                         </div>
@@ -83,7 +83,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add Employment Detail</h4>
+        <h4 class="modal-title">Add Education Detail</h4>
       </div>
       <div class="modal-body">
         {{ Form::open( array('method' => 'post', 'id' => 'userInfoForm',  'class' => '' )) }}
@@ -91,26 +91,19 @@
             <div class="form-group">
 
                 <div class="col-sm-2 col-md-12 ">
-                    <label for="Title" class="control-label">Company : </label>
+                    <label for="Title" class="control-label">School : </label>
                     {{ Form::text('first_name', (empty($arrUserInfo->first_name) ? null : $arrUserInfo->first_name), array('class' => 'form-control', 'id' => 'first_name', 'placeholder' => 'Enter First Name')) }}
                 </div>
-                <div class="col-sm-4 col-md-6 ">
-                    <label for="FirstName" class="control-label">Location : <span class="required">*</span></label>
+                <div class="col-sm-4 col-md-12 ">
+                    <label for="FirstName" class="control-label">Degree : <span class="required">*</span></label>
                     {{ Form::text('first_name', (empty($arrUserInfo->first_name) ? null : $arrUserInfo->first_name), array('class' => 'form-control', 'id' => 'first_name', 'placeholder' => 'Enter First Name')) }}
                 </div>
-                <div class="col-sm-4 col-md-6">
-                    <label for="LastName" class="control-label">Country : <span class="required">*</span></label>
-                    {{ Form::select('title', [''=>'-- Select Country --'], (empty($arrUserInfo->title) ? null : $arrUserInfo->title), array('class' => 'form-control', 'id' => 'title')) }}
-                </div>
-
+                
                 <div class="col-sm-4 col-md-12">
-                    <label for="UserName" class="control-label">Title : <span class="required">*</span></label>
+                    <label for="UserName" class="control-label">Area of Study (optional) : <span class="required">*</span></label>
                     {{ Form::text('username', (empty($arrUserInfo->username) ? null : $arrUserInfo->username), array('class' => 'form-control', 'id' => 'username','placeholder' => 'Enter User Name')) }}
                 </div>
-                <div class="col-sm-4 col-md-12">
-                    <label for="Email" class="control-label">Role : <span class="required">*</span></label>
-                    {{ Form::select('title', [''=>'-- Select Role --'], (empty($arrUserInfo->title) ? null : $arrUserInfo->title), array('class' => 'form-control', 'id' => 'title')) }}
-                </div>
+                
                 
                 <div class="col-sm-4 col-md-6">
                     <label for="LastName" class="control-label">From : <span class="required">*</span></label>
@@ -148,7 +141,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Delete Employment Detail</h4>
+        <h4 class="modal-title">Delete Education Detail</h4>
       </div>
       <div class="modal-body">
         <p>Are you sure?</p>

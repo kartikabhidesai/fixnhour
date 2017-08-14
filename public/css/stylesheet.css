@@ -75,7 +75,7 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-    div.job-left {
+    div.custom-ul-li {
     float: left;
     border: 1px solid #ccc;
     background-color: #4CC3C8;
@@ -83,7 +83,7 @@ input:checked + .slider:before {
     
 }
 
-div.job-left li {
+div.custom-ul-li li {
     display: block;
     background-color: inherit;
     color: black;
@@ -95,16 +95,16 @@ div.job-left li {
     cursor: pointer;
     transition: 0.3s;
 }
-div.job-left li.active {
+div.custom-ul-li li.active {
    
     background-color: #fff;
     
 }
-div.job-left li a {
+div.custom-ul-li li a {
     color: white;
     font-size: 15.5px;
 }
-div.job-left li.active a{
+div.custom-ul-li li.active a{
    
     color: #4CC3C8;
     

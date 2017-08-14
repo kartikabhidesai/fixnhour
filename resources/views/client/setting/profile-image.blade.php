@@ -9,7 +9,7 @@
                 <!--  <div class="search-top">
                      <div class="heading text-center">Job Search</div>
                   </div>-->
-                <div class="job-left">
+                <div class="job-left custom-ul-li">
                     @include('client.includes.setting-menu-left-panel')
                 </div>
                 <div class="clearfix"></div>

@@ -6,4 +6,5 @@
     <li class="@if(isset($notification)) {{  $notification  }} @endif"><a href="{{ route ('client-notification') }}">Notification</a></li>
     <li class="@if(isset($aboutme)) {{  $aboutme  }} @endif"><a href="{{ route ('client-aboutme') }}">About Me</a></li>
     <li class="@if(isset($employmenthistory)) {{  $employmenthistory  }} @endif"><a href="{{ route ('client-employment-history') }}">Employment  Detail</a></li>
+    <li class="@if(isset($education)) {{  $education  }} @endif"><a href="{{ route ('client-education') }}">Education</a></li>
 </ul>
