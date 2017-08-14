@@ -132,7 +132,7 @@
                                             <ul class="dropdown-menu" role="menu">
 
                                                 <li>
-                                                    <a href="{{ route ('client-update-profile') }}" class="user-drop-btn">
+                                                    <a href="{{ route ('client-profile') }}" class="user-drop-btn">
                                                         @if(Auth::guard('client')->user()->var_image != "")
                                                         <img src="{{ url ('uploads/freelancer/'.Auth::guard('client')->user()->var_image) }}" >  
                                                         @else
