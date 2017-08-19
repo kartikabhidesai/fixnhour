@@ -149,7 +149,7 @@
                                                 </li>
 
                                                 <li>
-                                                    <a href="{{ route ('client-setting') }}" class="user-drop-link"> 
+                                                    <a href="{{ route ('update-profile') }}" class="user-drop-link"> 
                                                         <i class="pe-7s-settings"></i>Setting 
                                                     </a>
                                                 </li>

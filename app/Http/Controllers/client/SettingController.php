@@ -16,10 +16,11 @@ class SettingController extends Controller {
          $this->middleware('client');
     }
 
-    public function profileImage(Request $request) {
-        $data['pagetitle'] = 'Landing - Softral';
-        $data['metatitle'] = 'Landing - Softral';
-        $data['cpp'] = 'active';
+    public function profilePicture(Request $request) {
+        
+        $data['pagetitle'] = 'Profile Picture';
+        $data['metatitle'] = 'Profile Picture';
+        $data['profilePic'] = 'active';
         
         if ($request->isMethod('post')) {
             $fileData  = $request->file();
@@ -31,37 +32,41 @@ class SettingController extends Controller {
             }else{
                 $request->session()->flash('session_error', 'Please select image first.');
             }
-            return redirect(route('client-setting'));
+            return redirect(route('profile-picture'));
         }
+        
         $data['plugincss'] = array('bootstrap-fileinput/bootstrap-fileinput.css');
         $data['css'] = array();
         $data['pluginjs'] = array('bootstrap-fileinput/bootstrap-fileinput.js');
         $data['js'] = array();
         $data['funinit'] = array();
-        return view('client.setting.profile-image',$data);
+        
+        return view('client.setting.profile-picture',$data);
     }
     
     public function updateProfile(Request $request){
         $userId = Auth::guard('client')->user()->id;
         
-        $data['pagetitle'] = 'Landing - Softral';
-        $data['metatitle'] = 'Landing - Softral';
-        $data['up'] = 'active';
+        $data['pagetitle'] = 'Update Profile Info';
+        $data['metatitle'] = 'Update Profile Info';
+        $data['profileInfo'] = 'active';
         $arrUserInfo = Users::find($userId);
         $arrNameTitle = Config::get('constants.arrNameTitle');
         $arrUserType = Config::get('constants.arrUserType');
+        
         if ($request->isMethod('post')) {
             $fileData  = $request->input();
             $user = new Users;
             if(!empty($fileData)){
-                $userId = Auth::guard('client')->user()->id;
-                $user->updateUserInfo($request,$userId);
+                //$userId = Auth::guard('client')->user()->id;
+                $user->updateUserInfo($request, $userId);
                 $request->session()->flash('session_success', 'Your profile update successfully.');
             }else{
                 $request->session()->flash('session_error', 'Please select image first.');
             }
-            return redirect(route('client-update-profile'));
+            return redirect(route('update-profile'));
         }
+        
         $data['arrNameTitle'] = $arrNameTitle;
         $data['arrUserType'] = $arrUserType;
         $data['arrUserInfo'] = $arrUserInfo;
@@ -78,7 +83,7 @@ class SettingController extends Controller {
         
         $data['pagetitle'] = 'Landing - Softral';
         $data['metatitle'] = 'Landing - Softral';
-        $data['cp'] = 'active';
+        $data['changePwd'] = 'active';
         
         if ($request->isMethod('post')) {
             $fileData  = $request->input();
@@ -96,7 +101,7 @@ class SettingController extends Controller {
             }else{
                 $request->session()->flash('session_error', 'Please enter all field.');
             }
-            return redirect(route('client-change-password'));
+            return redirect(route('change-password'));
         }
         
         $data['plugincss'] = array();
@@ -131,7 +136,7 @@ class SettingController extends Controller {
             }else{
                 $request->session()->flash('session_error', 'Please enter all field.');
             }
-            return redirect(route('client-notification'));
+            return redirect(route('notification'));
         }
         
         $data['plugincss'] = array();
@@ -166,7 +171,7 @@ class SettingController extends Controller {
             }else{
                 $request->session()->flash('session_error', 'Please enter all field.');
             }
-            return redirect(route('client-dashboard'));
+            return redirect(route('dashboard'));
         }
         
         $data['plugincss'] = array();
@@ -180,35 +185,36 @@ class SettingController extends Controller {
     public function aboutme(Request $request){
         $userId = Auth::guard('client')->user()->id;
         
-        $data['pagetitle'] = 'Landing - Softral';
-        $data['metatitle'] = 'Landing - Softral';
+        $data['pagetitle'] = 'About Me';
+        $data['metatitle'] = 'About Me';
         $data['aboutme'] = 'active';
         
         if ($request->isMethod('post')) {
-            $fileData  = $request->input();
+            $fileData = $request->input();
             
-            $user = new Users;
             if(!empty($fileData)){
-                $userId = Auth::guard('client')->user()->id;
-                $changePasssword = $user->notification($request,$userId);
-                if($changePasssword)
-                {
-                    $request->session()->flash('session_success', 'Your password update successfully.');
+                $objUser = new Users;
+                $result = $objUser->updateOverviewInfo($request, $userId);
+                if($result){
+                    $request->session()->flash('session_success', 'Your detail update successfully.');
                 }else{
-                    $request->session()->flash('session_error', 'Your old password is wronge.');
+                    $request->session()->flash('session_error', 'Something will be wrong. Please try again.');
                 }
-                
             }else{
-                $request->session()->flash('session_error', 'Please enter all field.');
+                $request->session()->flash('session_error', 'Please enter required field.');
             }
-            return redirect(route('client-dashboard'));
+            return redirect(route('aboutme'));
         }
+        
+        $arrUserInfo = Users::find($userId);
+        $data['arrUserInfo'] = $arrUserInfo;
+        //echo "<pre>";print_r($arrUserInfo);exit;
         
         $data['plugincss'] = array();
         $data['css'] = array();
         $data['pluginjs'] = array('jquery-validation/js/jquery.validate.min.js', 'jquery-validation/js/additional-methods.min.js');
         $data['js'] = array('freelancer/updateProfile.js');
-        $data['funinit'] = array('UpdateProfile.changePassword();');
+        $data['funinit'] = array('UpdateProfile.about();');
         return view('client.setting.aboutme',$data);
     }
     
@@ -236,7 +242,7 @@ class SettingController extends Controller {
             }else{
                 $request->session()->flash('session_error', 'Please enter all field.');
             }
-            return redirect(route('client-dashboard'));
+            return redirect(route('dashboard'));
         }
         
         $data['plugincss'] = array();
@@ -271,7 +277,7 @@ class SettingController extends Controller {
             }else{
                 $request->session()->flash('session_error', 'Please enter all field.');
             }
-            return redirect(route('client-dashboard'));
+            return redirect(route('dashboard'));
         }
         
         $data['plugincss'] = array();

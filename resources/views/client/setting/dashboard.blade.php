@@ -22,7 +22,7 @@
                     <div class="row ">
                         <div class="search-left col-sm-6 col-md-12 col-xs-12">
                             <div class="col-md-12 setting-title">
-                                <h3>Dashboard</h3>
+                                <h3><i class="fa fa-dashboard"></i> Dashboard</h3>
                             </div>
                             <div class="clearfix"></div>
                             <div class="container-old">

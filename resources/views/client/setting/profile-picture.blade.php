@@ -20,7 +20,7 @@
                     <div class="row ">
                         <div class="search-left col-sm-6 col-md-12 col-xs-12">
                         <div class="col-md-12 setting-title">
-                            <h3>Change Profile Pictures</h3>
+                            <h3><i class="fa fa-user"></i> Change Profile Pictures</h3>
                         </div>
                         <div class="clearfix"></div>
                         <div id='errorSection'>
@@ -38,7 +38,7 @@
                             </div>
                             @endif
                         </div>
-                        {{ Form::open(array('route' => 'client-setting','id'=>'setting','class'=>'setting','files' => true)) }}
+                        {{ Form::open(array('route' => 'profile-picture','id'=>'setting','class'=>'setting','files' => true)) }}
                         <div class="form-group">
                             <!--<label class="control-label col-md-2"></label>-->
                             <div class="col-md-10">

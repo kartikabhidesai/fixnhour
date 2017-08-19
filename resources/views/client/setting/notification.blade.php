@@ -22,7 +22,7 @@
                     <div class="row ">
                         <div class="search-left col-sm-6 col-md-12 col-xs-12">
                         <div class="col-md-12 setting-title">
-                            <h3>Notification</h3>
+                            <h3><i class="fa fa-warning"></i> Notification</h3>
                         </div>
                         <div class="clearfix"></div>
                         <div id='errorSection'>
@@ -70,8 +70,8 @@
                             </div>
                         </div>   
                         <div class="form-actions text-center">
-                            <button type="submit" class="btn blue btn-green">Update</button>
-                            <a href="{{ route('home') }}" class="btn default btn-green">Cancel</a>
+                            <button type="submit" class="btn default btn-green">Update</button>
+                            <a href="{{ route('notification') }}" class="btn default btn-green">Cancel</a>
                         </div>
                         {{ Form::close() }}
                         </div>

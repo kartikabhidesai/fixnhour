@@ -31,9 +31,7 @@ class Users extends Authenticatable{
       return null; // not supported
     }
 
-    /**
-     * Overrides the method to ignore the remember token.
-     */
+    /* Overrides the method to ignore the remember token. */
     public function setAttribute($key, $value){
       $isRememberTokenAttribute = $key == $this->getRememberTokenName();
       if (!$isRememberTokenAttribute)
@@ -58,7 +56,8 @@ class Users extends Authenticatable{
             return FALSE;
         }
     }
-     public function basic_email(){
+    
+    public function basic_email(){
       $data = array('name'=>"Virat Gandhi");
 
       Mail::send(['text'=>'email.email'], $data, function($message) {
@@ -207,5 +206,13 @@ class Users extends Authenticatable{
             return FALSE;
         }
         
+    }
+    
+    public function updateOverviewInfo($request, $userId){
+        $objUser = Users::find($userId);
+        $objUser->overview_title = $request->input('overview_title');
+        $objUser->overview_text = $request->input('overview_text');
+        $objUser->save();
+        return TRUE;
     }
 }
