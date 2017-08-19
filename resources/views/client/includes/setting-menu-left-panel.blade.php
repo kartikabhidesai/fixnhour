@@ -4,17 +4,17 @@
             <i class="fa fa-dashboard"></i> Dashboard
         </a>
     </li>
-    <li class="@if(isset($cpp)){{ $profilePic }} @endif">
+    <li class="@if(isset($profilePic)){{ $profilePic }} @endif">
         <a href="{{ route ('profile-picture') }}"> 
             <i class="fa fa-user"></i> Change profile picture
         </a>
     </li>
-    <li class="@if(isset($up)) {{ $profileInfo }} @endif">
+    <li class="@if(isset($profileInfo)) {{ $profileInfo }} @endif">
         <a href="{{ route ('update-profile') }}">
             <i class="fa fa-edit"></i> Update profile
         </a>
     </li>
-    <li class="@if(isset($cp)) {{ $changePwd }} @endif">
+    <li class="@if(isset($changePwd)) {{ $changePwd }} @endif">
         <a href="{{ route ('change-password') }}">
             <i class="fa fa-key"></i> Change Password
         </a>
