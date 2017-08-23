@@ -22,7 +22,7 @@
                     <div class="row ">
                         <div class="search-left col-sm-6 col-md-12 col-xs-12">
                         <div class="col-md-12 setting-title">
-                            <h3>Change Password</h3>
+                            <h3><i class="fa fa-key"></i> Change Password</h3>
                         </div>
                         <div class="clearfix"></div>
                         <div id='errorSection'>
@@ -43,7 +43,6 @@
                         {{ Form::open( array('method' => 'post', 'id' => 'passwordchange',  'class' => '' )) }}
                         <div class="col-md-12">
                             <div class="form-group">
-
                                 <div class="col-sm-2 col-md-12 ">
                                     <label for="Old Password" class="control-label">Old Password : </label>
                                     {{ Form::password('old_password', array('class' => 'form-control','type'=>'password', 'id' => 'old_password', 'placeholder' => 'Enter Old Password')) }}
@@ -56,12 +55,11 @@
                                     <label for="Confirm Password" class="control-label">Confirm Password : <span class="required">*</span></label>
                                     {{ Form::password('confirm_password' , array('class' => 'form-control', 'type'=>'password','id' => 'confirm_password', 'placeholder' => 'Enter Confirm Password')) }}
                                 </div>
-                                
                             </div>
                         </div>   
                         <div class="form-actions text-center">
-                            <button type="submit" class="btn blue btn-green">Update</button>
-                            <a href="{{ route('user-list') }}" class="btn default btn-green">Cancel</a>
+                            <button type="submit" class="btn default btn-green">Update</button>
+                            <a href="{{ route('change-password') }}" class="btn default btn-green">Cancel</a>
                         </div>
                         {{ Form::close() }}
                         </div>

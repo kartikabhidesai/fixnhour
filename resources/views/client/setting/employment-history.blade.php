@@ -23,7 +23,7 @@
                         <div class="search-left col-sm-6 col-md-12 col-xs-12">
                             <div class="col-md-12 setting-title" style="padding-left: 0px;">
                                 <div class="col-md-10">
-                                    <h3>Employment Detail</h3>
+                                    <h3><i class="fa fa-puzzle-piece"></i> Employment Detail</h3>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="freelancer-right" style="padding-top: 6px; ">
@@ -83,7 +83,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add Employment Detail</h4>
+        <h4 class="modal-title"><i class="fa fa-puzzle-piece"></i> Add Employment Detail</h4>
       </div>
       <div class="modal-body">
         {{ Form::open( array('method' => 'post', 'id' => 'userInfoForm',  'class' => '' )) }}
@@ -128,7 +128,7 @@
             </div>
         </div>   
         <div class="form-actions text-center">
-            <button type="submit" class="btn blue btn-green">{{ Route::current()->getName() == 'user-edit' ? 'Update' : 'Save' }}</button>
+            <button type="submit" class="btn default btn-green">{{ Route::current()->getName() == 'user-edit' ? 'Update' : 'Save' }}</button>
             <a href="javascript:;" data-dismiss="modal" class="btn default btn-green">Cancel</a>
         </div>
         {{ Form::close() }}
@@ -158,7 +158,7 @@
       </div>
         <div class="modal-footer">
         <div class="form-actions text-center">
-            <button type="submit" class="btn blue btn-green">Yes</button>
+            <button type="submit" class="btn default btn-green">Yes</button>
             <a href="javascript:;" data-dismiss="modal" class="btn default btn-green">Cancel</a>
         </div>
       </div>
