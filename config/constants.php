@@ -56,6 +56,21 @@ return [
         '3' => 'Time-3',
         '4' => 'Time-4',
         '5' => 'Time-5'
+    ],
+    'arrCountry' => [
+        '' => '- - - Select Country - - -',
+        '1' => 'India',
+        '2' => 'USA',
+        '3' => 'Austrelia',
+        '4' => 'Canada'
+    ],
+    'arrRole' => [
+        '' => '- - - Select Role - - -',
+        '1' => 'Role-1',
+        '2' => 'Role-2',
+        '3' => 'Role-3',
+        '4' => 'Role-4',
+        '5' => 'Role-5'
     ]
     
 ];

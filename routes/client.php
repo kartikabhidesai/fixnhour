@@ -3,7 +3,8 @@
 // Client Rought start
 $userPrefix1 = "client";
 Route::group(['prefix' => $userPrefix1], function() {
-    
+
+    Route::match(['get', 'post'], 'setting/ajaxAction', ['as' => 'setting/ajaxAction', 'uses' => 'client\SettingController@ajaxAction']);
     Route::match(['get', 'post'], 'post-your-job', ['as' => 'post-your-job', 'uses' => 'client\PostYourJobController@postYourJob']);
     Route::match(['get', 'post'], 'client-logout', ['as' => 'client-logout', 'uses' => 'client\PostYourJobController@logout']);
     Route::match(['get', 'post'], 'profile-picture', ['as' => 'profile-picture', 'uses' => 'client\SettingController@profilePicture']);
