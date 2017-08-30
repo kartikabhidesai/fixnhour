@@ -177,7 +177,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">	
                                                 <label class="custom-lable">Country</label>
-                                                {{ Form::select('country', $arrCategory, null, array('class' => 'form-control', 'id' => 'country')) }}
+                                                {{ Form::select('country', $arrCountry, null, array('class' => 'form-control', 'id' => 'country')) }}
                                             </div>
                                         </div>
                                         <div class="col-md-6">

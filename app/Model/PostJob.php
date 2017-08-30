@@ -10,30 +10,33 @@ use Auth;
 class PostJob extends Model {
 
     protected $table = 'post_jobs';
-    
+
+    public function getListForFreelanser() {
+        return PostJob::get()->toArray();
+    }
+
     public function savePostJobInfo($request) {
-        
-        //echo "<pre>";print_r($request->input());exit;
+
         $destinationPath = public_path() . '/uploads/client';
-       
+
         $file1 = $request->file('attach1');
         $file2 = $request->file('attach2');
-        
+
         $file_name1 = '';
         $file_name2 = '';
-        if(!empty($file1)){
+        if (!empty($file1)) {
             $time = time();
             $file_name1 = $time . $file1->getClientOriginalName();
             $file1->move($destinationPath, $file_name1);
         }
-        if(!empty($file2)){
+        if (!empty($file2)) {
             $time = time();
             $file_name2 = $time . $file2->getClientOriginalName();
             $file2->move($destinationPath, $file_name2);
         }
-        
+
         $objPostJob = new PostJob();
-        
+
         $objPostJob->category = $request->input('category');
         $objPostJob->sub_category = $request->input('sub_category');
         $objPostJob->title = $request->input('title');
@@ -53,15 +56,15 @@ class PostJob extends Model {
         $objPostJob->zip = $request->input('zip');
         $objPostJob->proposed_option = $request->input('proposed_option');
         $objPostJob->delivery_date = date('Y-m-d', strtotime($request->input('start_date')));
-        
+
         $objPostJob->save();
         return TRUE;
     }
-    
+
     public function updateUserInfo($userId, $request) {
-        
+
         $objPostJob = UserInfo::find($userId);
-        
+
         $objPostJob->title = $request->input('title');
         $objPostJob->first_name = $request->input('first_name');
         $objPostJob->last_name = $request->input('last_name');
@@ -76,19 +79,20 @@ class PostJob extends Model {
         $objPostJob->save();
         return TRUE;
     }
-    
+
     public function updateUserPassword($userId, $request) {
-        
+
         $newpassword = ($request->input('password') != '') ? $request->input('password') : null;
         $newpass = Hash::make($newpassword);
-        
+
         $objPostJob = UserInfo::find($userId);
         $objPostJob->password = $newpass;
         $objPostJob->save();
         return TRUE;
     }
-    
+
     public function deleteUserInfo($userId) {
         return UserInfo::where('id', $userId)->delete();
     }
+
 }

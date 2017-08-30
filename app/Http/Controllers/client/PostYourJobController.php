@@ -20,6 +20,7 @@ class PostYourJobController  extends Controller {
         $arrPostJobSkill = Config::get('constants.arrPostJobSkill');
         $arrApproximateBudget = Config::get('constants.arrApproximateBudget');
         $arrApproximateTime = Config::get('constants.arrApproximateTime');
+        $arrCountry = Config::get('constants.arrCountry');
         
         if ($request->isMethod('post')) {
             
@@ -69,6 +70,7 @@ class PostYourJobController  extends Controller {
         $data['arrPostJobSkill'] = $arrPostJobSkill;
         $data['arrApproximateBudget'] = $arrApproximateBudget;
         $data['arrApproximateTime'] = $arrApproximateTime;
+        $data['arrCountry'] = $arrCountry;
         
         return view('client.post-your-job.add',$data);
     }
