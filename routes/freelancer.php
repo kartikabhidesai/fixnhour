@@ -13,8 +13,13 @@ Route::match(['get', 'post'], '/message', ['as' => 'message', 'uses' => 'freelan
 Route::match(['get', 'post'], '/save-job', ['as' => 'save-job', 'uses' => 'freelancer\FreelancerController@saveJob']);
 Route::match(['get', 'post'], '/profile', ['as' => 'profile', 'uses' => 'freelancer\FreelancerController@profile']);
 Route::match(['get', 'post'], '/setting', ['as' => 'setting', 'uses' => 'freelancer\SettingController@profileImage']);
-Route::match(['get', 'post'], '/update-profile', ['as' => 'update-profile', 'uses' => 'freelancer\SettingController@updateProfile']);
-Route::match(['get', 'post'], '/change-password', ['as' => 'change-password', 'uses' => 'freelancer\SettingController@changePassword']);
+Route::match(['get', 'post'], '/update-profile', ['as' => 'freelancer-update-profile', 'uses' => 'freelancer\SettingController@updateProfile']);
+Route::match(['get', 'post'], '/change-password', ['as' => 'freelancer-change-password', 'uses' => 'freelancer\SettingController@changePassword']);
+Route::match(['get', 'post'], '/notification', ['as' => 'freelancer-notification', 'uses' => 'freelancer\SettingController@notification']);
+Route::match(['get', 'post'], '/aboutme', ['as' => 'freelancer-aboutme', 'uses' => 'freelancer\SettingController@aboutme']);
+Route::match(['get', 'post'], '/employment-history', ['as' => 'freelancer-employment-history', 'uses' => 'freelancer\SettingController@employmentHistory']);
+Route::match(['get', 'post'], '/setting/ajaxAction', ['as' => 'freelancer-setting/ajaxAction', 'uses' => 'freelancer\SettingController@ajaxAction']);
+Route::match(['get', 'post'], 'education', ['as' => 'freelancer-education', 'uses' => 'freelancer\SettingController@freelancerEducation']);
 });
 // Freelancer Rought end
 

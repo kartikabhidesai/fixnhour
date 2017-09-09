@@ -38,4 +38,8 @@
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <link href="{{ asset('css/menu-style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/fontface-style.css') }}">
+    
+    <script>
+        var baseurl = "{{ asset('/') }}";
+    </script>
 </head>

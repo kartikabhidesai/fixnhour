@@ -1,4 +1,4 @@
-@extends('layouts.clientlayout')
+@extends('layouts.freelancerlayout')
 
 @section('content')
 <main class="cd-main-content">
@@ -12,7 +12,7 @@
                      <div class="heading text-center">Job Search</div>
                   </div>-->
                 <div class="job-left custom-ul-li">
-                    @include('client.includes.setting-menu-left-panel')
+                    @include('freelancer.includes.setting-menu-left-panel')
                 </div>
                 <div class="clearfix"></div>
 
@@ -298,4 +298,6 @@
 
     </div>
 </div>
+
 @endsection
+
