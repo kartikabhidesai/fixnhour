@@ -34,4 +34,9 @@
             <i class="fa fa-book"></i> Education
         </a>
     </li>
+    <li class="@if(isset($skill)) {{  $skill  }} @endif">
+        <a href="{{ route ('freelancer-skill') }}">
+            <i class="fa fa-book"></i> Skill
+        </a>
+    </li>
 </ul>

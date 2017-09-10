@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Model\Notification;
 use App\Model\Employment;
 use App\Model\EducationDetail;
+use App\Model\DefaultSkill;
+use App\Model\UserSkill;
 use Illuminate\Support\Facades\Cache;
 use App\Users;
 use Config;
@@ -207,7 +209,7 @@ class SettingController extends Controller {
             } else {
                 $request->session()->flash('session_error', 'Please enter all field.');
             }
-            return redirect(route('client-employment-history'));
+            return redirect(route('employment-history'));
         }
 
         $data['employmentDetail'] = $objEmployment->getDetail($userId);
@@ -305,6 +307,72 @@ class SettingController extends Controller {
                     return response::json(['status' => 'error']);
                 }
         }
+    }
+    
+    public function skill(Request $request){
+        
+        $userId = Auth::guard('freelancer')->user()->id;
+
+        $data['pagetitle'] = 'Landing - Softral';
+        $data['metatitle'] = 'Landing - Softral';
+        $data['skill'] = 'active';
+
+        $objUserSkill = new UserSkill();
+
+        if ($request->isMethod('post')) {
+            $fileData = $request->input();
+            
+            if (!empty($fileData)) {
+               
+                $result = $objUserSkill->saveDetail($fileData, $userId);
+                if ($result) {
+                    $request->session()->flash('session_success', 'Skill Added successfully.');
+                } else {
+                    $request->session()->flash('session_error', 'Please enter at list one skill.');
+                }
+            } else {
+                $request->session()->flash('session_error', 'Please enter all field.');
+            }
+            return redirect(route('freelancer-skill'));
+        }
+
+        $data['getUserSkills'] = $objUserSkill->getUserSkill($userId);
+
+        $data['arrCountry'] = Config::get('constants.arrCountry');
+        $data['arrRole'] = Config::get('constants.arrRole');
+
+        $data['plugincss'] = array();
+        $data['css'] = array();
+        $data['pluginjs'] = array();
+        $data['js'] = array('freelancer/freelancerSetting.js');
+        $data['funinit'] = array('freelancerSetting.initSkill();');
+        return view('freelancer.setting.skill', $data);
+    }
+    
+    public function getSkillList(){
+        
+        
+//        $data[0]= array('value'=>1,'text'=>'test','continent'=>'sss');
+//        $data[1]= array('value'=>2,'text'=>'test2','continent'=>'sss');
+//        $data[2]= array('value'=>3,'text'=>'test3','continent'=>'sss');
+//        $data[3]= array('value'=>4,'text'=>'test4','continent'=>'sss');
+//        
+//        echo json_encode($data);
+//        exit;
+        
+//        echo '<pre>';
+//        print_r($data);
+       
+        $objDefaultSkill = new DefaultSkill();
+        $data = $objDefaultSkill->getDetail();
+        $data1 = array();
+        for($i=0;$i<count($data);$i++){
+            $data1[]= array('value'=>$data[$i]['id'],'text'=>$data[$i]['name'],'continent'=>'sss');
+        }
+        
+       
+        echo json_encode($data1);
+        exit;
     }
     
 }

@@ -8,14 +8,11 @@
     <section class="max-height-footer home-page gray-bg">
         <div class="container">
             <div class="home-left">
-                <!--  <div class="search-top">
-                     <div class="heading text-center">Job Search</div>
-                  </div>-->
-                <div class="job-left">
+                <div class="job-left custom-ul-li">
                     @include('freelancer.includes.setting-menu-left-panel')
                 </div>
                 <div class="clearfix"></div>
-                
+
             </div>
             <div class="home-right">   
                 <div class="search-right">

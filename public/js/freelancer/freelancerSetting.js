@@ -215,6 +215,32 @@ var freelancerSetting = function () {
         });
     };
 
+        var manageSkill = function(){
+    
+    
+//            var cities = new Bloodhound({
+//                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
+//                queryTokenizer: Bloodhound.tokenizers.whitespace,
+//                prefetch: baseurl + 'freelancer/setting/getSkillList'
+//              });
+//              cities.initialize();
+//
+//             /// var elt = ;
+//              $('#dd').tagsinput({
+//                itemValue: 'value',
+//                itemText: 'text',
+//                typeaheadjs: {
+//                  name: 'cities',
+//                  displayKey: 'text',
+//                  source: cities.ttAdapter()
+//                }
+//              });
+//              $('#dd').tagsinput('add', { "value": 66 , "text": "Amsterdam"   , "continent": "Europe"    });
+//              $('#tags-input').tagsinput('add', { "value": 4 , "text": "Washington"  , "continent": "America"   });
+//              $('#tags-input').tagsinput('add', { "value": 7 , "text": "Sydney"      , "continent": "Australia" });
+//              $('#tags-input').tagsinput('add', { "value": 10, "text": "Beijing"     , "continent": "Asia"      });
+//              $('#tags-input').tagsinput('add', { "value": 13, "text": "Cairo"       , "continent": "Africa"    });
+              }
     return {
         //main function to initiate the module
         initEducation: function () {
@@ -225,6 +251,9 @@ var freelancerSetting = function () {
         },
         initAbout: function () {
             manageAbout();
+        },
+        initSkill: function () {
+            manageSkill();
         },
     };
 }();

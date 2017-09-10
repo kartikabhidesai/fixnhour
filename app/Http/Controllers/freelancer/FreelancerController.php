@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Model\PostJob;
+use App\Model\EducationDetail;
 use Config;
 use DateTime;
 
@@ -68,8 +69,16 @@ class FreelancerController extends Controller {
     }
 
     public function profile() {
+        
+//        echo '<pre>';
+//        print_r(Auth::guard('freelancer')->user());
+//        exit;
+        $userId = Auth::guard('freelancer')->user()->id;
         $data['pagetitle'] = 'Landing - Fixnhour';
         $data['metatitle'] = 'Landing - Fixnhour';
+        
+        $objEducationDetail = new EducationDetail();
+        $data['educations'] = $objEducationDetail->getDetail($userId);
         $data['plugincss'] = array();
         $data['css'] = array(
 //            'easy-responsive-tabs.css',
@@ -86,10 +95,9 @@ class FreelancerController extends Controller {
             'easy-responsive-tabs.css',
             'gridGallery.css'
         );
-
-
         $data['funinit'] = array();
-        return view('freelancer.profile', $data);
+        
+        return view('freelancer.profile.profile', $data);
     }
 
     public function myJobs() {
