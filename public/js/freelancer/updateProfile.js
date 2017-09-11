@@ -109,7 +109,8 @@ var UpdateProfile = function () {
             ignore: ":hidden",
             rules: {
                 overview_title: {required: true},
-                overview_text: {required: true}
+                overview_text: {required: true},
+                price: {required: true,number:true}
             },
             messages: {
                 username: { required: "Title is required." },

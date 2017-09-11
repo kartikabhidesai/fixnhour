@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Model\PostJob;
+use App\Model\UserSkill;
 use App\Model\EducationDetail;
 use Config;
 use DateTime;
@@ -70,20 +71,21 @@ class FreelancerController extends Controller {
 
     public function profile() {
         
-//        echo '<pre>';
-//        print_r(Auth::guard('freelancer')->user());
-//        exit;
+
         $userId = Auth::guard('freelancer')->user()->id;
         $data['pagetitle'] = 'Landing - Fixnhour';
         $data['metatitle'] = 'Landing - Fixnhour';
         
         $objEducationDetail = new EducationDetail();
         $data['educations'] = $objEducationDetail->getDetail($userId);
+        
+        $objUserSkill = new UserSkill();
+        $data['getUserSkills'] = $objUserSkill->getUserSkill($userId);
+         
+        
         $data['plugincss'] = array();
         $data['css'] = array(
-//            'easy-responsive-tabs.css',
-//            'gridGallery.css'
-        );
+       );
         $data['pluginjs'] = array();
         $data['js'] = array(
             'easyResponsiveTabs.js',

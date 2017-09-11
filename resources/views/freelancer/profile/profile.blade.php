@@ -27,14 +27,12 @@
                             <h2 class="profile-name">{{ Auth::guard('freelancer')->user()->first_name }} {{ Auth::guard('freelancer')->user()->last_name }} <img src="{{ asset('images/right-icon.png') }}" alt="#" /></h2>
                             <p><strong>{{ Auth::guard('freelancer')->user()->overview_title }}</strong></p>
                             <p class="location"><img src="{{ asset('images/map-pin.png') }}" alt="#" /> {{ Auth::guard('freelancer')->user()->city_town }}, {{ Auth::guard('freelancer')->user()->state }}</p>
-                            <div class="profile-price"><strong>$50.00</strong> <span> PER HOUR  <span></div>
+                            <div class="profile-price"><strong>${{ Auth::guard('freelancer')->user()->price }}</strong> <span> PER HOUR  <span></div>
                                         <div class="clearfix"></div>
                                         <ul class="tag-list">
-                                            <li><a href="javascript:void(0)">Design</a></li>
-                                            <li><a href="javascript:void(0)">Photoshop</a></li>
-                                            <li><a href="javascript:void(0)">Illustrator</a></li>
-                                            <li><a href="javascript:void(0)">Corel</a></li>
-                                            <li><a href="javascript:void(0)">MORE+</a></li>
+                                            @foreach($getUserSkills as $getUserSkill)
+                                                <li><a href="javascript:void(0)">{{ $getUserSkill['name'] }}</a></li>
+                                            @endforeach
                                         </ul>
                                         </div>
                                         </div>

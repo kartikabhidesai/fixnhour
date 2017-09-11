@@ -36,7 +36,7 @@
     </li>
     <li class="@if(isset($skill)) {{  $skill  }} @endif">
         <a href="{{ route ('freelancer-skill') }}">
-            <i class="fa fa-book"></i> Skill
+            <i class="fa fa-skyatlas"></i> Skill
         </a>
     </li>
 </ul>

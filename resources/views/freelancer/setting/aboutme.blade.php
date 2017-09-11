@@ -45,6 +45,10 @@
                                     <label for="Adress" class="control-label">Overview : <span class="required">*</span></label>
                                     {{ Form::textarea('overview_text', (empty($arrUserInfo->overview_text) ? null : $arrUserInfo->overview_text), array('class' => 'form-control', 'id' => 'overview_text', 'placeholder' => 'Enter Overview','rows'=>"5")) }}
                                 </div>
+                                <div class="col-md-12">
+                                    <label for="Adress" class="control-label">Price : <span class="required">*</span></label>
+                                    {{ Form::text('price', (empty($arrUserInfo->price ) ? null : $arrUserInfo->price), array('class' => 'form-control', 'id' => 'price', 'placeholder' => 'Enter Your Price Per Hour')) }}
+                                </div>
                             </div>
                             <!--</div>-->   
                             <div class="form-actions text-center">
