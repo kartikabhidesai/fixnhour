@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Model\PostJob;
 use App\Model\UserSkill;
+use App\Model\Employment;
 use App\Model\EducationDetail;
 use Config;
 use DateTime;
@@ -82,6 +83,11 @@ class FreelancerController extends Controller {
         $objUserSkill = new UserSkill();
         $data['getUserSkills'] = $objUserSkill->getUserSkill($userId);
          
+        $objEmployment = new Employment();
+        $data['employmentDetail'] = $objEmployment->getDetail($userId);
+        
+        $data['arrCountry'] = Config::get('constants.arrCountry');
+        $data['arrRole'] = Config::get('constants.arrRole');
         
         $data['plugincss'] = array();
         $data['css'] = array(
