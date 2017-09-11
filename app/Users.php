@@ -212,6 +212,7 @@ class Users extends Authenticatable{
         $objUser = Users::find($userId);
         $objUser->overview_title = $request->input('overview_title');
         $objUser->overview_text = $request->input('overview_text');
+        $objUser->price = $request->input('price');
         $objUser->save();
         return TRUE;
     }
