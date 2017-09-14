@@ -94,5 +94,9 @@ class PostJob extends Model {
     public function deleteUserInfo($userId) {
         return UserInfo::where('id', $userId)->delete();
     }
+    
+    public function getJobDetailForFreelanser($id) {
+        return PostJob::Where('id',$id)->get()->toArray();
+    }
 
 }

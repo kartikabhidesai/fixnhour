@@ -12,6 +12,8 @@ use App\Model\Employment;
 use App\Model\EducationDetail;
 use Config;
 use DateTime;
+use Illuminate\Support\Facades\Input;
+
 
 class FreelancerController extends Controller {
 
@@ -173,6 +175,29 @@ class FreelancerController extends Controller {
         $data['js'] = array();
         $data['funinit'] = array();
         return view('freelancer.postYourJob', $data);
+    }
+    
+    public function viewJobDetail($id) {
+        $objPostJob = new PostJob();
+        //$id = Input::get('id');
+        $data['jobList'] = $objPostJob->getJobDetailForFreelanser($id);
+        //print_r($data); exit;
+        for ($i = 0; $i < count($data['jobList']); $i++) {
+            $data['jobList'][$i]['ago'] = $this->timeAgo($data['jobList'][0]['created_at']);
+        }
+
+
+        $data['arrApproximateBudget'] = Config::get('constants.arrApproximateBudget');
+        $data['arrCountry'] = Config::get('constants.arrCountry');
+
+        $data['pagetitle'] = 'Job Detail - Fixnhour';
+        $data['metatitle'] = 'Job Detail - Fixnhour';
+        $data['plugincss'] = array();
+        $data['css'] = array();
+        $data['pluginjs'] = array();
+        $data['js'] = array();
+        $data['funinit'] = array();
+        return view('freelancer.viewJobDetail', $data);
     }
 
 }

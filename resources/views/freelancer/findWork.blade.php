@@ -157,7 +157,7 @@
                     @if(count($jobList)!=0)
                     @foreach($jobList as $jobListVal)
                     <div class="home-job-row full">
-                        <h2 class="job-heading"><a href="javascript:;">{{$jobListVal['title']}}</a></h2>
+                        <h2 class="job-heading"><a href="jobdetail/{{$jobListVal['id']}}">{{$jobListVal['title']}}</a></h2>
                         <ul class="action-icon">
                             <li><a href="#" data-toggle="tooltip" title="tooltip"><i class="fa fa-heart"></i></a></li>
                         </ul>
