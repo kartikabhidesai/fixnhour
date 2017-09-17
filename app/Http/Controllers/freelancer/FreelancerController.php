@@ -177,27 +177,39 @@ class FreelancerController extends Controller {
         return view('freelancer.postYourJob', $data);
     }
     
-    public function viewJobDetail($id) {
+    public function viewJobDetail($jobId) {
         $objPostJob = new PostJob();
-        //$id = Input::get('id');
-        $data['jobList'] = $objPostJob->getJobDetailForFreelanser($id);
-        //print_r($data); exit;
-        for ($i = 0; $i < count($data['jobList']); $i++) {
-            $data['jobList'][$i]['ago'] = $this->timeAgo($data['jobList'][0]['created_at']);
-        }
-
-
+       
+        $data['jobDetail'] = $objPostJob->getJobDetailForFreelanser($jobId);
+        
         $data['arrApproximateBudget'] = Config::get('constants.arrApproximateBudget');
         $data['arrCountry'] = Config::get('constants.arrCountry');
 
         $data['pagetitle'] = 'Job Detail - Fixnhour';
         $data['metatitle'] = 'Job Detail - Fixnhour';
         $data['plugincss'] = array();
-        $data['css'] = array();
+        $data['css'] = array('freelancer/jobdetail.css');
         $data['pluginjs'] = array();
-        $data['js'] = array();
-        $data['funinit'] = array();
+        $data['js'] = array('freelancer/jobdetail.js');
+        $data['funinit'] = array('jobdetail.init()');
         return view('freelancer.viewJobDetail', $data);
+    }
+    public function submitproposal($jobId) {
+        $objPostJob = new PostJob();
+       
+        $data['jobDetail'] = $objPostJob->getJobDetailForFreelanser($jobId);
+        
+        $data['arrApproximateBudget'] = Config::get('constants.arrApproximateBudget');
+        $data['arrCountry'] = Config::get('constants.arrCountry');
+
+        $data['pagetitle'] = 'Job Detail - Fixnhour';
+        $data['metatitle'] = 'Job Detail - Fixnhour';
+        $data['plugincss'] = array();
+        $data['css'] = array('freelancer/jobdetail.css');
+        $data['pluginjs'] = array();
+        $data['js'] = array('freelancer/jobdetail.js');
+        $data['funinit'] = array('jobdetail.init()');
+        return view('freelancer.job.submitproposal', $data);
     }
 
 }

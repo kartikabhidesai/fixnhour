@@ -61,42 +61,9 @@ class PostJob extends Model {
         return TRUE;
     }
 
-    public function updateUserInfo($userId, $request) {
-
-        $objPostJob = UserInfo::find($userId);
-
-        $objPostJob->title = $request->input('title');
-        $objPostJob->first_name = $request->input('first_name');
-        $objPostJob->last_name = $request->input('last_name');
-        $objPostJob->phone = $request->input('phone');
-        $objPostJob->mobile = $request->input('mobile');
-        $objPostJob->email = $request->input('email');
-        $objPostJob->address = $request->input('address');
-        $objPostJob->city_town = $request->input('city_town');
-        $objPostJob->state = $request->input('state');
-        $objPostJob->postcode = $request->input('postcode');
-        $objPostJob->role_type = $request->input('type');
-        $objPostJob->save();
-        return TRUE;
-    }
-
-    public function updateUserPassword($userId, $request) {
-
-        $newpassword = ($request->input('password') != '') ? $request->input('password') : null;
-        $newpass = Hash::make($newpassword);
-
-        $objPostJob = UserInfo::find($userId);
-        $objPostJob->password = $newpass;
-        $objPostJob->save();
-        return TRUE;
-    }
-
-    public function deleteUserInfo($userId) {
-        return UserInfo::where('id', $userId)->delete();
-    }
     
-    public function getJobDetailForFreelanser($id) {
-        return PostJob::Where('id',$id)->get()->toArray();
+    public function getJobDetailForFreelanser($jobId) {
+        return PostJob::Where('id',$jobId)->get()->toArray();
     }
 
 }
