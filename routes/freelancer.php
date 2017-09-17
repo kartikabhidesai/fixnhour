@@ -6,6 +6,7 @@ $userPrefix1 = "freelancer";
 Route::group(['prefix' => $userPrefix1], function() {
 
 Route::match(['get', 'post'], '/jobdetail/{id}', ['as' => 'jobdetail', 'uses' => 'freelancer\FreelancerController@viewJobDetail']);
+Route::match(['get', 'post'], '/proposol/{id}', ['as' => 'proposol', 'uses' => 'freelancer\FreelancerController@submitproposal']);
 Route::match(['get', 'post'], '/freelancer', ['as' => 'freelancer', 'uses' => 'freelancer\FreelancerController@index']);
 Route::match(['get', 'post'], '/freelancer-logout', ['as' => 'freelancer-logout', 'uses' => 'freelancer\FreelancerController@logout']);
 Route::match(['get', 'post'], '/my-jobs', ['as' => 'my-jobs', 'uses' => 'freelancer\FreelancerController@myJobs']);
