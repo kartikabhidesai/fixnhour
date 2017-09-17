@@ -264,6 +264,45 @@ class SettingController extends Controller {
         return view('freelancer.setting.freelancer-education', $data);
     }
     
+     public function freelancerPortfolio(Request $request) {
+        $userId = Auth::guard('freelancer')->user()->id;
+
+        $data['pagetitle'] = 'Landing - Softral';
+        $data['metatitle'] = 'Landing - Softral';
+        $data['education'] = 'active';
+
+        $objEducationDetail = new EducationDetail();
+
+        if ($request->isMethod('post')) {
+            $fileData = $request->input();
+            if (!empty($fileData)) {
+                if (isset($fileData['edit_id'])) {
+                    $result = $objEducationDetail->updateDetail($fileData);
+                } else {
+                    $result = $objEducationDetail->saveDetail($fileData, $userId);
+                }
+
+                if ($result) {
+                    $request->session()->flash('session_success', 'Education details ' . ((isset($fileData['edit_id'])) ? 'updated' : 'saved') . ' successfully.');
+                } else {
+                    $request->session()->flash('session_error', 'Something went wronge.');
+                }
+            } else {
+                $request->session()->flash('session_error', 'Please enter all field.');
+            }
+            return redirect(route('freelancer-education'));
+        }
+
+        $data['educations'] = $objEducationDetail->getDetail($userId);
+
+        $data['plugincss'] = array();
+        $data['css'] = array();
+        $data['pluginjs'] = array('jquery-validation/js/jquery.validate.min.js', 'jquery-validation/js/additional-methods.min.js');
+        $data['js'] = array('freelancer/freelancerSetting.js');
+        $data['funinit'] = array('freelancerSetting.initEducation();');
+        return view('freelancer.setting.freelancer-portfolio', $data);
+    }
+    
     function ajaxAction(Request $request) {
         $action = $request->input('action');
         switch ($action) {

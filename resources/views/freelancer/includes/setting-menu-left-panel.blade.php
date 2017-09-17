@@ -39,4 +39,9 @@
             <i class="fa fa-skyatlas"></i> Skill
         </a>
     </li>
+    <li class="@if(isset($portfolio)) {{  $portfolio  }} @endif">
+        <a href="{{ route ('freelancer-portfolio') }}">
+            <i class="fa fa-suitcase"></i> Portfolio
+        </a>
+    </li>
 </ul>
