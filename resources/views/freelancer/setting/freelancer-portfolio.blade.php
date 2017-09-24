@@ -11,7 +11,7 @@
                 <div class="job-left custom-ul-li">
                     @include('freelancer.includes.setting-menu-left-panel')
                 </div>
-                <div class="clearfix"></div>
+                <div class="clearfix"> &nbsp;</div>
             </div>
             <div class="home-right">
                 <div class="search-right">
