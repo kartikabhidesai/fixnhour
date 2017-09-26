@@ -23,6 +23,8 @@ Route::match(['get', 'post'], '/employment-history', ['as' => 'freelancer-employ
 Route::match(['get', 'post'], '/setting/ajaxAction', ['as' => 'freelancer-setting/ajaxAction', 'uses' => 'freelancer\SettingController@ajaxAction']);
 Route::match(['get', 'post'], '/education', ['as' => 'freelancer-education', 'uses' => 'freelancer\SettingController@freelancerEducation']);
 Route::match(['get', 'post'], '/portfolio', ['as' => 'freelancer-portfolio', 'uses' => 'freelancer\SettingController@freelancerPortfolio']);
+Route::match(['get', 'post'], '/portfolio_category_list', ['as' => 'freelancer-portfolio_category_list', 'uses' => 'freelancer\SettingController@freelancerPortfolioCategory']);
+Route::match(['get', 'post'], '/portfolio_sub_category_list/{category_id}', ['as' => 'freelancer-portfolio_category_list', 'uses' => 'freelancer\SettingController@freelancerPortfolioCategory']);
 Route::match(['get', 'post'], '/skill', ['as' => 'freelancer-skill', 'uses' => 'freelancer\SettingController@skill']);
 Route::match(['get', 'post'], '/setting/getSkillList', ['as' => 'freelancer-skill-ajax', 'uses' => 'freelancer\SettingController@getSkillList']);
 });

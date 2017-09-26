@@ -214,6 +214,60 @@ var freelancerSetting = function () {
             }
         });
     };
+    
+      var managePortfolio = function () {
+
+        hideMsgBox();
+
+        function hideMsgBox() {
+            setTimeout(function () {
+                $("#errorSection").slideUp(3000);
+            }, 5000);
+        }
+
+        $('#addPortfolioForm').validate({
+            errorElement: 'span', errorClass: 'help-block', focusInvalid: false,
+            rules: {
+                project_title: {required: true},
+                project_overview: {required: true},
+                contact: {required: true},
+                category: {required: true},
+                sub_category: {required: true},
+                project_url: {required: true},
+                completion_date: {required: true},
+                skills: {required: true}
+            },
+            highlight: function (element) {
+                $(element).closest('.form-group').addClass('has-error');
+            },
+            success: function (element) {
+                $(element).closest('.form-group').removeClass('has-error');
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.closest('.input-icon'));
+            },
+            submitHandler: function (form) {
+                $(form).submit();
+            }
+        });
+        
+        $(document).ready(function(){
+        $('#category_id').on("change",function () {
+            var category_id = $(this).find('option:selected').val();
+            //alert(category_id);
+            $.ajax({
+                url: "portfolio_category_list/"+category_id,
+                type: "GET",
+                success: function (response) {
+                    console.log(response);
+                    $("#sub_category_id").val(response);
+                },
+            });
+        }); 
+
+});
+    };
+    
 
         var manageSkill = function(){
     
@@ -251,6 +305,9 @@ var freelancerSetting = function () {
         },
         initAbout: function () {
             manageAbout();
+        },
+        initPortfolio: function () {
+            managePortfolio();
         },
         initSkill: function () {
             manageSkill();

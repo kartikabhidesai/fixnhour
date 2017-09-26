@@ -12,6 +12,8 @@ use App\Model\DefaultSkill;
 use App\Model\UserSkill;
 use Illuminate\Support\Facades\Cache;
 use App\Users;
+use App\Model\Portfolio;
+use App\Model\Portfoio_Category;
 use Config;
 
 class SettingController extends Controller {
@@ -231,9 +233,9 @@ class SettingController extends Controller {
         $data['pagetitle'] = 'Landing - Softral';
         $data['metatitle'] = 'Landing - Softral';
         $data['education'] = 'active';
-
+       
+       
         $objEducationDetail = new EducationDetail();
-
         if ($request->isMethod('post')) {
             $fileData = $request->input();
             if (!empty($fileData)) {
@@ -253,53 +255,63 @@ class SettingController extends Controller {
             }
             return redirect(route('freelancer-education'));
         }
-
+        
+       
         $data['educations'] = $objEducationDetail->getDetail($userId);
-
+        
         $data['plugincss'] = array();
         $data['css'] = array();
         $data['pluginjs'] = array('jquery-validation/js/jquery.validate.min.js', 'jquery-validation/js/additional-methods.min.js');
         $data['js'] = array('freelancer/freelancerSetting.js');
         $data['funinit'] = array('freelancerSetting.initEducation();');
+        print_r($data); exit;
         return view('freelancer.setting.freelancer-education', $data);
     }
     
+     public function freelancerPortfolioCategory(Request $request) {
+         $objPortfolioCategory = new Portfoio_Category();
+         $category_list = $objPortfolioCategory->category_list();
+         return $category_list;
+     }
      public function freelancerPortfolio(Request $request) {
         $userId = Auth::guard('freelancer')->user()->id;
 
         $data['pagetitle'] = 'Landing - Softral';
         $data['metatitle'] = 'Landing - Softral';
-        $data['education'] = 'active';
+        $data['portfolio'] = 'active';
+         $objPortfolioCategory = new Portfoio_Category();
+        $data['category_list'] =$objPortfolioCategory->category_list();
+       // print_r($data['category_list']); exit;
+         $objPortfolio = new Portfolio();
 
-        $objEducationDetail = new EducationDetail();
 
         if ($request->isMethod('post')) {
             $fileData = $request->input();
             if (!empty($fileData)) {
                 if (isset($fileData['edit_id'])) {
-                    $result = $objEducationDetail->updateDetail($fileData);
+                    $result = $objPortfolio->updateDetail($fileData);
                 } else {
-                    $result = $objEducationDetail->saveDetail($fileData, $userId);
+                    $result = $objPortfolio->saveDetail($fileData, $userId);
                 }
 
                 if ($result) {
-                    $request->session()->flash('session_success', 'Education details ' . ((isset($fileData['edit_id'])) ? 'updated' : 'saved') . ' successfully.');
+                    $request->session()->flash('session_success', 'Portfolio details ' . ((isset($fileData['edit_id'])) ? 'updated' : 'saved') . ' successfully.');
                 } else {
                     $request->session()->flash('session_error', 'Something went wronge.');
                 }
             } else {
                 $request->session()->flash('session_error', 'Please enter all field.');
             }
-            return redirect(route('freelancer-education'));
+            return redirect(route('freelancer-portfolio'));
         }
 
-        $data['educations'] = $objEducationDetail->getDetail($userId);
+       //$data['educations'] = $objPortfolio->getDetail($userId);
 
         $data['plugincss'] = array();
         $data['css'] = array();
         $data['pluginjs'] = array('jquery-validation/js/jquery.validate.min.js', 'jquery-validation/js/additional-methods.min.js');
         $data['js'] = array('freelancer/freelancerSetting.js');
-        $data['funinit'] = array('freelancerSetting.initEducation();');
+        $data['funinit'] = array('freelancerSetting.initPortfolio();');
         return view('freelancer.setting.freelancer-portfolio', $data);
     }
     
