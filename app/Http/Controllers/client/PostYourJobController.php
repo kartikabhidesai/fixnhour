@@ -10,7 +10,7 @@ use Config;
 class PostYourJobController  extends Controller {
     
     public function __construct() {
-        
+         $this->middleware('client');
     }
     
     public function postYourJob(Request $request){

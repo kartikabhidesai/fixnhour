@@ -10,7 +10,7 @@ use Config;
 class ProfileController  extends Controller {
     
     public function __construct() {
-        
+         $this->middleware('client');
     }
     
     public function profile(){

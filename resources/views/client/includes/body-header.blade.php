@@ -14,10 +14,10 @@
                     <div class="nav-menu">
                         <ul>
                             <li class="children">
-                                <a href="{{ route('find-telent') }}"> Find Talent </a>
+                                <a href="{{ route('client-find-telent') }}"> Find Talent </a>
                             </li>
                             <li class="children">
-                                <a href="{{ route ('freelancer') }}"> My Job </a>
+                                <a href="{{ route ('client-my-jobs') }}"> My Job </a>
                             </li>
                             <li class="children">
                                 <a href="{{ route ('how-it-works') }}"> Payment  </a> 

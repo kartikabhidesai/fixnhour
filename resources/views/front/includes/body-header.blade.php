@@ -35,9 +35,9 @@
                                     <li class="children">
                                         <a href="{{ url('signup') }}"> Sign Up </a> 
                                     </li>
-                                    <li class="children">
+<!--                                    <li class="children">
                                         <a class="post-new-btn" href="post-your-job"> POST A JOB </a> 
-                                    </li>
+                                    </li>-->
                                 </ul>
                             </div>
                         </li>

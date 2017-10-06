@@ -63,14 +63,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="custom-lable">Choose a category & subcategory</label>
+                                    <label class="custom-lable">Title</label>
                                     {{ Form::text('title', null, array('class' => 'form-control', 'id' => 'title', 'placeholder' => 'Example: Need designer make creative design')) }}
                                     <!--<input type="email" class="form-control" id="exampleInputEmail1">-->
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group padding-top-20">
-                                    <label class="custom-lable">Choose a category & subcategory</label>
+                                    <label class="custom-lable">Description</label>
                                     <!--<textarea class="coutom-textarea" placeholder=""></textarea>-->
                                     {{ Form::textarea('description', null, array('class' => 'coutom-textarea', 'id' => 'description', 'rows' => '3', 'placeholder' => 'Describe')) }}
                                 </div>

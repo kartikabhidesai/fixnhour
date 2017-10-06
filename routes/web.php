@@ -19,6 +19,8 @@ Route::match(['get', 'post'], '/activeAccount/{code}', ['as' => 'activeAccount',
 Route::match(['get', 'post'], '/find-telent', ['as' => 'find-telent', 'uses' => 'front\HomeController@findTelent']);
 Route::match(['get', 'post'], '/sendbasicemail', ['as' => 'sendbasicemail', 'uses' => 'front\HomeController@basic_email']);
 Route::match(['get', 'post'], '/how-it-works', ['as' => 'how-it-works', 'uses' => 'front\HomeController@howItWorks']);
+Route::match(['get', 'post'], '/how-it-works', ['as' => 'how-it-works', 'uses' => 'front\HomeController@howItWorks']);
+Route::match(['get', 'post'], '/freelancer', ['as' => 'front-freelancer', 'uses' => 'front\HomeController@freelancer']);
 
 
 // Front Rought End

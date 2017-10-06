@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
+use App\Model\PostJob;
 use DB;
+use DateTime;
+use Config;
+
 class HomeController extends Controller {
     
     public function __construct() {
@@ -145,6 +149,50 @@ class HomeController extends Controller {
         );
         return view('front.how-it-works',$data);
         
+    }
+    public function freelancer(){
+        $objPostJob = new PostJob();
+        $data['jobList'] = $objPostJob->getListForFreelanser();
+        for ($i = 0; $i < count($data['jobList']); $i++) {
+            $data['jobList'][$i]['ago'] = $this->timeAgo($data['jobList'][0]['created_at']);
+        }
+
+
+        $data['arrApproximateBudget'] = Config::get('constants.arrApproximateBudget');
+        $data['arrCountry'] = Config::get('constants.arrCountry');
+
+        $data['pagetitle'] = 'Landing - Fixnhour';
+        $data['metatitle'] = 'Landing - Fixnhour';
+        $data['plugincss'] = array();
+        $data['css'] = array();
+        $data['pluginjs'] = array();
+        $data['js'] = array();
+        $data['funinit'] = array();
+        return view('front.findWork', $data);
+        
+    }
+    
+      function timeAgo($timestamp) {
+        $datetime1 = new DateTime("now");
+        $datetime2 = date_create($timestamp);
+        $diff = date_diff($datetime1, $datetime2);
+        $timemsg = '';
+        if ($diff->y > 0) {
+            $timemsg = $diff->y . ' year' . ($diff->y > 1 ? "'s" : '');
+        } else if ($diff->m > 0) {
+            $timemsg = $diff->m . ' month' . ($diff->m > 1 ? "'s" : '');
+        } else if ($diff->d > 0) {
+            $timemsg = $diff->d . ' day' . ($diff->d > 1 ? "'s" : '');
+        } else if ($diff->h > 0) {
+            $timemsg = $diff->h . ' hour' . ($diff->h > 1 ? "'s" : '');
+        } else if ($diff->i > 0) {
+            $timemsg = $diff->i . ' minute' . ($diff->i > 1 ? "'s" : '');
+        } else if ($diff->s > 0) {
+            $timemsg = $diff->s . ' second' . ($diff->s > 1 ? "'s" : '');
+        }
+
+        $timemsg = $timemsg . ' ago';
+        return $timemsg;
     }
     
     public function activeAccount($code){
