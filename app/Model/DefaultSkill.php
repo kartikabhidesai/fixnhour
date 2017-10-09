@@ -20,5 +20,11 @@ class DefaultSkill extends Model {
         return DefaultSkill::select('*')
                         ->get()->toArray();
     }
+    public function getDetailForDD() {
+        
+        $arrDefaultSkill = DefaultSkill::pluck('name', 'id')->toArray();
+        $arrSkillPH[''] = '--Select Skill---';
+        return $returnSkillData = $arrDefaultSkill + $arrSkillPH;
+    }
 
 }

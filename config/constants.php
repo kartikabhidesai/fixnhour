@@ -16,7 +16,7 @@ return [
         'Freelancer' => 'Freelancer'
     ],
     'arrCategory' => [
-        '' => '- - - Select Category - - -',
+        '' => '- - Select Category - -',
         '1' => 'Category-1',
         '2' => 'Category-2',
         '3' => 'Category-3',
@@ -24,7 +24,7 @@ return [
         '5' => 'Category-5'
     ],
     'arrSubCategory' => [
-        '' => '- - - Select Subcategory - - -',
+        '' => ' - - Select Subcategory - -',
         '11' => 'subcategory-1',
         '12' => 'subcategory-2',
         '13' => 'subcategory-3',
@@ -42,20 +42,21 @@ return [
         '7' => 'Spectacled Bear'
     ],
     'arrApproximateBudget' => [
-        '' => '- - - Select Approximate Budget - - -',
-        '1' => 'Budget-1',
-        '2' => 'Budget-2',
-        '3' => 'Budget-3',
-        '4' => 'Budget-4',
-        '5' => 'Budget-5'
+        '' => ' - - Select Approximate Budget - - ',
+        '1' => '$10 - $50',
+        '2' => '$51 - $100',
+        '3' => '$101 - $500',
+        '4' => '$501 - $1000',
+        '5' => '$1000 +'
     ],
+    
     'arrApproximateTime' => [
         '' => '- - - Select Approximate Time - - -',
-        '1' => 'Time-1',
-        '2' => 'Time-2',
-        '3' => 'Time-3',
-        '4' => 'Time-4',
-        '5' => 'Time-5'
+        '1' => 'Less than 1 week',
+        '2' => 'Less than 1 month',
+        '3' => '1 to 3 months',
+        '4' => '3 to 6 months',
+        '5' => 'More than 6 months'
     ],
     'arrCountry' => [
         '' => '- - - Select Country - - -',

@@ -4,7 +4,7 @@
 
 
 <main class="cd-main-content">
-    @include('freelancer.includes.body-header-sub')
+    @include('client.includes.body-header-sub')
 
     <div class="clearfix"></div>
 

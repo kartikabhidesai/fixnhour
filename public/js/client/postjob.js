@@ -43,8 +43,9 @@ var Postjob = function() {
                 error.insertAfter(element.closest('.input-icon'));
             },
             submitHandler: function(form) {
-                $(form).submit();
-
+                //$(form).submit();
+                return true;
+                
             }
         });
     };

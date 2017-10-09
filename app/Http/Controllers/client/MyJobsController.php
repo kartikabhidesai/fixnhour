@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Model\PostJob;
+use App\Model\DefaultSkill;
 use Config;
 use DateTime;
 
@@ -39,12 +40,13 @@ class MyJobsController  extends Controller {
         
         $arrCategory = Config::get('constants.arrCategory');
         $arrSubCategory = Config::get('constants.arrSubCategory');
-        $arrPostJobSkill = Config::get('constants.arrPostJobSkill');
+//        $arrPostJobSkill = Config::get('constants.arrPostJobSkill');
         $arrApproximateBudget = Config::get('constants.arrApproximateBudget');
         $arrApproximateTime = Config::get('constants.arrApproximateTime');
         $arrCountry = Config::get('constants.arrCountry');
         
-        
+        $objDefaultSkill = new DefaultSkill();
+        $data['arrPostJobSkill'] = $objDefaultSkill->getDetailForDD();
         
         $data['metatitle'] = 'Job Post - Fixnhour';
         $data['title'] = 'Job Post - Fixnhour';
@@ -63,7 +65,7 @@ class MyJobsController  extends Controller {
         
         $data['arrCategory'] = $arrCategory;
         $data['arrSubCategory'] = $arrSubCategory;
-        $data['arrPostJobSkill'] = $arrPostJobSkill;
+//        $data['arrPostJobSkill'] = $arrPostJobSkill;
         $data['arrApproximateBudget'] = $arrApproximateBudget;
         $data['arrApproximateTime'] = $arrApproximateTime;
         $data['arrCountry'] = $arrCountry;
@@ -86,7 +88,7 @@ class MyJobsController  extends Controller {
         $data['pluginjs'] = array();
         $data['js'] = array();
         $data['funinit'] = array();
-        return view('client.myjobs', $data);
+        return view('client.post-your-job.myjobs', $data);
     }
     public function viewJobDetail($jobId) {
         $objPostJob = new PostJob();

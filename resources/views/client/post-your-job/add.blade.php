@@ -4,6 +4,8 @@
 
 
 <main class="cd-main-content">
+     @include('client.includes.body-header-sub')
+     <div class="clearfix"></div>
     <div class="inner-page">	
         <div class="max-height-footer post-preview post-your-job gray-bg">
             {{ Form::open( array('method' => 'post', 'files' => 'true', 'id' => 'postJobInfoForm',  'class' => '' )) }}
@@ -125,7 +127,26 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-content-area post-job-level">
+                             <div class="proposed-start">
+                        <div class="col-md-12">
+                            <div class="form-group padding-top-20">
+                                <label class="custom-lable"> Proposed Start Date </label>
+                                <div class="col-md-12">
+                                    <ul class="hire-ul" >
+                                        <li><label><span class="radio-custome"> {{ Form::radio('proposed_option', '1', true,  array('class' => 'proposed_option')) }} <span></span></span> Start Innediately after proposal is  selected </label></li>
+                                        <li><label><span class="radio-custome"> {{ Form::radio('proposed_option', '2', false, array('class' => 'proposed_option')) }} <span></span></span> Job will start on </label></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="earn-row delivery proposed-start-date">
+                                {{ Form::text('start_date', null, array('class' => 'form-control span2 earn-value', 'id' => 'dp1', 'placeholder' => 'Select Delivery Date')) }} <i class="fa fa-calendar"></i>
+                                <!--<input type="text"  class="span2 earn-value form-control" value="" placeholder="Select Delivery Date" id="dp1"><i class="fa fa-calendar"></i>-->
+                            </div>
+                        </div>
+                    </div>	
+<!--                            <div class="tab-content-area post-job-level">
                                 <label class="custom-lable"> Level </label>
                                 <div class="select-level">
                                     <ul>
@@ -134,15 +155,15 @@
                                         <li> <a href="#"> <i class="fa fa-usd" aria-hidden="true"></i> <span> Expert </span></a> </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
 
                 <div class="Optional-section">
-                    <h2 class="section-heading"> Optional </h2>
+                    <!--<h2 class="section-heading"> Optional </h2>-->
                     <!--<div class="form-group">-->
-                        <div class="row">
+<!--                        <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group padding-top-20">
                                     <label class="custom-lable"> Prefered Candidate Location </label>
@@ -201,28 +222,10 @@
                                     </div>	
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     <!--</div>-->
 
-                    <div class="proposed-start">
-                        <div class="col-md-12">
-                            <div class="form-group padding-top-20">
-                                <label class="custom-lable"> Proposed Start Date </label>
-                                <div class="col-md-12">
-                                    <ul class="hire-ul" >
-                                        <li><label><span class="radio-custome"> {{ Form::radio('proposed_option', '1', true,  array('class' => 'proposed_option')) }} <span></span></span> Start Innediately after proposal is  selected </label></li>
-                                        <li><label><span class="radio-custome"> {{ Form::radio('proposed_option', '2', false, array('class' => 'proposed_option')) }} <span></span></span> Job will start on </label></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="earn-row delivery proposed-start-date">
-                                {{ Form::text('start_date', null, array('class' => 'form-control span2 earn-value', 'id' => 'dp1', 'placeholder' => 'Select Delivery Date')) }} <i class="fa fa-calendar"></i>
-                                <!--<input type="text"  class="span2 earn-value form-control" value="" placeholder="Select Delivery Date" id="dp1"><i class="fa fa-calendar"></i>-->
-                            </div>
-                        </div>
-                    </div>	
+                   
                 </div>
                 <div class="col-sm-12 text-center" >
                     <div class="action-buttons">

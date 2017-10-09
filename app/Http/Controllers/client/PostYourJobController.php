@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Model\PostJob;
+use App\Model\DefaultSkill;
 use Config;
 
 class PostYourJobController  extends Controller {
@@ -17,10 +18,11 @@ class PostYourJobController  extends Controller {
         
         $arrCategory = Config::get('constants.arrCategory');
         $arrSubCategory = Config::get('constants.arrSubCategory');
-        $arrPostJobSkill = Config::get('constants.arrPostJobSkill');
+        
         $arrApproximateBudget = Config::get('constants.arrApproximateBudget');
         $arrApproximateTime = Config::get('constants.arrApproximateTime');
         $arrCountry = Config::get('constants.arrCountry');
+        
         
         if ($request->isMethod('post')) {
             
@@ -65,9 +67,12 @@ class PostYourJobController  extends Controller {
         $data['js'] = array('client/postjob.js');
         $data['funinit'] = array('Postjob.init()');
         
+        $objDefaultSkill = new DefaultSkill();
+        $data['arrPostJobSkill'] = $objDefaultSkill->getDetailForDD();
+        
         $data['arrCategory'] = $arrCategory;
         $data['arrSubCategory'] = $arrSubCategory;
-        $data['arrPostJobSkill'] = $arrPostJobSkill;
+        
         $data['arrApproximateBudget'] = $arrApproximateBudget;
         $data['arrApproximateTime'] = $arrApproximateTime;
         $data['arrCountry'] = $arrCountry;
