@@ -12,7 +12,7 @@ class PostJob extends Model {
     protected $table = 'post_jobs';
 
     public function getListForFreelanser() {
-        return PostJob::get()->toArray();
+        return PostJob::orderBy('created_at','DESC')->get()->toArray();
     }
 
     public function savePostJobInfo($request) {
@@ -56,6 +56,7 @@ class PostJob extends Model {
         $objPostJob->zip = $request->input('zip');
         $objPostJob->proposed_option = $request->input('proposed_option');
         $objPostJob->delivery_date = date('Y-m-d', strtotime($request->input('start_date')));
+        $objPostJob->created_at = date('Y-m-d H:i:s');
 
         $objPostJob->save();
         return TRUE;

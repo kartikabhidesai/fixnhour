@@ -14,6 +14,7 @@ Route::group(['prefix' => $userPrefix1], function() {
     Route::match(['get', 'post'], 'notification', ['as' => 'notification', 'uses' => 'client\SettingController@notification']);
     Route::match(['get', 'post'], 'dashboard', ['as' => 'dashboard', 'uses' => 'client\SettingController@dashboard']);
     Route::match(['get', 'post'], 'my-jobs', ['as' => 'client-my-jobs', 'uses' => 'client\MyJobsController@index']);
+    Route::match(['get', 'post'], 'jobdetail/{id}', ['as' => 'client-jobdetail', 'uses' => 'client\MyJobsController@viewJobDetail']);
     Route::match(['get', 'post'], 'aboutme', ['as' => 'aboutme', 'uses' => 'client\SettingController@aboutme']);
     Route::match(['get', 'post'], 'client-employment-history', ['as' => 'client-employment-history', 'uses' => 'client\SettingController@employmentHistory']);
     Route::match(['get', 'post'], 'client-education', ['as' => 'client-education', 'uses' => 'client\SettingController@clientEducation']);

@@ -72,10 +72,10 @@ class MyJobsController  extends Controller {
         $objPostJob = new PostJob();
         $data['jobList'] = $objPostJob->getListForFreelanser();
         for ($i = 0; $i < count($data['jobList']); $i++) {
-            $data['jobList'][$i]['ago'] = $this->timeAgo($data['jobList'][0]['created_at']);
+            $data['jobList'][$i]['ago'] = $this->timeAgo($data['jobList'][$i]['created_at']);
         }
 
-
+       
         $data['arrApproximateBudget'] = Config::get('constants.arrApproximateBudget');
         $data['arrCountry'] = Config::get('constants.arrCountry');
 
@@ -88,7 +88,23 @@ class MyJobsController  extends Controller {
         $data['funinit'] = array();
         return view('client.myjobs', $data);
     }
-    
+    public function viewJobDetail($jobId) {
+        $objPostJob = new PostJob();
+       
+        $data['jobDetail'] = $objPostJob->getJobDetailForFreelanser($jobId);
+        
+        $data['arrApproximateBudget'] = Config::get('constants.arrApproximateBudget');
+        $data['arrCountry'] = Config::get('constants.arrCountry');
+
+        $data['pagetitle'] = 'Job Detail - Fixnhour';
+        $data['metatitle'] = 'Job Detail - Fixnhour';
+        $data['plugincss'] = array();
+        $data['css'] = array('freelancer/jobdetail.css');
+        $data['pluginjs'] = array();
+        $data['js'] = array('freelancer/jobdetail.js');
+        $data['funinit'] = array('jobdetail.init()');
+        return view('client.post-your-job.viewJobDetail', $data);
+    }
     
 }
 /*

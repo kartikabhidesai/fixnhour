@@ -49,7 +49,7 @@ class FreelancerController extends Controller {
         $objPostJob = new PostJob();
         $data['jobList'] = $objPostJob->getListForFreelanser();
         for ($i = 0; $i < count($data['jobList']); $i++) {
-            $data['jobList'][$i]['ago'] = $this->timeAgo($data['jobList'][0]['created_at']);
+            $data['jobList'][$i]['ago'] = $this->timeAgo($data['jobList'][$i]['created_at']);
         }
 
 
